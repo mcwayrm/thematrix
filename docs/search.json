@@ -1,0 +1,124 @@
+[
+  {
+    "objectID": "application/test_example.html",
+    "href": "application/test_example.html",
+    "title": "Starting Example",
+    "section": "",
+    "text": "Test example content coming soon…",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Starting Example"
+    ]
+  },
+  {
+    "objectID": "methods/policy_place.html",
+    "href": "methods/policy_place.html",
+    "title": "Environmental Policies: Place-based Policies",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
+    "crumbs": [
+      "Methodology",
+      "Environmental Policies ~ Place Based"
+    ]
+  },
+  {
+    "objectID": "methods/econ_mapping.html",
+    "href": "methods/econ_mapping.html",
+    "title": "Environmental-Economic Mapping: The Matrix",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
+    "crumbs": [
+      "Methodology",
+      "Economic Mapping ~ The Matrix"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html",
+    "href": "methods/ecosystem_services.html",
+    "title": "Environmental Inputs: Ecosystem Services",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
+    "crumbs": [
+      "Methodology",
+      "Environmental Inputs ~ Ecosystem Services"
+    ]
+  },
+  {
+    "objectID": "methods/naics.html",
+    "href": "methods/naics.html",
+    "title": "Industry Classification: NAICS Codes",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
+    "crumbs": [
+      "Methodology",
+      "Industry Classification ~ NAICS Codes"
+    ]
+  },
+  {
+    "objectID": "methods/emissions.html",
+    "href": "methods/emissions.html",
+    "title": "Environmental Outputs: Emissions",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
+    "crumbs": [
+      "Methodology",
+      "Environmental Outputs ~ Emissions"
+    ]
+  },
+  {
+    "objectID": "methods/policy_industry.html",
+    "href": "methods/policy_industry.html",
+    "title": "Environmental Policies: Industry-based Policies",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
+    "crumbs": [
+      "Methodology",
+      "Environmental Policies ~ Industry Based"
+    ]
+  },
+  {
+    "objectID": "methods/natural_resource.html",
+    "href": "methods/natural_resource.html",
+    "title": "Environmental Inputs: Natural Resources",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
+    "crumbs": [
+      "Methodology",
+      "Environmental Inputs ~ Natural Resources"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Matrix",
+    "section": "",
+    "text": "The Matrix is an application to determine the relationship between firm activity and the environment. To achieve this we need to know where firms are located, what they do in those locations, and how much do they at those locations. The Matrix is designed to capture these three pieces of information: Where, What, and How Much?\nIn the context of earth-economy modeling, this project attempts to examine the microeconomic relationship of firms. Firms interact with the environment in two directions. First, firms use a variety of natural resources and ecosystem services in their product process. Second, firms produce a variety of negative externalities primarily through emissions.\nFirst, we begin by establishing an exahustive list of natural resources and ecosystem service inputs into production. Second, we determine an exhaustive list of potential emissions from production. Third, we classify firms into their NAICS sectoral classification. Within these NAICS classifications, we establish a broad categorization of products. Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST [@Johnson2023]. In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions.\nThe two main obstacles in achieving this exercise are:\n\nLimited information about spatio-temporal activity of firms\nLimited ability to quantify environmental change and attach it to specific production\n\nThe Matrix resolves these two issues. This application provides a means by which we can determine spatio-temporal activity of firms. For publicly listed firms, we generate a script to geolocate information on exisiting production activities. For private firms, we provide a template form which firms may complete to generate this information. To determine environmental effects, we collect a variety of global raster data on natural resources, ecosystem services, and emissions to create a spatially distribution of environmental characteristics.\nNeed to add here details on how we attach firm activity to environmental maps (e.g., methodology)\nCan add something here about firm motivations: profit motivation or regulatory compliance\nAdd here discussion of attempting to collect a census of industry-based and place-based environmental regulation and assign these to specific products or industries",
+    "crumbs": [
+      "The Matrix",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "All references cited throughout this website are listed below.",
+    "crumbs": [
+      "Technical Appendix",
+      "Bibliography"
+    ]
+  },
+  {
+    "objectID": "references.html#bibliography",
+    "href": "references.html#bibliography",
+    "title": "References",
+    "section": "",
+    "text": "All references cited throughout this website are listed below.",
+    "crumbs": [
+      "Technical Appendix",
+      "Bibliography"
+    ]
+  }
+]

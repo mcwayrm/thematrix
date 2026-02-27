@@ -1,7 +1,31 @@
 ---
-title: "Welcome to My Website"
+title: "The Matrix"
+subtitle: "Mapping Firm Activity to the Environment"
+bibliography: references.bib
 ---
 
-This is a Quarto website.
+The Matrix is an application to determine the relationship between firm activity and the environment. 
+To achieve this we need to know where firms are located, what they do in those locations, and how much do they at those locations. 
+The Matrix is designed to capture these three pieces of information: **Where, What, and How Much?**
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+In the context of earth-economy modeling, this project attempts to examine the microeconomic relationship of firms. Firms interact with the environment in two directions. First, firms use a variety of natural resources and ecosystem services in their product process. Second, firms produce a variety of negative externalities primarily through emissions. 
+
+First, we begin by establishing an exahustive list of natural resources and ecosystem service inputs into production. 
+Second, we determine an exhaustive list of potential emissions from production. 
+Third, we classify firms into their NAICS sectoral classification. Within these NAICS classifications, we establish a broad categorization of products. 
+Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST `[@Johnson2023]`. In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions. 
+
+The two main obstacles in achieving this exercise are: 
+
+1. Limited information about spatio-temporal activity of firms
+2. Limited ability to quantify environmental change and attach it to specific production 
+
+The Matrix resolves these two issues. 
+This application provides a means by which we can determine spatio-temporal activity of firms. For publicly listed firms, we generate a script to geolocate information on exisiting production activities. For private firms, we provide a template form which firms may complete to generate this information. 
+To determine environmental effects, we collect a variety of global raster data on natural resources, ecosystem services, and emissions to create a spatially distribution of environmental characteristics.
+
+*Need to add here details on how we attach firm activity to environmental maps (e.g., methodology)*
+
+*Can add something here about firm motivations: profit motivation or regulatory compliance*
+
+*Add here discussion of attempting to collect a census of industry-based and place-based environmental regulation and assign these to specific products or industries*

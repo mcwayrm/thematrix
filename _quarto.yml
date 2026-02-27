@@ -1,19 +1,86 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
 
 website:
-  title: "Welcome"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
-  page-footer: "Copyright 2026, Your Name"
+  page-navigation: false
+  open-graph: true
+  bread-crumbs: false
+  title: The Matrix - Environmental Mapping of Firms
+  description: The Matrix - Environmental Mapping of Firms
+  favicon: assets/favicon.ico
+  site-url: https://mcwayrm.github.io/thematrix/
+    
+  page-footer: 
+    right: "<div style='text-align:right;'>&copy; Copyright 2026, Ryan McWay. This site is built with <a href='https://quarto.org/' style='color:#1f4d4a;font-weight:bold;'>Quarto</a></div>"
+    background: "#bfe9e3"
+
+  sidebar:
+    background: "#bfe9e3"
+    # logo: "assets/apec8213_nonparametric_icon.png"
+    pinned: true
+    align: center
+    style: "docked"
+    collapse-level: 2
+    search: true
+    # tools:
+      # - icon: mortarboard-fill
+      #   href: https://canvas.umn.edu/courses/540298/modules
+      #   text: "Canvas"
+      #   target: _blank
+
+    contents:
+      - section: The Matrix
+        contents:
+          - href: index.qmd
+            text: Overview
+          - href: design.qmd
+            text: Design
+
+      - section: Methodology
+        contents:
+          - href: methods/natural_resource.qmd
+            text: Environmental Inputs ~ Natural Resources
+          - href: methods/ecosystem_services.qmd
+            text: Environmental Inputs ~ Ecosystem Services
+          - href: methods/naics.qmd
+            text: Industry Classification ~ NAICS Codes
+          - href: methods/emissions.qmd
+            text: Environmental Outputs ~ Emissions
+          - href: methods/econ_mapping.qmd
+            text: Economic Mapping ~ The Matrix
+          - href: methods/policy_industry.qmd
+            text: Environmental Policies ~ Industry Based
+          - href: methods/policy_place.qmd
+            text: Environmental Policies ~ Place Based
+
+      - section: "Application"
+
+        contents:
+        - section: Test Example
+          contents:
+            - href: application/test_example.qmd
+              text: Starting Example
+  
+        # - section: Global Application
+        #   contents:
+        #     - href: lecture/mlogit.qmd
+        #       text: Multinominal and Ordered Logits/Probits Lecture Notes 
+
+      - section: Technical Appendix
+        contents:
+          # - href: references.qmd
+          #   text: Bibliography
+          - href: references.qmd
+            text: Bibliography
+          - href: technical_support.qmd
+            text: Technical Support
+
+bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: [sandstone, theme.scss]
+    code-copy: true
+    code-overflow: wrap
     toc: true

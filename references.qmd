@@ -1,0 +1,10 @@
+---
+title: "References"
+---
+
+## Bibliography
+
+All references cited throughout this website are listed below.
+
+::: {#refs}
+:::

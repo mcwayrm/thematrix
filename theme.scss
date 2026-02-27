@@ -1,0 +1,84 @@
+/*-- scss:defaults --*/
+
+@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+
+$font-family: "Atkinson Hyperlegible", sans-serif;
+
+/*-- scss:rules --*/
+
+$body-bg: #f7fbfb;
+$body-color: #1f2a2a;
+$sidebar-bg: #bfe9e3;
+$sidebar-fg: #1f384d;
+$link-color: #2a8f5d;
+
+img.sidebar-logo {
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+}
+.quarto-navigation-tool .bi,
+.quarto-color-scheme-toggle .bi {
+  color: #1f4d4a !important;
+  opacity: 0.9;
+}
+
+a, a:visited {
+  color: #2a8a8f;
+}
+
+a:hover, a:focus {
+  color: #1f6f73;
+  text-decoration: underline;
+}
+
+.pagination-link:hover .nav-page-text,
+.pagination-link:hover .bi-arrow-right-short,
+.pagination-link:hover .bi-arrow-left-short {
+  color: #1f6f73;
+  text-decoration: underline;
+}
+
+/* Sidebar link color */
+.sidebar-link {
+  color: #1f4d4a !important;
+}
+
+/* Sidebar link hover/focus */
+.sidebar-link:hover,
+.sidebar-link:focus {
+  color: #2a8a8f !important;
+}
+
+/* Sidebar link for current/active page */
+.sidebar-link.active,
+.sidebar-link[aria-current="page"] {
+  color: #1f4d4a !important;
+  font-style: italic;
+}
+
+/* Only top-level sidebar section headers */
+.sidebar-menu-container > ul.list-unstyled.mt-1 > 
+li.sidebar-item.sidebar-item-section > 
+.sidebar-item-container > 
+a.sidebar-link.text-start {
+  font-weight: 700;
+  // text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  // padding-left: 0.5rem;
+  // border-left: 3px solid #ffcc33;
+}
+
+/* divider */
+.sidebar-menu-container > ul.list-unstyled.mt-1 > 
+li.sidebar-item.sidebar-item-section > 
+.sidebar-item-container > 
+a.sidebar-link.text-start::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: rgba(31, 77, 74, 0.25);
+  margin-top: 0.4rem;
+}
