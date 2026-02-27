@@ -1,0 +1,19 @@
+# Quarto build artifacts
+_site/
+_extensions/
+
+# Jupyter/Python artifacts
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+/.quarto/

@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Welcome"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+  page-footer: "Copyright 2026, Your Name"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
