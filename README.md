@@ -7,4 +7,4 @@ The Matrix is designed to capture these three pieces of information:
 **Where, What, and How Much?**
 
 To view this project, proceed to the following link: 
-(Link)[https://mcwayrm.github.io/thematrix/]
+[Link](https://mcwayrm.github.io/thematrix/)
