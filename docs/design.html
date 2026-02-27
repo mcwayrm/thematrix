@@ -395,7 +395,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="company-activity-matrix-c">Company Activity Matrix (C)</h2>
 <p>With information about where, what, and how much, we can generate a Company Activity Matrix, where each cell specifies the amount of activity (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) occurring in each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>), for example, the amount of maize production (measured in hectares), or the amount of cement production (measured in tons produced) in each location x. For some activities a course region is fine (e.g., county, province, or state). For other activities, more detailed location information will be needed (e.g., for water quality how close to streams or rivers is the activity). In the latter case, “location” might be all land units within a region (county, province, or state) that lie within a buffer of a water body. For some activities, there may be more than one dimension that characterizes the activity. For example, to adequately characterize a mining activity, we might need to know both the land area (measured in hectares) and the output of the mine (measured in tons).</p>
 <div class="line-block">Location | Activity 1 | Activity 2 | Activity 3 | Activity 3 |<br>
-&nbsp;| | | Indicator 1 | Indicator 2 |</div>
+.. | .. | .. | Indicator 1 | Indicator 2 |</div>
 <p>|———-|———–|———–|———–|———–| | Location 1 | 0 | 20 tons | 100 ha | 1,000 tons | | Location 2 | 10 ha | 0 | 0 | 0 | | Location 3 | 5 ha | 5 tons | 0 | 0 | | <span class="math inline">\(\dots\)</span> | | | | | | Location X | | | | |</p>
 <section id="company-activity-matrix-c-1" class="level3">
 <h3 class="anchored" data-anchor-id="company-activity-matrix-c-1">Company Activity Matrix (C)</h3>
@@ -474,10 +474,47 @@ window.Quarto = {
 <section id="company-single-impact-matrix-ciz" class="level2">
 <h2 class="anchored" data-anchor-id="company-single-impact-matrix-ciz">Company Single Impact Matrix (CIz)</h2>
 <p>We combine the Company Matrix (C) with the Single Impact Matrix (Iz) to generate the Company Single Impact Matrix (CIz), which provides information about the impact of the company by location and activity for each impact <span class="math inline">\(z, z = 1, 2, \dots, Z\)</span>. The Company Single Impact Matrix (CIz) is calculated by multiplying each cell in the Company Matrix, Cxy, with the equivalent cell in the Company Single Impact Matrix, Izxy.</p>
-<p>Location Activity Activity 1 Activity 2 Activity 3 … Activity Y Location 1 0 200 g 2000g<br>
-Location 2 100 g 0 0<br>
-Location 3 25 g 5 g 0<br>
-Location X</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Activity 1</th>
+<th>Activity 2</th>
+<th>Activity 3</th>
+<th>Activity Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location 1</td>
+<td>0</td>
+<td>200 g</td>
+<td>2000 g</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location 2</td>
+<td>100 g</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Location 3</td>
+<td>25 g</td>
+<td>5 g</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location X</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <section id="company-single-impact-matrix-ciz-1" class="level3">
 <h3 class="anchored" data-anchor-id="company-single-impact-matrix-ciz-1">Company Single Impact Matrix (CIz):</h3>
 <p>For impact z what is the impact of each activity (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) at each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>).</p>
@@ -486,7 +523,32 @@ Location X</p>
 <section id="company-location-single-impact-vector-lciz" class="level2">
 <h2 class="anchored" data-anchor-id="company-location-single-impact-vector-lciz">Company Location Single Impact Vector (LCIz)</h2>
 <p>By summing across activities (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) we can get the Company Location Single Impact Vector (LCIz) that summarizes the impact of all company activities on impact z by location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>).</p>
-<p>Location Impact z Location 1 2,200 g Location 2 100 g Location 3 30 g Location X</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Impact z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location 1</td>
+<td>2,200 g</td>
+</tr>
+<tr class="even">
+<td>Location 2</td>
+<td>100 g</td>
+</tr>
+<tr class="odd">
+<td>Location 3</td>
+<td>30 g</td>
+</tr>
+<tr class="even">
+<td>Location X</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <section id="company-location-single-impact-vector-lciz-1" class="level3">
 <h3 class="anchored" data-anchor-id="company-location-single-impact-vector-lciz-1">Company Location Single Impact Vector (LCIz)</h3>
 <p>The impact of all company activities at each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>) for impact z.</p>
@@ -495,10 +557,47 @@ Location X</p>
 <section id="company-impact-matrix-ci" class="level2">
 <h2 class="anchored" data-anchor-id="company-impact-matrix-ci">Company Impact Matrix (CI)</h2>
 <p>Assembling all of the Company Location Single Impact Vectors into a single matrix generates the Company Impact Matrix (CI).</p>
-<p>Location Impact Impact 1 Impact 2 Impact 3 … Impact Z Location 1 200 g 400 tons<br>
-Location 2 100 g 100 tons<br>
-Location 3 30 g 150 tons<br>
-Location Y</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Impact 1</th>
+<th>Impact 2</th>
+<th>Impact 3</th>
+<th>Impact Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location 1</td>
+<td>200 g</td>
+<td>400 tons</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location 2</td>
+<td>100 g</td>
+<td>100 tons</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Location 3</td>
+<td>30 g</td>
+<td>150 tons</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location Y</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <section id="company-impact-matrix-ci-1" class="level3">
 <h3 class="anchored" data-anchor-id="company-impact-matrix-ci-1">Company Impact Matrix (CI):</h3>
 <p>The amount of each impact (<span class="math inline">\(z = 1, 2, \dots, Z\)</span>) for each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>) by the company.</p>
@@ -508,10 +607,47 @@ Location Y</p>
 <section id="financial-impact-matrix-fi" class="level2">
 <h2 class="anchored" data-anchor-id="financial-impact-matrix-fi">Financial Impact Matrix (FI)</h2>
 <p>The Financial Impact Matrix (FI) assembles information on the “price” (cost) for a unit of impact z in each location. Price information can come from a number of sources. The Global Trade Analysis Project (GTAP) has price data for marketed commodities (e.g., agricultural crops, timber, steel, cars). Prices will have to be generated for non-market impacts. The economics literature on non-market valuation provides evidence on prices for many non-market impacts. Recent work on Gross Ecosystem Product (GEP) <code>[@Ouyang2020]</code>. As with impact matrices, we will prioritize our work to first concentrate on important impacts for which some evidence exists on which to base prices. But like impact matrix information, the financial matrix can be prepared once (pre-processing) and used in all analyses across different companies. We would periodically update this matrix as new information becomes available.</p>
-<p>Location Impact Impact 1 Impact 2 Impact 3 … Impact Z Location 1 $100/m3 $50/ton<br>
-Location 2 $50/m3 $50/ton<br>
-Location 3 $10/m3 $50/ton<br>
-Location Y</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Impact 1</th>
+<th>Impact 2</th>
+<th>Impact 3</th>
+<th>Impact Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Location 1</td>
+<td>$100/m3</td>
+<td>$50/ton</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location 2</td>
+<td>$50/m3</td>
+<td>$50/ton</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Location 3</td>
+<td>$10/m3</td>
+<td>$50/ton</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location Y</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <section id="financial-impact-matrix-f" class="level3">
 <h3 class="anchored" data-anchor-id="financial-impact-matrix-f">Financial Impact Matrix (F)</h3>
 <p>The monetary value of each impact (<span class="math inline">\(z = 1, 2, \dots, Z\)</span>) for each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>)</p>
@@ -519,11 +655,7 @@ Location Y</p>
 </section>
 <section id="company-financial-impact-matrix-cfi" class="level2">
 <h2 class="anchored" data-anchor-id="company-financial-impact-matrix-cfi">Company Financial Impact Matrix (CFI)</h2>
-<p>Multiply each cell of the Company Impact Matrix, CIxz, by the same cell in the Financial Impact Matrix, FIxz, to generate the Company Financial Impact Matrix (CFI).</p>
-<p>Location Impact Impact 1 Impact 2 Impact 3 … Impact Z Location 1 0 $20000<br>
-Location 2 $2500 $5000<br>
-Location 3 $250 $7500<br>
-Location Y</p>
+<p>Multiply each cell of the Company Impact Matrix, CIxz, by the same cell in the Financial Impact Matrix, FIxz, to generate the Company Financial Impact Matrix (CFI). | Location | Impact 1 | Impact 2 | Impact 3 | Impact Z | |———-|———-|———-|———-|———-| | Location 1 | $0 | $20,000 | | | | Location 2 | $2,500 | $5,000 | | | | Location 3 | $250 | $7,500 | | | | Location Y | | | | |</p>
 <section id="company-financial-impact-matrix-cfi-1" class="level3">
 <h3 class="anchored" data-anchor-id="company-financial-impact-matrix-cfi-1">Company Financial Impact Matrix (CFI):</h3>
 <p>The monetary value of company impact by each impact (<span class="math inline">\(z = 1, 2, \dots, Z\)</span>) for each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>).</p>

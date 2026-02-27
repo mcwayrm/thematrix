@@ -8,6 +8,56 @@ In this example, I apply the matrix to Ford Motor Co.
 First, I provide a map of Ford factories globally. 
 
 
+```{r}
+#| label: fig-ford-factories
+#| fig-cap: "Global distribution of Ford manufacturing facilities"
+
+library(leaflet)
+library(tidyverse)
+library(rio)
+setwd("E:/matrix/")
+
+# Ford factory locations (latitude, longitude, name)
+# ford_factories <- tibble(
+#     name = c("Dearborn", "Chicago", "Kansas City", "Valencia", "Cologne"),
+#     lat = c(42.3134, 41.8781, 39.0997, 39.4699, 50.9413),
+#     lng = c(-83.1467, -87.6298, -94.5786, -0.3763, 6.9143)
+# )
+
+ford_factories <- import("./data/firms/geocodes/F_factory_locations_geocoded.csv")
+
+if (!"ticker" %in% names(ford_factories)) {
+    ford_factories$ticker <- "F"
+}
+
+ford_factories <- ford_factories %>%
+    mutate(ticker = if_else(is.na(ticker) | ticker == "", "F", ticker))
+
+company_icons <- iconList(
+    "F US" = makeIcon(
+        iconUrl = "https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg",
+        iconWidth = 30,
+        iconHeight = 30
+    )
+)
+
+leaflet(ford_factories) %>%
+    addTiles() %>%
+    addMarkers(
+        ~longitude,
+        ~latitude,
+        icon = ~ company_icons[ticker],
+        label = ~ paste0(facility_name, " (", ticker, ")"),
+        popup = ~ paste(
+            "<b>", facility_name, "</b><br>",
+            "Ticker: ", ticker, "<br>",
+            "Type: ", facility_type, "<br>",
+            "Products: ", products, "<br>",
+            "Active: ", status
+        )
+    )
+
+```
 
 
-
+TODO: Add a version with bi-variate map of emissions and ecosystem services as a layer. 
