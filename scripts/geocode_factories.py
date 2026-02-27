@@ -3,8 +3,8 @@
 Script 2: Look up and geocode factory locations for a given company ticker.
 
 Usage:
-    python3 geocode_factories.py <ticker> --input factories.csv [--output output.csv]
-    python3 geocode_factories.py <ticker> --search "Ford Motor" [--output output.csv]
+    python geocode_factories.py <ticker> --input factories.csv [--output output.csv]
+    python geocode_factories.py <ticker> --search "Ford Motor" [--output output.csv]
 
 Modes:
   --input   Provide a CSV with columns: facility_name, city, country
@@ -99,7 +99,7 @@ def geocode_from_csv(ticker, input_path, output_path):
     # Only include fields that exist in the data
     fields = [f for f in fields if any(f in r for r in results)]
 
-    with open(output_path, "w", newline="") as f:
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         writer.writeheader()
         for r in results:
@@ -156,7 +156,7 @@ def search_factories(ticker, company_name, output_path):
     fields = ["ticker", "facility_name", "city", "country",
               "latitude", "longitude", "geocode_status", "search_query"]
 
-    with open(output_path, "w", newline="") as f:
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         for r in results:

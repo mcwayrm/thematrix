@@ -1,3 +1,12 @@
+Work Notes: 02/27/2026
+- Ryan
+- TODO: 
+	- Collect raster map on emissions 
+	- Complete geocodes for automotive industry
+	- Create bi-variate map for leaflet application
+- Issues:
+	- Unable to get geocode script to provide updated details like when I did this with matt. 
+
 Meeting: 02/25/2026
 - Attendance: Steve, Ryan 
 - Notes: 

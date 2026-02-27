@@ -1,37 +1,101 @@
 ---
-title: "Starting Example"
+title: "Automotives Example"
 bibliography: ../references.bib
 ---
 
-In this example, I apply the matrix to Ford Motor Co. 
+In this example, I apply the matrix to the automotive industry
 
-First, I provide a map of Ford factories globally. 
+# Set up Coding Environment
+
+```{r}
+#| label: setup
+#| include: false
+
+# Install reticulate if not already installed
+if (!require("reticulate", quietly = TRUE)) {
+    install.packages("reticulate")
+}
+
+library(reticulate)
+
+# Set Python environment to natcapenv
+use_condaenv("natcapenv", required = TRUE)
+```
+
+# Find and Geocode Factories 
+
+Naively, we know from Bloomberg a list of publicly traded automotive companies. Use the `geocode_factories.py` script to search the internet for factory information and geocode them using openstreet maps. 
+
+
+```{python}
+#| label: webscrap-factory-locations
+
+# Set location to save geocodes
+import os
+import sys
+
+# Add scripts directory to path so we can import geocode_factories
+sys.path.insert(0, "E:/matrix/thematrix/scripts")
+from geocode_factories import search_factories, geocode_from_csv
+
+# Set directory for firm geocodes
+output_dir = "E:/matrix/data/firms/geocodes"
+os.makedirs(output_dir, exist_ok=True)
+
+# Define output files
+ford_output_1 = os.path.join(output_dir, "F_factory_geocodes.csv")
+ford_output_2 = os.path.join(output_dir, "F_factory_info.csv")
+tesla_output_1 = os.path.join(output_dir, "TSLA_factory_geocodes.csv")
+tesla_output_2 = os.path.join(output_dir, "TSLA_factory_info.csv")
+
+# Search Ford factories 
+if not os.path.exists(ford_output_2):
+    print("Geocoding Ford factories (Step 1: Search)...")
+    search_factories("F US", "Ford Motor", ford_output_1)
+    print("Geocoding Ford factories (Step 2: Detailed geocoding)...")
+    geocode_from_csv("F US", ford_output_1, ford_output_2)
+else:   
+    print(f"Ford geocodes already exist at {ford_output_2}")
+
+# Search Tesla factories 
+if not os.path.exists(tesla_output_2):
+    print("\nGeocoding Tesla factories (Step 1: Search)...")
+    search_factories("TSLA US", "Tesla", tesla_output_1)
+    print("Geocoding Tesla factories (Step 2: Detailed geocoding)...")
+    geocode_from_csv("TSLA US", tesla_output_1, tesla_output_2)
+else:
+    print(f"Tesla geocodes already exist at {tesla_output_2}")
+
+print("\nDone!")
+```
+
+
+# Create a Map of Industry 
+
+Use the geocodes to create an interactive map of the factories and production locations for the industry in question. 
 
 
 ```{r}
-#| label: fig-ford-factories
-#| fig-cap: "Global distribution of Ford manufacturing facilities"
+#| label: factory-dataset
+#| cache: true
 
-library(leaflet)
 library(tidyverse)
 library(rio)
 setwd("E:/matrix/")
 
-# Ford factory locations (latitude, longitude, name)
-# ford_factories <- tibble(
-#     name = c("Dearborn", "Chicago", "Kansas City", "Valencia", "Cologne"),
-#     lat = c(42.3134, 41.8781, 39.0997, 39.4699, 50.9413),
-#     lng = c(-83.1467, -87.6298, -94.5786, -0.3763, 6.9143)
-# )
+ford_factories <- import("./data/firms/F_factory_info.csv")
+tesla_factories <- import("./data/firms/geocodes/TSLA_factory_geocodes.csv")
 
-ford_factories <- import("./data/firms/geocodes/F_factory_locations_geocoded.csv")
+# factories <- rbind(ford_factories, tesla_factories)
 
-if (!"ticker" %in% names(ford_factories)) {
-    ford_factories$ticker <- "F"
-}
+```
 
-ford_factories <- ford_factories %>%
-    mutate(ticker = if_else(is.na(ticker) | ticker == "", "F", ticker))
+```{r}
+#| label: factory-map
+#| cache: true
+#| fig-cap: "Global distribution of manufacturing facilities"
+
+library(leaflet)
 
 company_icons <- iconList(
     "F US" = makeIcon(

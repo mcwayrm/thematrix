@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Starting Example – The Matrix - Environmental Mapping of Firms</title>
+<title>Automotives Example – The Matrix - Environmental Mapping of Firms</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -121,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<meta property="og:title" content="Starting Example – The Matrix - Environmental Mapping of Firms">
+<meta property="og:title" content="Automotives Example – The Matrix - Environmental Mapping of Firms">
 <meta property="og:description" content="The Matrix - Environmental Mapping of Firms">
 <meta property="og:site_name" content="The Matrix - Environmental Mapping of Firms">
 </head>
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Starting Example</h1>
+          <h1 class="quarto-secondary-nav-title">Automotives Example</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -292,15 +292,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#set-up-coding-environment" id="toc-set-up-coding-environment" class="nav-link active" data-scroll-target="#set-up-coding-environment">Set up Coding Environment</a></li>
+  <li><a href="#find-and-geocode-factories" id="toc-find-and-geocode-factories" class="nav-link" data-scroll-target="#find-and-geocode-factories">Find and Geocode Factories</a></li>
+  <li><a href="#create-a-map-of-industry" id="toc-create-a-map-of-industry" class="nav-link" data-scroll-target="#create-a-map-of-industry">Create a Map of Industry</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Starting Example</h1>
+<h1 class="title d-none d-lg-block">Automotives Example</h1>
 </div>
 
 
@@ -317,11 +325,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In this example, I apply the matrix to Ford Motor Co.&nbsp;</p>
-<p>First, I provide a map of Ford factories globally.</p>
+<p>In this example, I apply the matrix to the automotive industry</p>
+<section id="set-up-coding-environment" class="level1">
+<h1>Set up Coding Environment</h1>
+</section>
+<section id="find-and-geocode-factories" class="level1">
+<h1>Find and Geocode Factories</h1>
+<p>Naively, we know from Bloomberg a list of publicly traded automotive companies. Use the <code>geocode_factories.py</code> script to search the internet for factory information and geocode them using openstreet maps.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set location to save geocodes</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add scripts directory to path so we can import geocode_factories</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="st">"E:/matrix/thematrix/scripts"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geocode_factories <span class="im">import</span> search_factories, geocode_from_csv</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set directory for firm geocodes</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>output_dir <span class="op">=</span> <span class="st">"E:/matrix/data/firms/geocodes"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>os.makedirs(output_dir, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Define output files</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>ford_output_1 <span class="op">=</span> os.path.join(output_dir, <span class="st">"F_factory_geocodes.csv"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>ford_output_2 <span class="op">=</span> os.path.join(output_dir, <span class="st">"F_factory_info.csv"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>tesla_output_1 <span class="op">=</span> os.path.join(output_dir, <span class="st">"TSLA_factory_geocodes.csv"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tesla_output_2 <span class="op">=</span> os.path.join(output_dir, <span class="st">"TSLA_factory_info.csv"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Search Ford factories </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(ford_output_2):</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Geocoding Ford factories (Step 1: Search)..."</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    search_factories(<span class="st">"F US"</span>, <span class="st">"Ford Motor"</span>, ford_output_1)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Geocoding Ford factories (Step 2: Detailed geocoding)..."</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    geocode_from_csv(<span class="st">"F US"</span>, ford_output_1, ford_output_2)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:   </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Ford geocodes already exist at </span><span class="sc">{</span>ford_output_2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ford geocodes already exist at E:/matrix/data/firms/geocodes\F_factory_info.csv</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Search Tesla factories </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(tesla_output_2):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Geocoding Tesla factories (Step 1: Search)..."</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    search_factories(<span class="st">"TSLA US"</span>, <span class="st">"Tesla"</span>, tesla_output_1)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Geocoding Tesla factories (Step 2: Detailed geocoding)..."</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    geocode_from_csv(<span class="st">"TSLA US"</span>, tesla_output_1, tesla_output_2)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Tesla geocodes already exist at </span><span class="sc">{</span>tesla_output_2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tesla geocodes already exist at E:/matrix/data/firms/geocodes\TSLA_factory_info.csv</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Done!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Done!</code></pre>
+</div>
+</div>
+</section>
+<section id="create-a-map-of-industry" class="level1">
+<h1>Create a Map of Industry</h1>
+<p>Use the geocodes to create an interactive map of the factories and production locations for the industry in question.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -334,30 +397,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ford factory locations (latitude, longitude, name)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ford_factories <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Dearborn"</span>, <span class="st">"Chicago"</span>, <span class="st">"Kansas City"</span>, <span class="st">"Valencia"</span>, <span class="st">"Cologne"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat =</span> <span class="fu">c</span>(<span class="fl">42.3134</span>, <span class="fl">41.8781</span>, <span class="fl">39.0997</span>, <span class="fl">39.4699</span>, <span class="fl">50.9413</span>),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">lng =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">83.1467</span>, <span class="sc">-</span><span class="fl">87.6298</span>, <span class="sc">-</span><span class="fl">94.5786</span>, <span class="sc">-</span><span class="fl">0.3763</span>, <span class="fl">6.9143</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(ford_factories) <span class="sc">%&gt;%</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addMarkers</span>(<span class="sc">~</span>lng, <span class="sc">~</span>lat, <span class="at">popup =</span> <span class="sc">~</span>name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-ford-factories" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ford-factories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-a1de064eb398b02b8e06" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-a1de064eb398b02b8e06">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[42.3134,41.8781,39.0997,39.4699,50.9413],[-83.1467,-87.6298,-94.57859999999999,-0.3763,6.9143],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Dearborn","Chicago","Kansas City","Valencia","Cologne"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[39.0997,50.9413],"lng":[-94.57859999999999,6.9143]}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rio'
+
+The following object is masked from 'package:reticulate':
+
+    import</code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ford-factories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Global distribution of Ford manufacturing facilities
-</figcaption>
-</figure>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/matrix/"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ford_factories <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"./data/firms/F_factory_info.csv"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>tesla_factories <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"./data/firms/geocodes/TSLA_factory_geocodes.csv"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># factories &lt;- rbind(ford_factories, tesla_factories)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>company_icons <span class="ot">&lt;-</span> <span class="fu">iconList</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F US"</span> <span class="ot">=</span> <span class="fu">makeIcon</span>(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconUrl =</span> <span class="st">"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconWidth =</span> <span class="dv">30</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconHeight =</span> <span class="dv">30</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(ford_factories) <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addMarkers</span>(</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span>longitude,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span>latitude,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">icon =</span> <span class="sc">~</span> company_icons[ticker],</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="sc">~</span> <span class="fu">paste0</span>(facility_name, <span class="st">" ("</span>, ticker, <span class="st">")"</span>),</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">popup =</span> <span class="sc">~</span> <span class="fu">paste</span>(</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"&lt;b&gt;"</span>, facility_name, <span class="st">"&lt;/b&gt;&lt;br&gt;"</span>,</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Ticker: "</span>, ticker, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Type: "</span>, facility_type, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Products: "</span>, products, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Active: "</span>, status</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-9e9deef847eac7d9486b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-9e9deef847eac7d9486b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[42.3032,42.299,42.2773,42.0983,42.3976,42.5558,42.21,42.5803,40.7397,41.5086,41.652,41.5061,39.2025,38.3175,38.2078,35.455,37.6125,43.4725,42.3097,19.6725,29.07,28.6353,51.5278,53.3615,51.5644,50.8634,49.3167,39.3667,44.3167,40.7167,39.8333,12.7944,22.9833,29.5583,28.6833,30.2741,12.6833,-25.7461,-34.4583,-12.695,-23.02],[-83.1527,-83.149,-83.386,-83.27160000000001,-83.38630000000001,-83.0261,-83.605,-83.0094,-84.12779999999999,-82.0175,-87.5548,-87.6356,-94.4914,-85.705,-85.6718,-89.395,-85.89749999999999,-79.6575,-83.0364,-99.205,-110.96,-106.0889,0.1536,-2.8272,0.4364,6.975,6.75,-0.4167,23.8,29.8833,30.3667,80.02500000000001,72.38330000000001,106.55,115.8833,120.1551,101.25,28.305,-58.6333,-38.3264,-45.5558],{"iconUrl":{"data":"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg","index":0},"iconWidth":30,"iconHeight":30},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b> Dearborn Truck Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150, F-150 Lightning <br> Active:  Active","<b> Rouge Complex / Rouge Electric Vehicle Center <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150 Lightning <br> Active:  Active","<b> Michigan Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Bronco, Ranger <br> Active:  Active","<b> Flat Rock Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Mustang <br> Active:  Active","<b> Livonia Transmission Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Transmissions <br> Active:  Active","<b> Van Dyke Transmission Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Transmissions, Electric Motors <br> Active:  Active","<b> Rawsonville Components Plant <\/b><br> Ticker:  F US <br> Type:  Components <br> Products:  Battery packs, EV components <br> Active:  Active","<b> Sterling Axle Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Axles <br> Active:  Active","<b> Lima Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Avon Lake Assembly Plant (Ohio Assembly) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  E-Series, Super Duty Medium Trucks <br> Active:  Active","<b> Chicago Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Explorer, Lincoln Aviator <br> Active:  Active","<b> Chicago Stamping Plant <\/b><br> Ticker:  F US <br> Type:  Stamping <br> Products:  Stampings <br> Active:  Active","<b> Kansas City Assembly Plant (Claycomo) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150, Transit <br> Active:  Active","<b> Kentucky Truck Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Super Duty, Expedition, Lincoln Navigator <br> Active:  Active","<b> Louisville Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Escape, Lincoln Corsair <br> Active:  Active","<b> BlueOval City (Tennessee) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Electric trucks (under construction) <br> Active:  Under Construction","<b> BlueOval SK Battery Park <\/b><br> Ticker:  F US <br> Type:  Battery <br> Products:  EV batteries (under construction) <br> Active:  Under Construction","<b> Oakville Assembly Complex <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Edge, Lincoln Nautilus (retooling for EVs) <br> Active:  Active","<b> Essex Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Cuautitlan Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Mustang Mach-E <br> Active:  Active","<b> Hermosillo Stamping and Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Bronco Sport, Maverick <br> Active:  Active","<b> Chihuahua Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Dagenham Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Diesel engines <br> Active:  Active","<b> Halewood Body & Assembly <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transmission, EV components <br> Active:  Active","<b> Dunton Technical Centre <\/b><br> Ticker:  F US <br> Type:  Engineering <br> Products:  R&D / Engineering <br> Active:  Active","<b> Cologne Assembly Plant (Cologne EV Center) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Electric Explorer <br> Active:  Active","<b> Saarlouis Body & Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Focus (winding down) <br> Active:  Active","<b> Valencia Assembly Plant (Almussafes) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Kuga, Galaxy, S-Max, Transit Connect <br> Active:  Active","<b> Craiova Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Puma, EcoSport, Transit Courier <br> Active:  Active","<b> Ford Otosan Kocaeli Plant (Gölcük/Yeniköy) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transit, Transit Custom, Courier <br> Active:  Active","<b> Ford Otosan Inönü Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines, Trucks <br> Active:  Active","<b> Chennai Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  EcoSport, Endeavour (closed 2022) <br> Active:  Closed","<b> Sanand Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Figo, Aspire (closed 2022) <br> Active:  Closed","<b> Chongqing Assembly Plant (CAF) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Explorer, Escape, Edge (JV with Changan) <br> Active:  Active","<b> Nanchang Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transit, Transit Classic (JV with JMC) <br> Active:  Active","<b> Hangzhou Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Lincoln models (JV with Changan) <br> Active:  Active","<b> Rayong Assembly Plant (AutoAlliance Thailand) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Everest <br> Active:  Active","<b> Silverton Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Everest <br> Active:  Active","<b> Pacheco Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Transit <br> Active:  Active","<b> Camaçari Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  EcoSport, Ka, Troller (closed 2021) <br> Active:  Closed","<b> Taubaté Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines (closed 2021) <br> Active:  Closed"],null,null,null,["Dearborn Truck Plant (F US)","Rouge Complex / Rouge Electric Vehicle Center (F US)","Michigan Assembly Plant (F US)","Flat Rock Assembly Plant (F US)","Livonia Transmission Plant (F US)","Van Dyke Transmission Plant (F US)","Rawsonville Components Plant (F US)","Sterling Axle Plant (F US)","Lima Engine Plant (F US)","Avon Lake Assembly Plant (Ohio Assembly) (F US)","Chicago Assembly Plant (F US)","Chicago Stamping Plant (F US)","Kansas City Assembly Plant (Claycomo) (F US)","Kentucky Truck Plant (F US)","Louisville Assembly Plant (F US)","BlueOval City (Tennessee) (F US)","BlueOval SK Battery Park (F US)","Oakville Assembly Complex (F US)","Essex Engine Plant (F US)","Cuautitlan Assembly Plant (F US)","Hermosillo Stamping and Assembly Plant (F US)","Chihuahua Engine Plant (F US)","Dagenham Engine Plant (F US)","Halewood Body &amp; Assembly (F US)","Dunton Technical Centre (F US)","Cologne Assembly Plant (Cologne EV Center) (F US)","Saarlouis Body &amp; Assembly Plant (F US)","Valencia Assembly Plant (Almussafes) (F US)","Craiova Assembly Plant (F US)","Ford Otosan Kocaeli Plant (Gölcük/Yeniköy) (F US)","Ford Otosan Inönü Plant (F US)","Chennai Assembly Plant (F US)","Sanand Assembly Plant (F US)","Chongqing Assembly Plant (CAF) (F US)","Nanchang Assembly Plant (F US)","Hangzhou Assembly Plant (F US)","Rayong Assembly Plant (AutoAlliance Thailand) (F US)","Silverton Assembly Plant (F US)","Pacheco Assembly Plant (F US)","Camaçari Assembly Plant (F US)","Taubaté Engine Plant (F US)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-34.4583,53.3615],"lng":[-110.96,120.1551]}},"evals":[],"jsHooks":[]}</script>
+<p>Global distribution of manufacturing facilities</p>
 </div>
 </div>
+<p>TODO: Add a version with bi-variate map of emissions and ecosystem services as a layer.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
