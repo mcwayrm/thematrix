@@ -1,7 +1,187 @@
 ---
 title: "Design"
+bibliography: references.bib
 ---
 
-This is the about page for your Quarto website.
+# Introduction
 
-Add information about yourself or your project here.
+The aim of this paper is to describe a method for measuring the inputs from nature into a company’s operations (dependencies) and the outputs of a company that affect nature (impacts). Dependencies can include a company’s use of material natural resources (e.g., fish, timber, water, minerals), ecological processes (e.g., processes that enhance soil fertility, pest and pathogen control, flood or drought protection, air or water purification, carbon sequestration), and other inputs (e.g., genetic information that yields new products or processes, natural attractions and scenic amenities that enhance property values, tourism, and recreation). Impacts of a company’s operations on nature can include greenhouse gas emissions, land use change leading to loss of biodiversity, air and water pollution, water withdrawals, and other effects. 
+
+Our method aims to measure dependencies and impacts in both biophysical and monetary terms. Measurement in a monetary metric facilities analysis allowing comparisons in a common metric and facilities communication with businesses and business analysts who are used to evaluating business operations in monetary terms. However, in some cases it may make more sense to report dependencies and impacts in biophysical terms (e.g., numbers of species, tons of carbon, cubic meters of water), such as when there are no reliable indicators of monetary value that would allow translation of dependencies or impacts into a monetary metric. 
+
+Our approach to measuring dependencies and impacts of a company requires information on: 
+
+* Where: location of company activities
+* What: production processes at each location (what is produced and by what process)
+* How much: what is the scale of activities at each location. 
+
+{Describe why where, what, and how much are important} 
+
+We define data inputs and analysis methods that can be used to measure the dependencies and impacts for individual companies, or for portfolios of companies. We describe various methods that can be used to measure dependencies and impacts with different availability of data inputs. These methods can also be used to analyze dependencies and impacts for different coverage (similar to “scope” coverage for greenhouse gas emissions) ranging from counting only dependencies and impacts of the operations of company operations itself (Category 1), Category 1 plus dependencies and impacts up the supply chain from primary producers (Category 2), and Category 2 dependencies and impacts through the entire supply chain to final end users (Category 3). Including dependencies and impacts of upstream and downstream activities requires additional steps, which we will explain as we proceed. 
+
+
+Our approach makes a number of advances over prior work attempting to characterize or quantify business dependencies and impacts, including work on ESG indicators incorporating components of biodiversity or nature. First, our approach yields a measure of dependencies and impacts of company activity rather than simply a measure of an indicator reflecting the current state of biodiversity or nature in regions where the company operates. For example, just knowing that mean species abundance is high or low in a region in which the company operates does not show whether the company is having an impact or not on species or other aspects of biodiversity. Only by analyzing company activities in terms of where, what, and how much, is it possible to measure dependencies and impacts. Our approach builds on the InVEST (Integrated Valuation of Ecosystem Services and Tradeoffs) suite of models from the Natural Capital Project that quantify a wide range of ecosystem services and metrics of biodiversity. InVEST is designed to measure changes in ecosystem services with changes in environmental conditions such as those caused by land use change. By comparing measures of ecosystem services with and without company activities we can calculate a measure of company dependencies and impacts. InVEST is a spatially explicit model allowing fine-scale analysis of impacts at specific locations but also has global coverage for many ecosystem services allowing for aggregation of dependencies and impacts for companies that operate globally. Second, our approach provides a much wider set of dependency and impact measures than do other approaches that typically focus solely on greenhouse gases or a specific measure of biodiversity such as mean species abundance. In addition to including measures of multiple greenhouse gases and a range of biodiversity measures, our approach includes a wide set of ecosystem services. Ecosystem services currently modeled in InVEST and related modeling work by the Natural Capital Project team includes air quality, biodiversity metrics (species richness, habitat for endemic, rare, threatened and endangered species, forest intactness, and Key Biodiversity Areas), coastal blue carbon, coastal vulnerability, crop pollination, crop production, forestry production, grazing, habitat quality, habitat risk assessment, recreation, renewable energy, scenic quality, seasonal water yield, sediment retention, terrestrial greenhouse gases, urban cooling, urban flood risk mitigation, urban storm water retention, water purification, wave energy. Third, our approach can be extended to include impacts from primary producers through to end consumers (Scope 1, 2, and 3). Finally, our approach can measure dependencies and impacts in biophysical terms (e.g., tons of carbon, cubic meters of water, pollution parts per million), and in monetary terms, as discussed above.  
+
+
+We begin with a description of data inputs for measuring company dependencies and impacts. We then describe methods for measuring company impacts, followed by a description of methods for measuring dependencies. 
+
+# Data Inputs to Measure Dependencies and Impacts 
+
+As discussed above, measuring dependencies and impacts of a company relies on having information on the location of company operations (where), the activities they engage in at each location (what), and the size of these operations (how much). This information may or may not be readily accessible and we describe methods for measuring dependencies and impact under alternative scenarios of data availability. 
+
+
+## Location (where): 
+
+Information on geographic location of company facilities. Ideal data would be latitude/longitude of facilities providing the exact footprint of company facilities. If the company does not wish to provide this information, we could use geographic region in which the facility exists, which could be political units such as county, state, country, or biophysically defined regions such as ecoregions or watersheds, or regions defined by other groups such as the Global Trade Analysis Project Agro-ecological Zones (GTAP AEZ; https://www.gtap.agecon.purdue.edu/about/data_models.asp).
+
+
+## Activities (what): 
+
+For each location, what does the company do there, i.e., what does the company produce and what process methods are used to produce it? Ideal data would include all inputs from nature into the activity (dependencies) and all outputs of the activity affecting nature (impacts). However, most companies are unlikely to have the kind of detailed information that would allow them to calculate and report this information, and even if they had this information, many might be reluctant to make such information publicly available. The standard approach (described below) does not require this information from the company but instead uses industry averages for a given activity in a given region. Even this approach, however, requires information on what activities are undertaken at company facilities, for example is the facility a headquarters building, distribution center, or production facility? For production facilities, we would require information on what products are produced (e.g., steel mill, coal-fired electricity generator, chemical plant specifying what chemicals are produced, car assembly plant…).   
+
+## Size (how much): 
+
+Information about how much of each activity is done in each location (e.g., the amount of product steel, electricity, chemicals, cars produced). Some information on size is available for publicly traded companies for the entire company but not for individual facilities. If so, a method to allocate activities to individual facilities is needed, which would ideally utilize information on relative size or importance of individual facilities. If no such information is available, a default would be to evenly allocate activity across facilities. 
+
+# Methods to Measure Company Impacts
+
+In this section, we describe the steps to go from information about where, what, and how much, to biophysical and monetary measures of impacts of a company. 
+
+## Company Activity Matrix (C) 
+
+With information about where, what, and how much, we can generate a Company Activity Matrix, where each cell specifies the amount of activity ($y = 1, 2, \dots, Y$) occurring in each location ($x = 1, 2, \dots, X$), for example, the amount of maize production (measured in hectares), or the amount of cement production (measured in tons produced) in each location x. For some activities a course region is fine (e.g., county, province, or state). For other activities, more detailed location information will be needed (e.g., for water quality how close to streams or rivers is the activity). In the latter case, “location” might be all land units within a region (county, province, or state) that lie within a buffer of a water body. For some activities, there may be more than one dimension that characterizes the activity. For example, to adequately characterize a mining activity, we might need to know both the land area (measured in hectares) and the output of the mine (measured in tons).
+
+| Location | Activity 1 | Activity 2 | Activity 3 | Activity 3 |
+|  |  |  | Indicator 1 | Indicator 2 |
+|----------|-----------|-----------|-----------|-----------|
+| Location 1 | 0 | 20 tons | 100 ha | 1,000 tons |
+| Location 2 | 10 ha | 0 | 0 | 0 |
+| Location 3 | 5 ha | 5 tons | 0 | 0 |
+| $\dots$ | | | | |
+| Location X | | | | |
+
+
+### Company Activity Matrix (C)
+
+The amount of activity undertaken by Company i at each location ($x = 1, 2, \dots , X$) for each activity ($y = 1, 2, \dots, Y$) Note: this matrix will likely be a very sparse matrix (lots of zeros).
+
+### Company Impact for Categories 1, 2, and 3
+
+The company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables `[@Carrico2020]` to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.
+
+## Single Impact Matrix (Iz)
+
+Each activity in each location has an array of impacts on endpoints of interest. For example, agricultural crop production generates crops but also has impacts on air and water quality, water availability, land use affecting biodiversity, greenhouse gases, and other impacts.  
+
+For each impact, $z = 1, 2, \dots, Z$, we assemble a matrix of the impact of a unit of activity in each location. For example, what is the impact of intensive maize production, mining, steel production, etc., on phosphorus runoff to surface water by location. We can determine impacts for each activity in each location through various means. If company data exists, we will use that. In the event that company data is not available, we will determine impacts by: a) running InVEST (or other models) with the baseline natural landscape versus with an increase of one unit of activity at each location, b) using published lifecycle assessments, or c) using some combination of these (e.g., lifecycle emissions in conjunction with InVEST models). For activities characterized by more than one indicator (such as the mining example above characterized by area and mining volume) the impact would be defined for a one-unit size increase in indicators that included a ratio of the indicators (e.g., 1 hectare and 10 tons in mining example in the table below). 
+
+The compilation of each impact matrix is time and labor-intensive work that requires skill and judgment. We will prioritize completing these matrices focusing on the most important activities and impacts first and gradually increasing the library of activities and impacts.  Though compilation of impact matrices is a lot of work, it is not company or analysis specific (unless the company provides its own data for this step). As such, this matrix can be prepared once (pre-processed) and can be used in analyses across different companies. We would periodically update this matrix as new information becomes available. 
+
+
+| Location | Activity 1 | Activity 2 | Activity 3 | Activity Y |
+|----------|-----------|-----------|-----------|-----------|
+| Location 1 | 10 g/ha	 | 10 g/ha	 | 20g/1ha & 10 tons			 |  |
+| Location 2 |  10 g/ha	 | 2 g/ha	 | 20g/1ha & 10 tons			 |  |
+| Location 3 |  5 g/ha	 | 1 g/ha	 | 20g/1ha & 10 tons			 |  |
+| $\dots$ | | | | |
+| Location X | | | | |
+
+
+### Single Impact Matrix (Iz): 
+
+The impact of each activity ($y = 1, 2, \dots, Y$) at each location ($x = 1, 2, \dots, X$), on impact z ($z = 1, 2, \dots, Z$).
+
+## Company Single Impact Matrix (CIz)
+
+We combine the Company Matrix (C) with the Single Impact Matrix (Iz) to generate the Company Single Impact Matrix (CIz), which provides information about the impact of the company by location and activity for each impact $z, z = 1, 2, \dots, Z$. The Company Single Impact Matrix (CIz) is calculated by multiplying each cell in the Company Matrix, Cxy, with the equivalent cell in the Company Single Impact Matrix, Izxy.
+
+Location 	Activity
+	Activity 1	Activity 2	Activity 3	…		Activity Y
+Location 1	0	200 g 	2000g			
+Location 2	100 g	0	0			
+Location 3	25 g	5 g	0			
+Location X						
+
+
+### Company Single Impact Matrix (CIz): 
+
+For impact z what is the impact of each activity ($y = 1, 2, \dots, Y$) at each location ($x = 1, 2, \dots, X$).
+
+## Company Location Single Impact Vector (LCIz)
+
+By summing across activities ($y = 1, 2, \dots, Y$) we can get the Company Location Single Impact Vector (LCIz) that summarizes the impact of all company activities on impact z by location ($x = 1, 2, \dots, X$). 
+
+Location	Impact z
+Location 1	2,200 g
+Location 2	100 g
+Location 3	30 g
+Location X	
+
+
+### Company Location Single Impact Vector (LCIz)
+
+The impact of all company activities at each location ($x = 1, 2, \dots, X$) for impact z. 
+
+## Company Impact Matrix (CI) 
+
+Assembling all of the Company Location Single Impact Vectors into a single matrix generates the Company Impact Matrix (CI). 
+
+Location	Impact
+	Impact 1	Impact 2	Impact 3	…		Impact Z
+Location 1	200 g	400 tons				
+Location 2	100 g	100 tons				
+Location 3	30 g	150 tons				
+Location Y						
+
+### Company Impact Matrix (CI): 
+
+The amount of each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$) by the company.   
+
+Note: it is possible to stop the analysis at this point and provide information solely in physical units by location (grams, tons, cubic meters ...). For some applications, it is advantageous to report in physical units. Doing avoids the complication of trying to “price” impacts. However, for many applications, including net financial returns, or environmental profit and loss, assessing value (price) is unavoidable. Reporting in terms of financial metrics may also help make terms more recognizable to companies and aid in communication with end users. 
+
+## Financial Impact Matrix (FI)
+
+The Financial Impact Matrix (FI) assembles information on the “price” (cost) for a unit of impact z in each location. Price information can come from a number of sources. The Global Trade Analysis Project (GTAP) has price data for marketed commodities (e.g., agricultural crops, timber, steel, cars). Prices will have to be generated for non-market impacts. The economics literature on non-market valuation provides evidence on prices for many non-market impacts. Recent work on Gross Ecosystem Product (GEP) `[@Ouyang2020]`. As with impact matrices, we will prioritize our work to first concentrate on important impacts for which some evidence exists on which to base prices. But like impact matrix information, the financial matrix can be prepared once (pre-processing) and used in all analyses across different companies. We would periodically update this matrix as new information becomes available.  
+
+Location	Impact
+	Impact 1	Impact 2	Impact 3	…		Impact Z
+Location 1	$100/m3	$50/ton				
+Location 2	$50/m3	$50/ton				
+Location 3	$10/m3	$50/ton				
+Location Y
+
+### Financial Impact Matrix (F) 
+
+The monetary value of each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$)  
+
+## Company Financial Impact Matrix (CFI)
+
+
+Multiply each cell of the Company Impact Matrix, CIxz,  by the same cell in the Financial Impact Matrix, FIxz, to generate the Company Financial Impact Matrix (CFI). 
+
+Location	Impact
+	Impact 1	Impact 2	Impact 3	…		Impact Z
+Location 1	0	$20000				
+Location 2	$2500	$5000				
+Location 3	$250	$7500				
+Location Y			
+
+
+### Company Financial Impact Matrix (CFI): 
+
+The monetary value of company impact by each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$).  
+
+With the Company Financial Impact Matrix (CFI), we can sum across the columns to get the total financial impact for the company at each location. Alternatively, we can sum across the rows to get the total financial impact for the company for each impact. Finally, we can also sum across all the cells in the matrix to get the company’s total financial impact. 
+
+# Methods to Measure Company Dependencies
+
+The logic of the method used to measure dependencies is almost identical to the method for measuring impacts. As with impacts, the method to measure dependencies starts with the Company Activity Matrix (C). However, we then use a Single Dependency Matrix (Dz) in place of the Single Impact Matrix (Iz). The Single Dependency Matrix (Dz) measures the dependency of each activity ($y = 1, 2, \dots, Y$) at each location ($x = 1, 2, \dots, X$), for dependency z ($z = 1, 2, \dots, Z$). For example, one dependency is water input and the Single Dependency Matrix for water inputs would measure the water input needs for each type of activity by location. Ideally, we would get data on inputs from companies. But, as above, if such information is not available by company, we would generate information by: a) running InVEST (or other models) with the baseline natural landscape versus with an increase of one unit of activity at each location, b) using published lifecycle assessments, c) using some combination of these (e.g., lifecycle emissions in conjunction with InVEST models).  For dependencies, we would primarily be concerned with Category 1 (dependencies for the company’s own operations) and Category 2 (Category 1 plus dependencies of upstream suppliers). There may be cases where including downstream dependencies will also be of interest, if, for example, consumers are vulnerable to disruptions from additional dependencies they have, which then could affect demand for the company’s products. Other than these considerations, however, the methods used will be identical to impacts in order to calculate the Company Single Dependency Matrix (CDz), Company Location Single Dependency Vector (LCDz), Company Dependency Matrix (CD). Similarly, we would use a Financial Dependence Matrix (FD) that assembles information on the “price” (cost) for a unit of dependency z in each location. To the extent that we are measuring the same aspect of nature for impacts and dependencies, we could use the same set of prices for both the Financial Impact Matrix (FI) and the Financial Dependence Matrix (FD). We would then calculate the Company Financial Dependence Matrix (CFI) in the same fashion as the Company Financial Impact Matrix (CFI).
+
+
+
+# References
+
+::: {#refs}
+
+:::
+

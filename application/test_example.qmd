@@ -1,5 +1,13 @@
 ---
 title: "Starting Example"
+bibliography: ../references.bib
 ---
 
-Test example content coming soon...
+In this example, I apply the matrix to Ford Motor Co. 
+
+First, I provide a map of Ford factories globally. 
+
+
+
+
+

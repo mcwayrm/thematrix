@@ -1,0 +1,17 @@
+Meeting: 02/25/2026
+- Attendance: Steve, Ryan 
+- Notes: 
+	- Corporate world is responding in the wrong way. 
+		- Don't want to move manufacturing to green areas. Will turn red
+	-  Keep this very basic to start. 
+		- What do we know about what environmental impacts do various industries have? 
+			- Start with 1 industry (something simple)
+		- Try to avoid product level (too expensive to analyze). But if it is by class of product by attributes. 
+	- Where, How and how much?
+		- We want to know impact of firm operations on ES. 
+		- Need to know is this a land use question
+		- Is this an emissions question
+		- How is the firm impacting the environment or benefiting from the environment? 
+		- So for sectors and products: need to have clear mapping of impacts of per unit production on environment. 
+	- So look into the life-cycle manufacturing production literature.
+	- Read you business and biodiversity paper (Steve)

@@ -6,7 +6,11 @@ bibliography: references.bib
 
 The Matrix is an application to determine the relationship between firm activity and the environment. 
 To achieve this we need to know where firms are located, what they do in those locations, and how much do they at those locations. 
-The Matrix is designed to capture these three pieces of information: **Where, What, and How Much?**
+The Matrix is designed to capture these three pieces of information: 
+
+
+**Where, What, and How Much?**
+**A Method for Measuring Business Dependencies and Impacts on Nature: Where, What and How Much?**
 
 In the context of earth-economy modeling, this project attempts to examine the microeconomic relationship of firms. Firms interact with the environment in two directions. First, firms use a variety of natural resources and ecosystem services in their product process. Second, firms produce a variety of negative externalities primarily through emissions. 
 
