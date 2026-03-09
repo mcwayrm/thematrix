@@ -10,6 +10,7 @@ In this example, I apply the matrix to the automotive industry
 ```{r}
 #| label: setup
 #| include: false
+#| code-fold: true
 
 # Install reticulate if not already installed
 if (!require("reticulate", quietly = TRUE)) {
@@ -26,9 +27,97 @@ use_condaenv("natcapenv", required = TRUE)
 
 Naively, we know from Bloomberg a list of publicly traded automotive companies. Use the `geocode_factories.py` script to search the internet for factory information and geocode them using openstreet maps. 
 
+Once this has been figure out, proceed with the following companies and tickers: 
+
+* 7203 JP	TOYOTA MOTOR
+* 1211 HK	BYD COMPANY
+* GM US	GENERAL MOTORS C
+* 005380 KS	HYUNDAI MOTOR
+* MBG GR	MERCEDES-BENZ GR
+* BMW GR	BMW AG
+* VOW GR	VOLKSWAGEN AG
+* RACE US	FERRARI NV
+* 7267 JP 	HONDA MOTOR CO
+* MSIL IN 	MARUTI SUZUKI IN
+* MM IN 	MAHINDRA & MAHIN
+* P911 GY 	DR ING HC F PORS
+* 000270 KS 	KIA CORP
+* BJAUT IN 	BAJAJ AUTO LTD
+* STLAM IM 	STELLANTIS NV
+* SERES GROUP CO-A	SERES GROUP CO-A
+* 7269 JP 	SUZUKI MOTOR
+* 600104 CH 	SAIC MOTOR-A
+* 2333 HK 	GWMOTOR
+* GELYF US 	GEELY AUTOMOBILE
+* EIM IN 	EICHER MOTORS
+* HYUNDAI IN 	HYUNDAI MOTOR IN
+* TVSL IN 	TVS MOTOR CO LTD
+* RIVN US 	RIVIAN AUTOMOT-A
+* LI US Equity	LI AUTO INC -ADR
+* 9868 HK Equity	XPENG INC-A SHRS
+* 7270 JP Equity	SUBARU CORP
+* 000625 CH Equity	CHONGQING CHAN-B
+* TMPV IN Equity	TATA MOTORS PASS
+* P911 GY Equity	PORSCHE AUTO-PRF
+* HMCL IN Equity	HERO MOTOCORP LT
+* NIO US Equity	NIO INC - ADR
+* RNO FP Equity	RENAULT SA
+* VOLCARB SS Equity	VOLVO CAR AB-B
+* 601238 CH Equity	GUANGZHOU AUTO-H
+* 489 HK Equity	DONGFENG MOTOR-H
+* FROTO TI Equity	FORD OTO
+* 7201 JP Equity	NISSAN MOTOR CO
+* 7272 JP Equity	YAMAHA MOTOR CO
+* 9863 HK Equity	ZHEJIANG LEAPM-H
+* 601777 CH Equity	CHONGQING AFAR-A
+* 600733 CH Equity	BAIC BLUEPARK-A
+* 603129 CH Equity	ZHEJIANG CFMOT-A
+* 7261 JP Equity	MAZDA MOTOR
+* 603766 CH Equity	LONCIN MOTOR C-A
+* 1585 HK Equity	YADEA GROUP HOLD
+* TOASO TI Equity	TOFAS
+* 7211 JP Equity	MITSUBISHI MOTOR
+* LCID US Equity	LUCID GROUP INC
+* 301345 CH Equity	ZHEJIANG TAOTA-A
+* FML IN Equity	FORCE MOTORS LTD
+* 1114 HK Equity	BRILLIANCE CHINA
+* GTCAP PM Equity	GT CAPITAL HOLD
+* 600418 CH Equity	ANHUI AUTOMOBI-A
+* HOG US Equity	HARLEY-DAVIDSON
+* 600006 CH Equity	DONGFENG AUTO-A
+* 1958 HK Equity	BAIC MOTOR-H
+* MHSC IN Equity	MAHARASHTRA SC
+* 2206 TT Equity	SANYANG MOTOR
+* PSNY US Equity	POLESTAR A-A ADS
+* HLI MK Equity	HONG LEONG INDS
+* OTKAR TI Equity	OTOKAR
+* 2201 TT Equity	YULON MOTOR
+* 2204 TT Equity	CHINA MOTOR
+* 7222 JP Equity	NISSAN SHATAI
+* AML LN Equity	ASTON MARTIN
+* LOT US Equity	LOTUS TECHNOLOGY
+* ATLH PA Equity	ATLAS HONDA
+* PIA IM Equity	PIAGGIO & C. SPA
+* GBCO EY Equity	GB CORP
+* JYGCLZ CH Equity	JIANGSU YUEDA -A
+* BJAUT IN Equity	BAJAJ MOBILITY A
+* 003620 KS Equity	KG MOBILITY CO
+* DRB MK Equity	DRB-HICOM BHD
+* 2227 TT Equity	YULON NISSAN
+* LVWR US Equity	LIVEWIRE GROUP I
+* 8937 TT Equity	HER CHEE
+* 1656311D CH Equity	NIU TECHNOLO-ADR
+* 3333 HK Equity	CHINA EVERGRANDE
+* IMS IM Equity	IMMSI SPA
+* HCAR PA Equity	HONDA ATLAS CAR
+* 0K4R LN Equity	CARS MOTORCYCLES
+* NRDE US Equity	NU RIDE INC
+
+
 
 ```{python}
 #| label: webscrap-factory-locations
+#| code-fold: true
 
 # Set location to save geocodes
 import os
@@ -78,6 +167,7 @@ Use the geocodes to create an interactive map of the factories and production lo
 ```{r}
 #| label: factory-dataset
 #| cache: true
+#| code-fold: true
 
 library(tidyverse)
 library(rio)
@@ -93,6 +183,7 @@ tesla_factories <- import("./data/firms/geocodes/TSLA_factory_geocodes.csv")
 ```{r}
 #| label: factory-map
 #| cache: true
+#| code-fold: true
 #| fig-cap: "Global distribution of manufacturing facilities"
 
 library(leaflet)

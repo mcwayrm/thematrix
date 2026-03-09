@@ -53,8 +53,8 @@ With information about where, what, and how much, we can generate a Company Acti
 
 
 | Location | Activity 1 | Activity 2 | Activity 3 | Activity 3 |
-| .. | .. | .. | Indicator 1 | Indicator 2 |
 |----------|-----------|-----------|-----------|-----------|
+| | | | Indicator 1 | Indicator 2 |
 | Location 1 | 0 | 20 tons | 100 ha | 1,000 tons |
 | Location 2 | 10 ha | 0 | 0 | 0 |
 | Location 3 | 5 ha | 5 tons | 0 | 0 |
