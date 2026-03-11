@@ -3,6 +3,1441 @@ title: "Industry Classification: NAICS Codes"
 bibliography: ../references.bib
 ---
 
-This is the about page for your Quarto website.
+We can consider the environment, via ecosystem services and natural resources, to operate into firm production functions. 
+To distinguish which potential environmental factors may influence the production of different firms, we classify firms using the United States Census Bureau's [North American Industry Classification System (NAICS)](https://www.census.gov/naics/?58967?yearbck=2022). 
+This is widely adopted for distinguishing sectors of the economy. 
+The Bureau of Labor Statistics (BLS) reclassifies these into [Supersectors](https://www.bls.gov/iag/tgs/iag_index_naics.htm) allowing us to consider the sets and subsets of firms within industries within sectors of the economy. 
 
-Add information about yourself or your project here.
+Below, we present these classifications. 
+In providing their description, we can classify the relationship of the environment onto any firm through these classificaitons. 
+
+TODO: For each NAICS code, I want to: 
+1. Assign specific inputs and output relationships to the environment
+2. Exposure to climate change or natural disasters
+3. Classification of sustainable production compared to normal production
+
+# Goods-Producing Industries
+
+
+## Natural Resources and Mining
+
+### Agriculture, Forestry, Fishing, and Hunting (NAICS 11)
+
+**Definition:**
+
+> "The Agriculture, Forestry, Fishing and Hunting sector comprises establishments primarily engaged in growing crops, raising animals, harvesting timber, and harvesting fish and other animals from a farm, ranch, or their natural habitats.
+> The establishments in this sector are often described as farms, ranches, dairies, greenhouses, nurseries, orchards, or hatcheries. A farm may consist of a single tract of land or a number of separate tracts which may be held under different tenures. For example, one tract may be owned by the farm operator and another rented. It may be operated by the operator alone or with the assistance of members of the household or hired employees, or it may be operated by a partnership, corporation, or other type of organization. When a landowner has one or more tenants, renters, croppers, or managers, the land operated by each is considered a farm." [@bls2026naics]
+
+#### Crop Production (NAICS 111)
+
+**Definition:**
+
+> "Industries in the Crop Production subsector grow crops mainly for food and fiber. The subsector comprises establishments, such as farms, orchards, groves, greenhouses, and nurseries, primarily engaged in growing crops, plants, vines, or trees and their seeds." [@bls2026naics]
+
+The crop production subsector consists of these industry groups:
+
+* Oilseed and Grain Farming: NAICS 1111
+* Vegetable and Melon Farming: NAICS 1112
+* Fruit and Tree Nut Farming: NAICS 1113
+* Greenhouse, Nursery, and Floriculture Production: NAICS 1114
+* Other Crop Farming: NAICS 1119
+
+#### Animal Produciton (NAICS 112)
+
+**Definition:**
+
+> "Industries in the Animal Production subsector raise or fatten animals for the sale of animals or animal products. The subsector comprises establishments, such as ranches, farms, and feedlots primarily engaged in keeping, grazing, breeding, or feeding animals. These animals are kept for the products they produce or for eventual sale. The animals are generally raised in various environments, from total confinement or captivity to feeding on an open range pasture. Establishments primarily engaged in the farm raising and production of aquatic animals or plants in controlled or selected aquatic environments are included in this subsector." [@bls2026naics]
+
+The animal production subsector consists of these industry groups:
+
+* Cattle Ranching and Farming: NAICS 1121
+* Hog and Pig Farming: NAICS 1122
+* Poultry and Egg Production: NAICS 1123
+* Sheep and Goat Farming: NAICS 1124
+* Animal Aquaculture: NAICS 1125
+* Other Animal Production: NAICS 1129
+
+#### Forestry and Logging (NAICS 113)
+
+**Definition:**
+
+> "Industries in the Forestry and Logging subsector grow and harvest timber on a long production cycle (i.e., of 10 years or more). Long production cycles use different production processes than short production cycles, which require more horticultural interventions prior to harvest, resulting in processes more similar to those found in the Crop Production subsector. Consequently, Christmas tree production and other production involving production cycles of less than 10 years, are classified in the Crop Production subsector." [@bls2026naics]
+
+The forestry and logging subsector consists of these industry groups:
+
+* Timber Tract Operations: NAICS 1131
+* Forest Nurseries and Gathering of Forest Products: NAICS 1132
+* Logging: NAICS 1133
+
+#### Fishing, Hunting, and Trapping (NAICS 114)
+
+**Definition:**
+
+> "Industries in the Fishing, Hunting, and Trapping subsector harvest fish and other wild animals from their natural habitats and are dependent upon a continued supply of the natural resource. The harvesting of fish is the predominant economic activity of this subsector and it usually requires specialized vessels that, by the nature of their size, configuration and equipment, are not suitable for any other type of production, such as transportation." [@bls2026naics]
+
+The fishing, hunting and trapping subsector consists of these industry groups:
+
+* Fishing: NAICS 1141
+* Hunting and Trapping: NAICS 1142
+
+#### Supporting Activities for Agriculture and Forestry (NAICS 115)
+
+**Definition:**
+
+> "Industries in the Support Activities for Agriculture and Forestry subsector provide support services that are an essential part of agricultural and forestry production. These support activities may be performed by the agriculture or forestry producing establishment or conducted independently as an alternative source of inputs required for the production process for a given crop, animal, or forestry industry. Establishments that primarily perform these activities independent of the agriculture or forestry producing establishment are in this subsector." [@bls2026naics]
+
+The support activities for agriculture and forestry subsector consists of these industry groups:
+
+* Support Activities for Crop Production: NAICS 1151
+* Support Activities for Animal Production: NAICS 1152
+* Support Activities for Forestry: NAICS 1153
+
+### Mining, Quarrying, and Oil and Gas Extraction (NAICS 21)
+
+**Definition:**
+
+> "The Mining sector comprises establishments that extract naturally occurring mineral solids, such as coal and ores; liquid minerals, such as crude petroleum; and gases, such as natural gas. The term mining is used in the broad sense to include quarrying, well operations, beneficiating (e.g., crushing, screening, washing, and flotation), and other preparation customarily performed at the mine site, or as a part of mining activity." [@bls2026naics]
+
+The mining, quarrying, and oil and gas extraction sector consists of these subsectors:
+
+* Oil and Gas Extraction: NAICS 211
+* Mining (except Oil and Gas): NAICS 212
+* Support Activities for Mining: NAICS 213
+
+#### Oil and Gas Extraction (NAICS 211)
+
+**Definition:**
+
+> "Industries in the Oil and Gas Extraction subsector operate and/or develop oil and gas field properties. Such activities may include exploration for crude petroleum and natural gas; drilling, completing, and equipping wells; operating separators, emulsion breakers, desilting equipment, and field gathering lines for crude petroleum and natural gas; and all other activities in the preparation of oil and gas up to the point of shipment from the producing property. This subsector includes the production of crude petroleum, the mining and extraction of oil from oil shale and oil sands, and the production of natural gas, sulfur recovery from natural gas, and recovery of hydrocarbon liquids." [@bls2026naics]
+
+The oil and gas extraction subsector consists of a single industry group: 
+
+* Oil and Gas Extraction: NAICS 2111
+
+#### Mining (expect Oil and Gas) (NAICS 212)
+
+**Definition:**
+
+> "Industries in the Mining (except Oil and Gas) subsector primarily engage in mining, mine site development, and beneficiating (i.e., preparing) metallic minerals and nonmetallic minerals, including coal. The term "mining" is used in the broad sense to include ore extraction, quarrying, and beneficiating (e.g., crushing, screening, washing, sizing, concentrating, and flotation), customarily done at the mine site." [@bls2026naics]
+
+The mining (except oil and gas) subsector consists of these industry groups:
+
+* Coal Mining: NAICS 2121
+* Metal Ore Mining: NAICS 2122
+* Nonmetallic Mineral Mining and Quarrying: NAICS 2123
+
+#### Support Activities for Mining (NAICS 213)
+
+**Definition:**
+
+> "Industries in the Support Activities for Mining subsector group establishments primarily providing support services, on a contract or fee basis, required for the mining and quarrying of minerals and for the extraction of oil and gas. Establishments performing exploration (except geophysical surveying and mapping) for minerals, on a contract or fee basis, are included in this subsector. Exploration includes traditional prospecting methods, such as taking core samples and making geological observations at prospective sites.
+> The activities performed on a contract or fee basis by establishments in the Support Activities for Mining subsector are also often performed in-house by mining operators." [@bls2026naics]
+
+The support activities for mining subsector consists of a single industry group: 
+
+* Support Activities for Mining: NAICS 2131.
+
+## Construction
+
+### Construction (NAICS 23)
+
+**Definition:**
+
+> "The construction sector comprises establishments primarily engaged in the construction of buildings or engineering projects (e.g., highways and utility systems). Establishments primarily engaged in the preparation of sites for new construction and establishments primarily engaged in subdividing land for sale as building sites also are included in this sector.
+> Construction work done may include new work, additions, alterations, or maintenance and repairs. Activities of these establishments generally are managed at a fixed place of business, but they usually perform construction activities at multiple project sites. Production responsibilities for establishments in this sector are usually specified in (1) contracts with the owners of construction projects (prime contracts) or (2) contracts with other construction establishments (subcontracts)." [@bls2026naics]
+
+The construction sector consists of these subsectors:
+
+* Construction of Buildings: NAICS 236
+* Heavy and Civil Engineering Construction: NAICS 237
+* Specialty Trade Contractors: NAICS 238
+
+
+#### Construction of Buildings (NAICS 236)
+
+**Definition:**
+
+> "The Construction of Buildings subsector comprises establishments primarily responsible for the construction of buildings. The work performed may include new work, additions, alterations, or maintenance and repairs. The on-site assembly of precut, panelized, and prefabricated buildings and construction of temporary buildings are included in this subsector. Part or all of the production work for which the establishments in this subsector have responsibility may be subcontracted to other construction establishments—usually specialty trade contractors." [@bls2026naics]
+
+The construction of buildings subsector consists of these industry groups:
+
+* Residential Building Construction: NAICS 2361
+* Nonresidential Building Construction: NAICS 2362
+
+#### Heavy and Civil Engineering Construction (NAICS 237)
+
+**Definition:**
+
+
+> "The Heavy and Civil Engineering Construction subsector comprises establishments whose primary activity is the construction of entire engineering projects (e.g., highways and dams), and specialty trade contractors, whose primary activity is the production of a specific component for such projects. Specialty trade contractors in Heavy and Civil Engineering Construction generally are performing activities that are specific to heavy and civil engineering construction projects and are not normally performed on buildings. The work performed may include new work, additions, alterations, or maintenance and repairs." [@bls2026naics]
+
+The heavy and civil engineering construction subsector consists of these industry groups:
+
+* Utility System Construction: NAICS 2371
+* Land Subdivision: NAICS 2372
+* Highway, Street, and Bridge Construction: NAICS 2373
+* Other Heavy and Civil Engineering Construction: NAICS 2379 
+
+#### Specialty Trade Contractors (NAICS 238)
+
+**Definition:**
+
+> "The Specialty Trade Contractors subsector comprises establishments whose primary activity is performing specific activities (e.g., pouring concrete, site preparation, plumbing, painting, and electrical work) involved in building construction or other activities that are similar for all types of construction, but that are not responsible for the entire project. The work performed may include new work, additions, alterations, maintenance, and repairs. The production work performed by establishments in this subsector is usually subcontracted from establishments of the general contractor type or operative builders, but especially in remodeling and repair construction, work also may be done directly for the owner of the property. Specialty trade contractors usually perform most of their work at the construction site, although they may have shops where they perform prefabrication and other work. Establishments primarily engaged in preparing sites for new construction are also included in this subsector." [@bls2026naics]
+
+The specialty trade contractors subsector consists of these industry groups:
+
+* Foundation, Structure, and Building Exterior Contractors: NAICS 2381
+* Building Equipment Contractors: NAICS 2382
+* Building Finishing Contractors: NAICS 2383
+* Other Specialty Trade Contractors: NAICS 2389
+
+## Manufacturing
+        
+### Manufacturing (NAICS 31-33)
+
+**Definition:**
+
+> "The Manufacturing sector comprises establishments engaged in the mechanical, physical, or chemical transformation of materials, substances, or components into new products.
+> Establishments in the Manufacturing sector are often described as plants, factories, or mills and characteristically use power-driven machines and materials-handling equipment. However, establishments that transform materials or substances into new products by hand or in the worker's home and those engaged in selling to the general public products made on the same premises from which they are sold, such as bakeries, candy stores, and custom tailors, may also be included in this sector. Manufacturing establishments may process materials or may contract with other establishments to process their materials for them. Both types of establishments are included in manufacturing." [@bls2026naics]
+
+The manufacturing sector consists of these subsectors:
+
+* Food Manufacturing: NAICS 311
+* Beverage and Tobacco Product Manufacturing: NAICS 312
+* Textile Mills: NAICS 313
+* Textile Product Mills: NAICS 314
+* Apparel Manufacturing: NAICS 315
+* Leather and Allied Product Manufacturing: NAICS 316
+* Wood Product Manufacturing: NAICS 321
+* Paper Manufacturing: NAICS 322
+* Printing and Related Support Activities: NAICS 323
+* Petroleum and Coal Products Manufacturing: NAICS 324
+* Chemical Manufacturing: NAICS 325
+* Plastics and Rubber Products Manufacturing: NAICS 326
+* Nonmetallic Mineral Product Manufacturing: NAICS 327
+* Primary Metal Manufacturing: NAICS 331
+* Fabricated Metal Product Manufacturing: NAICS 332
+* Machinery Manufacturing: NAICS 333
+* Computer and Electronic Product Manufacturing: NAICS 334
+* Electrical Equipment, Appliance, and Component Manufacturing: NAICS 335
+* Transportation Equipment Manufacturing: NAICS 336
+* Furniture and Related Product Manufacturing: NAICS 337
+* Miscellaneous Manufacturing: NAICS 339
+
+#### Food Manufacturing (NAICS 311)
+
+**Definition:**
+
+> "Industries in the Food Manufacturing subsector transform livestock and agricultural products into products for intermediate or final consumption. The industry groups are distinguished by the raw materials (generally of animal or vegetable origin) processed into food products.
+> The food products manufactured in these establishments are typically sold to wholesalers or retailers for distribution to consumers, but establishments primarily engaged in retailing bakery and candy products made on the premises not for immediate consumption are included." [@bls2026naics]
+
+The food manufacturing subsector consists of these industry groups:
+
+* Animal Food Manufacturing: NAICS 3111
+* Grain and Oilseed Milling: NAICS 3112
+* Sugar and Confectionery Product Manufacturing: NAICS 3113
+* Fruit and Vegetable Preserving and Specialty Food Manufacturing: NAICS 3114
+* Dairy Product Manufacturing: NAICS 3115
+* Animal Slaughtering and Processing: NAICS 3116
+* Seafood Product Preparation and Packaging: NAICS 3117
+* Bakeries and Tortilla Manufacturing: NAICS 3118
+* Other Food Manufacturing: NAICS 3119
+
+#### Beverage and Tobacco Product Manufacturing (NAICS 312)
+
+**Definition:**
+
+> "Industries in the Beverage and Tobacco Product Manufacturing subsector manufacture beverages and tobacco products. The industry group, Beverage Manufacturing, includes three types of establishments: (1) those that manufacture nonalcoholic beverages; (2) those that manufacture alcoholic beverages through the fermentation process; and (3) those that produce distilled alcoholic beverages. Ice manufacturing, while not a beverage, is included with nonalcoholic beverage manufacturing because it uses the same production process as water purification. The industry group, Tobacco Manufacturing, includes two types of establishments: (1) those engaged in redrying and stemming tobacco and, (2) those that manufacture tobacco products, such as cigarettes and cigars." [@bls2026naics]
+
+The beverage and tobacco product manufacturing subsector consists of these industry groups:
+
+* Beverage Manufacturing: NAICS 3121
+* Tobacco Manufacturing: NAICS 3122
+
+#### Textile Mills (NAICS 313)
+
+**Definition:**
+
+> "Industries in the Textile Mills subsector group establishments that transform a basic fiber (natural or synthetic) into a product, such as yarn or fabric that is further manufactured into usable items, such as apparel, sheets, towels, and textile bags for individual or industrial consumption. The further manufacturing may be performed in the same establishment and classified in this subsector, or it may be performed at a separate establishment and be classified elsewhere in manufacturing." [@bls2026naics]
+
+The textile mills subsector consists of these industry groups:
+
+* Fiber, Yarn, and Thread Mills: NAICS 3131
+* Fabric Mills: NAICS 3132
+* Textile and Fabric Finishing and Fabric Coating Mills: NAICS 3133
+
+#### Textile Product Mills (NAICS 314)
+
+**Definition:**
+
+> "Industries in the Textile Product Mills subsector group establishments that make textile products (except apparel). With a few exceptions, processes used in these industries are generally cut and sew (i.e., purchasing fabric and cutting and sewing to make nonapparel textile products, such as sheets and towels)." [@bls2026naics]
+
+The textile product mills subsector consists of these industry groups:
+
+* Textile Furnishings Mills: NAICS 3141
+* Other Textile Product Mills: NAICS 3149
+
+#### Apparel Manufacturing (NAICS 315)
+
+**Definition:**
+
+> "Industries in the Apparel Manufacturing subsector group establishments with two distinct manufacturing processes: (1) cut and sew (i.e., purchasing fabric and cutting and sewing to make a garment), and (2) the manufacture of garments in establishments that first knit fabric and then cut and sew the fabric into a garment. The Apparel Manufacturing subsector includes a diverse range of establishments manufacturing full lines of ready-to-wear apparel and custom apparel: apparel contractors, performing cutting or sewing operations on materials owned by others; jobbers performing entrepreneurial functions involved in apparel manufacture; and tailors, manufacturing custom garments for individual clients are all included. Knitting, when done alone, is classified in the Textile Mills subsector, but when knitting is combined with the production of complete garments, the activity is classified in Apparel Manufacturing." [@bls2026naics]
+
+The apparel manufacturing subsector consists of these industry groups:
+
+* Apparel Knitting Mills: NAICS 3151
+* Cut and Sew Apparel Manufacturing: NAICS 3152
+* Apparel Accessories and Other Apparel Manufacturing: NAICS 3159
+
+#### Leather and Allied Product Manufacturing (NAICS 316)
+
+**Definition:**
+
+> "Establishments in the Leather and Allied Product Manufacturing subsector transform hides into leather by tanning or curing and fabricating the leather into products for final consumption. It also includes the manufacture of similar products from other materials, including products (except apparel) made from "leather substitutes," such as rubber, plastics, or textiles. Rubber footwear, textile luggage, and plastics purses or wallets are examples of "leather substitute" products included in this group. The products made from leather substitutes are included in this subsector because they are made in similar ways leather products are made (e.g., luggage). They are made in the same establishments, so it is not practical to separate them." [@bls2026naics]
+
+The leather and allied product manufacturing subsector consists of these industry groups:
+
+* Leather and Hide Tanning and Finishing: NAICS 3161
+* Footwear Manufacturing: NAICS 3162
+* Other Leather and Allied Product Manufacturing: NAICS 3169
+
+#### Wood Product Manufacturing (NAICS 321)
+
+**Definition:**
+
+> "Industries in the Wood Product Manufacturing subsector manufacture wood products, such as lumber, plywood, veneers, wood containers, wood flooring, wood trusses, manufactured homes (i.e., mobile homes), and prefabricated wood buildings. The production processes of the Wood Product Manufacturing subsector include sawing, planing, shaping, laminating, and assembling of wood products starting from logs that are cut into bolts, or lumber that then may be further cut, or shaped by lathes or other shaping tools. The lumber or other transformed wood shapes may also be subsequently planed or smoothed, and assembled into finished products, such as wood containers. The Wood Product Manufacturing subsector includes establishments that make wood products from logs and bolts that are sawed and shaped, and establishments that purchase sawed lumber and make wood products. With the exception of sawmills and wood preservation establishments, the establishments are grouped into industries mainly based on the specific products manufactured." [@bls2026naics]
+
+The wood product manufacturing subsector consists of these industry groups:
+
+* Sawmills and Wood Preservation: NAICS 3211
+* Veneer, Plywood, and Engineered Wood Product Manufacturing: NAICS 3212
+* Other Wood Product Manufacturing: NAICS 3219
+
+#### Paper Manufacturing (NAICS 322)
+
+**Definition:**
+
+> "Industries in the Paper Manufacturing subsector make pulp, paper, or converted paper products. The manufacturing of these products is grouped together because they constitute a series of vertically connected processes. More than one is often carried out in a single establishment. There are essentially three activities. The manufacturing of pulp involves separating the cellulose fibers from other impurities in wood or used paper. The manufacturing of paper involves matting these fibers into a sheet. Converted paper products are made from paper and other materials by various cutting and shaping techniques and include coating and laminating activities." [@bls2026naics]
+
+The paper manufacturing subsector consists of these industry groups:
+
+* sPulp, Paper, and Paperboard Mills: NAICS 3221
+* sConverted Paper Product Manufacturing: NAICS 3222
+
+#### Printing and Related Support Activities (NAICS 323)
+
+**Definition:**
+
+> "Industries in the Printing and Related Support Activities subsector print products, such as newspapers, books, labels, business cards, stationery, business forms, and other materials, and perform support activities, such as data imaging, platemaking services, and bookbinding. The support activities included here are an integral part of the printing industry, and a product (a printing plate, a bound book, or a computer disk or file) that is an integral part of the printing industry is almost always provided by these operations." [@bls2026naics]
+
+The printing and related support activities subsector consists of a single industry group: 
+
+*  Printing and Related Support Activities: NAICS 3231.
+
+#### Petroleum and Coal Products Manufacturing (NAICS 324)
+
+**Definition:**
+
+> "The Petroleum and Coal Products Manufacturing subsector is based on the transformation of crude petroleum and coal into usable products. The dominant process is petroleum refining that involves the separation of crude petroleum into component products through such techniques as cracking and distillation.
+> In addition, this subsector includes establishments that primarily further process refined petroleum and coal products and produce products, such as asphalt coatings and petroleum lubricating oils." [@bls2026naics]
+
+The petroleum and coal products manufacturing subsector consists of a single industry group:
+
+* Petroleum and Coal Products Manufacturing: NAICS 3241.
+
+#### Chemical Manufacturing (NAICS 325)
+
+**Definition:**
+
+> "The Chemical Manufacturing subsector is based on the transformation of organic and inorganic raw materials by a chemical process and the formulation of products. This subsector distinguishes the production of basic chemicals that comprise the first industry group from the production of intermediate and end products produced by further processing of basic chemicals that make up the remaining industry groups." [@bls2026naics]
+
+The chemical manufacturing subsector consists of these industry groups:
+
+* Basic Chemical Manufacturing: NAICS 3251
+* Resin, Synthetic Rubber, and Artificial Synthetic Fibers and Filaments Manufacturing:* NAICS 3252
+* Pesticide, Fertilizer, and Other Agricultural Chemical Manufacturing: NAICS 3253
+* Pharmaceutical and Medicine Manufacturing: NAICS 3254
+* Paint, Coating, and Adhesive Manufacturing: NAICS 3255
+* Soap, Cleaning Compound, and Toilet Preparation Manufacturing: NAICS 3256
+* Other Chemical Product and Preparation Manufacturing: NAICS 3259
+
+#### Plastics and Rubber Products Manufacturing (NAICS 326)
+
+**Definition:**
+
+> "Industries in the Plastics and Rubber Products Manufacturing subsector make goods by processing plastics materials and raw rubber. The core technology employed by establishments in this subsector is that of plastics or rubber product production. Plastics and rubber are combined in the same subsector because plastics are increasingly being used as a substitute for rubber; however the subsector is generally restricted to the production of products made of just one material, either solely plastics or rubber." [@bls2026naics]
+
+The plastics and rubber products manufacturing subsector consists of these industry groups:
+
+* gPlastics Product Manufacturing: NAICS 3261
+* gRubber Product Manufacturing: NAICS 3262
+
+#### Non-metallic Mineral Product Manufacturing (NAICS 327)
+
+**Definition:**
+
+> "The Nonmetallic Mineral Product Manufacturing subsector transforms mined or quarried nonmetallic minerals, such as sand, gravel, stone, clay, and refractory materials, into products for intermediate or final consumption. Processes used include grinding, mixing, cutting, shaping, and honing. Heat often is used in the process and chemicals are frequently mixed to change the composition, purity, and chemical properties for the intended product. For example, glass is produced by heating silica sand to the melting point (sometimes combined with cullet or recycled glass) and then drawn, floated, or blow molded to the desired shape or thickness. Refractory materials are heated and then formed into bricks or other shapes for use in industrial applications." [@bls2026naics]
+
+The nonmetallic mineral product manufacturing subsector consists of these industry groups:
+
+* Clay Product and Refractory Manufacturing: NAICS 3271
+* Glass and Glass Product Manufacturing: NAICS 3272
+* Cement and Concrete Product Manufacturing: NAICS 3273
+* Lime and Gypsum Product Manufacturing: NAICS 3274
+* Other Nonmetallic Mineral Product Manufacturing: NAICS 3279
+
+#### Primary Metal Manufacturing (NAICS 331)
+
+**Definition:**
+
+> "Industries in the Primary Metal Manufacturing subsector smelt and/or refine ferrous and nonferrous metals from ore, pig or scrap, using electrometallurgical and other process metallurgical techniques. Establishments in this subsector also manufacture metal alloys and superalloys by introducing other chemical elements to pure metals. The output of smelting and refining, usually in ingot form, is used in rolling, drawing, and extruding operations to make sheet, strip, bar, rod, or wire, and in molten form to make castings and other basic metal products." [@bls2026naics]
+
+The primary metal manufacturing subsector consists of these industry groups:
+
+* Iron and Steel Mills and Ferroalloy Manufacturing: NAICS 3311
+*  Steel Product Manufacturing from Purchased Steel: NAICS 3312
+* Alumina and Aluminum Production and Processing: NAICS 3313
+* Nonferrous Metal (except Aluminum) Production and Processing: NAICS 3314
+*  Foundries: NAICS 3315
+
+#### Fabricated Metal Product Manufacturing (NAICS 332)
+
+**Definition:**
+
+> "Industries in the Fabricated Metal Product Manufacturing subsector transform metal into intermediate or end products, other than machinery, computers and electronics, and metal furniture, or treat metals and metal formed products fabricated elsewhere. Important fabricated metal processes are forging, stamping, bending, forming, and machining, used to shape individual pieces of metal; and other processes, such as welding and assembling, used to join separate parts together. Establishments in this subsector may use one of these processes or a combination of these processes." [@bls2026naics]
+
+The fabricated metal product manufacturing subsector consists of these industry groups:
+
+* Forging and Stamping: NAICS 3321
+* Cutlery and Handtool Manufacturing: NAICS 3322
+* Architectural and Structural Metals Manufacturing: NAICS 3323
+* Boiler, Tank, and Shipping Container Manufacturing: NAICS 3324
+* Hardware Manufacturing: NAICS 3325
+* Spring and Wire Product Manufacturing: NAICS 3326
+* Machine Shops; Turned Product; and Screw, Nut, and Bolt Manufacturing: NAICS 3327
+* Coating, Engraving, Heat Treating, and Allied Activities: NAICS 3328
+* Other Fabricated Metal Product Manufacturing: NAICS 3329
+
+#### Machinery Manufacturing (NAICS 333)
+
+**Definition:**
+
+> "Industries in the Machinery Manufacturing subsector create end products that apply mechanical force, for example, the application of gears and levers, to perform work. Some important processes for the manufacture of machinery are forging, stamping, bending, forming, and machining that are used to shape individual pieces of metal. Processes, such as welding and assembling are used to join separate parts together. Although these processes are similar to those used in metal fabricating establishments, machinery manufacturing is different because it typically employs multiple metal forming processes in manufacturing the various parts of the machine. Moreover, complex assembly operations are an inherent part of the production process." [@bls2026naics]
+
+The machinery manufacturing subsector consists of these industry groups:
+
+* Agriculture, Construction, and Mining Machinery Manufacturing: NAICS 3331
+* Industrial Machinery Manufacturing: NAICS 3332
+* Commercial and Service Industry Machinery Manufacturing: NAICS 3333
+* Ventilation, Heating, Air-Conditioning, and Commercial Refrigeration Equipment Manufacturing: NAICS 3334
+* Metalworking Machinery Manufacturing: NAICS 3335
+* Engine, Turbine, and Power Transmission Equipment Manufacturing: NAICS 3336
+* Other General Purpose Machinery Manufacturing: NAICS 3339
+    
+#### Computer and Electronic Product Manufacturing (NAICS 334)
+
+**Definition:**
+
+> "Industries in the Computer and Electronic Product Manufacturing subsector group establishments that manufacture computers, computer peripherals, communications equipment, and similar electronic products, and establishments that manufacture components for such products. The Computer and Electronic Product Manufacturing industries have been combined in the hierarchy of NAICS because of the economic significance they have attained. Their rapid growth suggests that they will become even more important to the economies of all three North American countries in the future, and in addition their manufacturing processes are fundamentally different from the manufacturing processes of other machinery and equipment. The design and use of integrated circuits and the application of highly specialized miniaturization technologies are common elements in the production technologies of the computer and electronic subsector." [@bls2026naics]
+
+The computer and electronic product manufacturing subsector consists of these industry groups:
+
+* Computer and Peripheral Equipment Manufacturing: NAICS 3341
+* Communications Equipment Manufacturing: NAICS 3342
+* Audio and Video Equipment Manufacturing: NAICS 3343
+* Semiconductor and Other Electronic Component Manufacturing: NAICS 3344
+* Navigational, Measuring, Electromedical, and Control Instruments Manufacturing: NAICS 3345
+* Manufacturing and Reproducing Magnetic and Optical Media: NAICS 3346
+
+#### Electrical Equipment, Appliance, and Component Manufacturing (NAICS 335)
+
+**Definition:**
+
+> "Industries in the Electrical Equipment, Appliance, and Component Manufacturing subsector manufacture products that generate, distribute and use electrical power. Electric Lighting Equipment Manufacturing establishments produce electric lamp bulbs, lighting fixtures, and parts. Household Appliance Manufacturing establishments make both small and major electrical appliances and parts. Electrical Equipment Manufacturing establishments make goods, such as electric motors, generators, transformers, and switchgear apparatus. Other Electrical Equipment and Component Manufacturing establishments make devices for storing electrical power (e.g., batteries), for transmitting electricity (e.g., insulated wire), and wiring devices (e.g., electrical outlets, fuse boxes, and light switches)." [@bls2026naics]
+
+The electrical equipment, appliance, and component manufacturing subsector consists of these industry groups:
+
+* Electric Lighting Equipment Manufacturing: NAICS 3351
+* Household Appliance Manufacturing: NAICS 3352
+* Electrical Equipment Manufacturing: NAICS 3353
+* Other Electrical Equipment and Component Manufacturing: NAICS 3359
+
+#### Transportation Equipment Manufacturing (NAICS 336)
+
+**Definition:**
+
+> "Industries in the Transportation Equipment Manufacturing subsector produce equipment for transporting people and goods. Transportation equipment is a type of machinery. An entire subsector is devoted to this activity because of the significance of its economic size in all three North American countries. Establishments in this subsector utilize production processes similar to those of other machinery manufacturing establishments - bending, forming, welding, machining, and assembling metal or plastic parts into components and finished products. However, the assembly of components and subassemblies and their further assembly into finished vehicles tends to be a more common production process in this subsector than in the Machinery Manufacturing subsector." [@bls2026naics]
+
+The transportation equipment manufacturing subsector consists of these industry groups:
+
+* Motor Vehicle Manufacturing: NAICS 3361
+* Motor Vehicle Body and Trailer Manufacturing: NAICS 3362
+* Motor Vehicle Parts Manufacturing: NAICS 3363
+* Aerospace Product and Parts Manufacturing: NAICS 3364
+* Railroad Rolling Stock Manufacturing: NAICS 3365
+* Ship and Boat Building: NAICS 3366
+* Other Transportation Equipment Manufacturing: NAICS 3369
+
+#### Furniture and Related Product Manufacturing (NAICS 337)
+
+**Definition:**
+
+> "Industries in the Furniture and Related Product Manufacturing subsector make furniture and related articles, such as mattresses, window blinds, cabinets, and fixtures. The processes used in the manufacture of furniture include the cutting, bending, molding, laminating, and assembly of such materials as wood, metal, glass, plastics, and rattan. However, the production process for furniture is not solely bending metal, cutting and shaping wood, or extruding and molding plastics. Design and fashion trends play an important part in the production of furniture. The integrated design of the article for both esthetic and functional qualities is also a major part of the process of manufacturing furniture. Design services may be performed by the furniture establishment's work force or may be purchased from industrial designers." [@bls2026naics]
+
+The furniture and related product manufacturing subsector consists of these industry groups:
+
+* Household and Institutional Furniture and Kitchen Cabinet Manufacturing: NAICS 3371
+* Office Furniture (including Fixtures) Manufacturing: NAICS 3372
+* Other Furniture Related Product Manufacturing: NAICS 3379
+
+#### Miscellaneous Manufacturing (NAICS 339)
+
+**Definition:**
+
+> "Industries in the Miscellaneous Manufacturing subsector make a wide range of products that cannot readily be classified in specific NAICS subsectors in manufacturing. Processes used by these establishments vary significantly, both among and within industries. For example, a variety of manufacturing processes are used in manufacturing sporting and athletic goods that include products such as tennis racquets and golf balls. The processes for these products differ from each other, and the processes differ significantly from the fabrication processes used in making dolls or toys, the melting and shaping of precious metals to make jewelry, and the bending, forming, and assembly used in making medical products." [@bls2026naics]
+
+The miscellaneous manufacturing subsector consists of these industry groups:
+
+* Medical Equipment and Supplies Manufacturing: NAICS 3391
+* Other Miscellaneous Manufacturing: NAICS 3399
+
+# Services-Providing Industriess
+
+## Trade, Transportation, and Utilities
+
+### Wholesale Trade (NAICS 42)
+
+**Definition:**
+
+> "The Wholesale Trade sector comprises establishments engaged in wholesaling merchandise, generally without transformation, and rendering services incidental to the sale of merchandise. The merchandise described in this sector includes the outputs of agriculture, mining, manufacturing, and certain information industries, such as publishing.
+> The wholesaling process is an intermediate step in the distribution of merchandise. Wholesalers are organized to sell or arrange the purchase or sale of (a) goods for resale (i.e., goods sold to other wholesalers or retailers), (b) capital or durable nonconsumer goods, and (c) raw and intermediate materials and supplies used in production.
+> Wholesalers sell merchandise to other businesses and normally operate from a warehouse or office. These warehouses and offices are characterized by having little or no display of merchandise. In addition, neither the design nor the location of the premises is intended to solicit walk-in traffic. Wholesalers do not normally use advertising directed to the general public. Customers are generally reached initially via telephone, in-person marketing, or by specialized advertising that may include Internet and other electronic means. Follow-up orders are either vendor-initiated or client-initiated, generally based on previous sales, and typically exhibit strong ties between sellers and buyers. In fact, transactions are often conducted between wholesalers and clients that have long-standing business relationships." [@bls2026naics]
+
+The wholesale trade sector consists of these subsectors:
+
+* Merchant Wholesalers, Durable Goods: NAICS 423
+* Merchant Wholesalers, Nondurable Goods: NAICS 424
+* Wholesale Electronic Markets and Agents and Brokers: NAICS 425
+
+#### Merchant Wholesalers, Durable Goods (NAICS 423)
+
+**Definition:**
+
+> "Industries in the Merchant Wholesalers, Durable Goods subsector sell capital or durable goods to other businesses. Merchant wholesalers generally take title to the goods that they sell; in other words, they buy and sell goods on their own account. Durable goods are new or used items generally with a normal life expectancy of three years or more. Durable goods merchant wholesale trade establishments are engaged in wholesaling products, such as motor vehicles, furniture, construction materials, machinery and equipment (including household-type appliances), metals and minerals (except petroleum), sporting goods, toys and hobby goods, recyclable materials, and parts." [@bls2026naics]
+
+The merchant wholesalers, durable goods subsector consists of these industry groups:
+
+* Motor Vehicle and Motor Vehicle Parts and Supplies Merchant Wholesalers: NAICS 4231
+* Furniture and Home Furnishing Merchant Wholesalers: NAICS 4232
+* Lumber and Other Construction Materials Merchant Wholesalers: NAICS 4233
+* Professional and Commercial Equipment and Supplies Merchant Wholesalers: NAICS 4234
+* Metal and Mineral (except Petroleum) Merchant Wholesalers: NAICS 4235
+* Electrical and Electronic Goods Merchant Wholesalers: NAICS 4236
+* Hardware, and Plumbing and Heating Equipment and Supplies Merchant Wholesalers: NAICS 4237
+* Machinery, Equipment, and Supplies Merchant Wholesalers: NAICS 4238
+* Miscellaneous Durable Goods Merchant Wholesalers: NAICS 4239
+
+#### Merchant Wholesalers, Nondurable Goods (NAICS 424)
+
+**Definition:**
+
+> "Industries in the Merchant Wholesalers, Nondurable Goods subsector sell nondurable goods to other businesses. Nondurable goods are items generally with a normal life expectancy of less than three years. Nondurable goods merchant wholesale trade establishments are engaged in wholesaling products, such as paper and paper products, chemicals and chemical products, drugs, textiles and textile products, apparel, footwear, groceries, farm products, petroleum and petroleum products, alcoholic beverages, books, magazines, newspapers, flowers and nursery stock, and tobacco products." [@bls2026naics]
+
+The merchant wholesalers, nondurable goods subsector consists of these industry groups:
+
+* Paper and Paper Product Merchant Wholesalers: NAICS 4241
+* Drugs and Druggists' Sundries Merchant Wholesalers: NAICS 4242
+* Apparel, Piece Goods, and Notions Merchant Wholesalers: NAICS 4243
+* Grocery and Related Product Wholesalers: NAICS 4244
+* Farm Product Raw Material Merchant Wholesalers: NAICS 4245
+* Chemical and Allied Products Merchant Wholesalers: NAICS 4246
+* Petroleum and Petroleum Products Merchant Wholesalers: NAICS 4247
+* Beer, Wine, and Distilled Alcoholic Beverage Merchant Wholesalers: NAICS 4248
+* Miscellaneous Nondurable Goods Merchant Wholesalers: NAICS 4249
+
+#### Wholesale Electronic Markets and Agents and Brokers (NAICS 425)
+
+**Definition:**
+
+> "Industries in the Wholesale Electronic Markets and Agents and Brokers subsector arrange for the sale of goods owned by others, generally on a fee or commission basis. They act on behalf of the buyers and sellers of goods. This subsector contains agents and brokers as well as business to business electronic markets that facilitate wholesale trade." [@bls2026naics]
+
+The wholesale electronic markets and agents and brokers subsector consists of a single industry group:
+
+* Wholesale Electronic Markets and Agents and Brokers: NAICS 4251.
+
+### Retail Trade (NAICS 44-45)
+
+**Definition:**
+
+> "The Retail Trade sector comprises establishments engaged in retailing merchandise, generally without transformation, and rendering services incidental to the sale of merchandise.
+> The retailing process is the final step in the distribution of merchandise; retailers are, therefore, organized to sell merchandise in small quantities to the general public. This sector comprises two main types of retailers: store and nonstore retailers.
+> 1. Store retailers operate fixed point-of-sale locations, located and designed to attract a high volume of walk-in customers. In general, retail stores have extensive displays of merchandise and use mass-media advertising to attract customers. They typically sell merchandise to the general public for personal or household consumption, but some also serve business and institutional clients. In addition to retailing merchandise, some types of store retailers are also engaged in the provision of after-sales services, such as repair and installation.
+> 2. Nonstore retailers, like store retailers, are organized to serve the general public, but their retailing methods differ. The establishments of this subsector reach customers and market merchandise with methods, such as the broadcasting of "infomercials," the broadcasting and publishing of direct-response advertising, the publishing of paper and electronic catalogs, door-to-door solicitation, in-home demonstration, selling from portable stalls (street vendors, except food), and distribution through vending machines." [@bls2026naics]
+
+The retail trade sector consists of these subsectors:
+
+* Motor Vehicle and Parts Dealers: NAICS 441
+* Furniture and Home Furnishings Stores: NAICS 442
+* Electronics and Appliance Stores: NAICS 443
+* Building Material and Garden Equipment and Supplies Dealers: NAICS 444
+* Food and Beverage Stores: NAICS 445
+* Health and Personal Care Stores: NAICS 446
+* Gasoline Stations: NAICS 447
+* Clothing and Clothing Accessories Stores: NAICS 448
+* Sporting Goods, Hobby, Book, and Music Stores: NAICS 451
+* General Merchandise Stores: NAICS 452
+* Miscellaneous Store Retailers: NAICS 453
+* Nonstore Retailers: NAICS 454
+
+#### Motor Vehicle and Parts Dealers (NAICS 441)
+
+**Definition:**
+
+> "Industries in the Motor Vehicle and Parts Dealers subsector retail motor vehicles and parts from fixed point-of-sale locations. Establishments in this subsector typically operate from a showroom and/or an open lot where the vehicles are on display. The display of vehicles and the related parts require little by way of display equipment. The personnel generally include both the sales and sales support staff familiar with the requirements for registering and financing a vehicle as well as a staff of parts experts and mechanics trained to provide repair and maintenance services for the vehicles. Specific industries have been included in this subsector to identify the type of vehicle being retailed." [@bls2026naics]
+
+The motor vehicle and parts dealers subsector consists of these industry groups:
+
+*  Automobile Dealers: NAICS 4411
+* Other Motor Vehicle Dealers: NAICS 4412
+*   Automotive Parts, Accessories, and Tire Stores: NAICS 4413
+
+#### Furniture and Home Furnishings Stores (NAICS 442)
+
+**Definition:**
+
+> "Industries in the Furniture and Home Furnishings Stores subsector retail new furniture and home furnishings from fixed point-of-sale locations. Establishments in this subsector usually operate from showrooms and have substantial areas for the presentation of their products. Many offer interior decorating services in addition to the sale of products." [@bls2026naics]
+
+The furniture and home furnishings stores subsector consists of these industry groups:
+
+* Furniture Stores: NAICS 4421
+* Home Furnishings Stores: NAICS 4422
+
+#### Electronics and Appliance Stores (NAICS 443)
+
+**Definition:**
+
+> "Industries in the Electronics and Appliance Stores subsector retail new electronics and appliances from point-of-sale locations. Establishments in this subsector often operate from locations that have special provisions for floor displays requiring special electrical capacity to accommodate the proper demonstration of the products. The staff includes sales personnel knowledgeable in the characteristics and warranties of the line of goods retailed and may also include trained repair persons to handle the maintenance and repair of the electronic equipment and appliances. The classifications within this subsector are made principally on the type of product and knowledge required to operate each type of store." [@bls2026naics]
+
+The electronics and appliance stores subsector consists of a single industry group:
+
+* Electronics and Appliance Stores: NAICS 4431.
+
+#### Building Material and Garden Equipment and Supplies Dealers (NAICS 444)
+
+**Definition:**
+
+> "Industries in the Building Material and Garden Equipment and Supplies Dealers subsector retail new building material and garden equipment and supplies from fixed point-of-sale locations. Establishments in this subsector have display equipment designed to handle lumber and related products and garden equipment and supplies that may be kept either indoors or outdoors under covered areas. The staff is usually knowledgeable in the use of the specific products being retailed in the construction, repair, and maintenance of the home and associated grounds." [@bls2026naics]
+
+The building material and garden equipment and supplies dealers subsector consists of these industry groups:
+
+* Building Material and Supplies Dealers: NAICS 4441
+* Lawn and Garden Equipment and Supplies Stores: NAICS 4442
+
+
+#### Food and Beverage Stores (NAICS 445)
+
+**Definition:**
+
+> "Industries in the Food and Beverage Stores subsector usually retail food and beverages merchandise from fixed point-of-sale locations. Establishments in this subsector have special equipment (e.g., freezers, refrigerated display cases, refrigerators) for displaying food and beverage goods. They have staff trained in the processing of food products to guarantee the proper storage and sanitary conditions required by regulatory authority." [@bls2026naics]
+
+The food and beverage stores subsector consists of these industry groups:
+
+* Grocery Stores: NAICS 4451
+* Specialty Food Stores: NAICS 4452
+* Beer, Wine, and Liquor Stores: NAICS 4453
+
+#### Health and Personal Care Stores (NAICS 446)
+
+**Definition:**
+
+> "Industries in the Health and Personal Care Stores subsector retail health and personal care merchandise from fixed point-of-sale locations. Establishments in this subsector are characterized principally by the products they retail, and some health and personal care stores may have specialized staff trained in dealing with the products. Staff may include pharmacists, opticians, and other professionals engaged in retailing, advising customers, and/or fitting the product sold to the customer's needs." [@bls2026naics]
+
+The health and personal care stores subsector consists of a single industry group:
+
+* Health and Personal Care Stores: NAICS 4461. 
+
+#### Gasoline Stations (NAICS 447)
+
+**Definition:**
+
+> "Industries in the Gasoline Stations subsector retail automotive fuels (e.g., gasoline, diesel fuel, gasohol) and automotive oils or retail these products in combination with convenience store items. These establishments have specialized equipment for the storage and dispensing of automotive fuels." [@bls2026naics]
+
+The gasoline stations subsector consists of a single industry group:
+
+* Gasoline Stations: NAICS 4471. 
+
+#### Clothing and Clothing Accessories Stores (NAICS 448)
+
+**Definition:**
+
+> "Industries in the Clothing and Clothing Accessories Stores subsector retail new clothing and clothing accessories merchandise from fixed point-of-sale locations. Establishments in this subsector have similar display equipment and staff that is knowledgeable regarding fashion trends and the proper match of styles, colors, and combinations of clothing and accessories to the characteristics and tastes of the customer." [@bls2026naics]
+
+The clothing and clothing accessories stores subsector consists of these industry groups:
+
+*  Clothing Stores: NAICS 4481
+* Shoe Stores: NAICS 4482
+* Jewelry, Luggage, and Leather Goods Stores: NAICS 4483
+
+#### Sporting Goods, Hobby, Book, and Music Stores (NAICS 451)
+
+**Definition:**
+
+> "Industries in the Sporting Goods, Hobby, Book, and Music Stores subsector are engaged in retailing and providing expertise on use of sporting equipment or other specific leisure activities, such as needlework and musical instruments. Book stores are also included in this subsector." [@bls2026naics]
+
+The sporting goods, hobby, book, and music stores subsector consists of these industry groups:
+
+* Sporting Goods, Hobby, and Musical Instrument Stores: NAICS 4511
+* Book, Periodical, and Music Stores: NAICS 4512
+
+
+#### General Merchandise Stores (NAICS 452)
+
+**Definition:**
+
+> "Industries in the General Merchandise Stores subsector retail new general merchandise from fixed point-of-sale locations. Establishments in this subsector are unique in that they have the equipment and staff capable of retailing a large variety of goods from a single location. This includes a variety of display equipment and staff trained to provide information on many lines of products." [@bls2026naics]
+
+The general merchandise stores subsector consists of these industry groups:
+
+*  Department Stores: NAICS 4521
+* Other General Merchandise Stores: NAICS 4529
+
+
+#### Miscellaneous Store Retailers (NAICS 453)
+
+**Definition:**
+
+> "Industries in the Miscellaneous Store Retailers subsector retail merchandise from fixed point-of-sale locations (except new or used motor vehicles and parts; new furniture and home furnishings; new appliances and electronic products; new building materials and garden equipment and supplies; food and beverages; health and personal care goods; gasoline; new clothing and accessories; and new sporting goods, hobby goods, books, and music). Establishments in this subsector include stores with unique characteristics like florists, used merchandise stores, and pet and pet supply stores as well as other store retailers." [@bls2026naics]
+
+The miscellaneous store retailers subsector consists of these industry groups:
+
+* Florists: NAICS 4531
+* Office Supplies, Stationery, and Gift Stores: NAICS 4532
+* Used Merchandise Stores: NAICS 4533
+* Other Miscellaneous Store Retailers: NAICS 4539
+
+
+#### Nonstore Retailers (NAICS 454)
+
+**Definition:**
+
+> "Industries in the Nonstore Retailers subsector retail merchandise using methods, such as the broadcasting of infomercials, the broadcasting and publishing of direct-response advertising, the publishing of paper and electronic catalogs, door-to-door solicitation, in-home demonstration, selling from portable stalls and distribution through vending machines. Establishments in this subsector include mail-order houses, vending machine operators, home delivery sales, door-to-door sales, party plan sales, electronic shopping, and sales through portable stalls (e.g., street vendors, except food). Establishments engaged in the direct sale (i.e., nonstore) of products, such as home heating oil dealers and newspaper delivery service providers are included in this subsector." [@bls2026naics]
+
+The nonstore retailers subsector consists of these industry groups:
+
+* Electronic Shopping and Mail-Order Houses: NAICS 4541
+* Vending Machine Operators: NAICS 4542
+* Direct Selling Establishments: NAICS 4543
+
+
+### Transportation and Warehousing (NAICS 48-49)
+
+**Definition:**
+
+> "The Transportation and Warehousing sector includes industries providing transportation of passengers and cargo, warehousing and storage for goods, scenic and sightseeing transportation, and support activities related to modes of transportation. Establishments in these industries use transportation equipment or transportation related facilities as a productive asset. The type of equipment depends on the mode of transportation. The modes of transportation are air, rail, water, road, and pipeline." [@bls2026naics]
+
+The transportation and warehousing sector consists of these subsectors:
+
+* Air Transportation: NAICS 481
+* Rail Transportation: NAICS 482
+* Water Transportation: NAICS 483
+* Truck Transportation: NAICS 484
+* Transit and Ground Passenger Transportation: NAICS 485
+* Pipeline Transportation: NAICS 486
+* Scenic and Sightseeing Transportation: NAICS 487
+* Support Activities for Transportation: NAICS 488
+* Postal Service: NAICS 491
+* Couriers and Messengers: NAICS 492
+* Warehousing and Storage: NAICS 493
+
+
+#### Air Transportation (NAICS 481)
+
+**Definition:**
+
+> "Industries in the Air Transportation subsector provide air transportation of passengers and/or cargo using aircraft, such as airplanes and helicopters. The subsector distinguishes scheduled from nonscheduled air transportation. Scheduled air carriers fly regular routes on regular schedules and operate even if flights are only partially loaded. Nonscheduled carriers often operate during nonpeak time slots at busy airports. These establishments have more flexibility with respect to choice of airport, hours of operation, load factors, and similar operational characteristics. Nonscheduled carriers provide chartered air transportation of passengers, cargo, or specialty flying services. Specialty flying services establishments use general-purpose aircraft to provide a variety of specialized flying services." [@bls2026naics]
+
+The air transportation subsector consists of these industry groups:
+
+* Scheduled Air Transportation: NAICS 4811
+* Nonscheduled Air Transportation: NAICS 4812
+
+
+#### Rail Transportation (NAICS 482)
+
+**Definition:**
+
+> "Industries in the Rail Transportation subsector provide rail transportation of passengers and/or cargo using railroad rolling stock. The railroads in this subsector primarily either operate on networks, with physical facilities, labor force, and equipment spread over an extensive geographic area, or operate over a short distance on a local rail line." [@bls2026naics]
+
+The rail transportation subsector consists of a single industry group:
+
+*  Rail Transportation: NAICS 4821. 
+
+#### Water Transportation (NAICS 483)
+
+**Definition:**
+
+> "Industries in the Water Transportation subsector provide water transportation of passengers and cargo using watercraft, such as ships, barges, and boats.
+> The subsector is composed of two industry groups: (1) one for deep sea, coastal, and Great Lakes; and (2) one for inland water transportation. This split typically reflects the difference in equipment used." [@bls2026naics]
+
+The water transportation subsector consists of these industry groups:
+
+* Deep Sea, Coastal, and Great Lakes Water Transportation: NAICS 4831
+* Inland Water Transportation: NAICS 4832
+
+
+#### Truck Transportation (NAICS 484)
+
+**Definition:**
+
+> "Industries in the Truck Transportation subsector provide over-the-road transportation of cargo using motor vehicles, such as trucks and tractor trailers. The subsector is subdivided into general freight trucking and specialized freight trucking. This distinction reflects differences in equipment used, type of load carried, scheduling, terminal, and other networking services. General freight transportation establishments handle a wide variety of general commodities, generally palletized, and transported in a container or van trailer. Specialized freight transportation is the transportation of cargo that, because of size, weight, shape, or other inherent characteristics require specialized equipment for transportation." [@bls2026naics]
+
+The truck transportation subsector consists of these industry groups:
+
+* General Freight Trucking: NAICS 4841
+* Specialized Freight Trucking: NAICS 4842
+
+
+#### Transit and Ground Passenger Transportation (NAICS 485)
+
+**Definition:**
+
+> "Industries in the Transit and Ground Passenger Transportation subsector include a variety of passenger transportation activities, such as urban transit systems; chartered bus, school bus, and interurban bus transportation; and taxis. These activities are distinguished based primarily on such production process factors as vehicle types, routes, and schedules." [@bls2026naics]
+
+The transit and ground passenger transportation subsector consists of these industry groups:
+
+* Urban Transit Systems: NAICS 4851
+* Interurban and Rural Bus Transportation: NAICS 4852
+* Taxi and Limousine Service: NAICS 4853
+* School and Employee Bus Transportation: NAICS 4854
+* Charter Bus Industry: NAICS 4855
+* Other Transit and Ground Passenger Transportation: NAICS 4859
+
+
+#### Pipeline Transportation (NAICS 486)
+
+**Definition:**
+
+> "Industries in the Pipeline Transportation subsector use transmission pipelines to transport products, such as crude oil, natural gas, refined petroleum products, and slurry. Industries are identified based on the products transported (i.e., pipeline transportation of crude oil, natural gas, refined petroleum products, and other products).
+> The Pipeline Transportation of Natural Gas industry includes the storage of natural gas because the storage is usually done by the pipeline establishment and because a pipeline is inherently a network in which all the nodes are interdependent." [@bls2026naics]
+
+The pipeline transportation subsector consists of these industry groups:
+
+* Pipeline Transportation of Crude Oil: NAICS 4861
+* Pipeline Transportation of Natural Gas: NAICS 4862
+* Other Pipeline Transportation: NAICS 4869
+
+
+#### Scenic and Sightseeing Transportation (NAICS 487)
+
+**Definition:**
+
+> "Industries in the Scenic and Sightseeing Transportation subsector utilize transportation equipment to provide recreation and entertainment. These activities have a production process distinct from passenger transportation carried out for the purpose of other types of for-hire transportation. This process does not emphasize efficient transportation; in fact, such activities often use obsolete vehicles, such as steam trains, to provide some extra ambience. The activity is local in nature, usually involving a same-day return to the point of departure." [@bls2026naics]
+
+The scenic and sightseeing transportation subsector consists of these industry groups:
+
+* Scenic and Sightseeing Transportation, Land: NAICS 4871
+* Scenic and Sightseeing Transportation, Water: NAICS 4872
+* Scenic and Sightseeing Transportation, Other: NAICS 4879
+
+#### Support Activities for Transportation (NAICS 488)
+
+**Definition:**
+
+> "Industries in the Support Activities for Transportation subsector provide services which support transportation. These services may be provided to transportation carrier establishments or to the general public. This subsector includes a wide array of establishments, including air traffic control services, marine cargo handling, and motor vehicle towing." [@bls2026naics]
+
+The support activities for transportation subsector consists of these industry groups:
+
+* Support Activities for Air Transportation: NAICS 4881
+* Support Activities for Rail Transportation: NAICS 4882
+* Support Activities for Water Transportation: NAICS 4883
+* Support Activities for Road Transportation: NAICS 4884
+* Freight Transportation Arrangement: NAICS 4885
+* Other Support Activities for Transportation: NAICS 4889
+
+#### Postal Service (NAICS 491)
+
+**Definition:**
+
+> "The Postal Service subsector includes the activities of the National Post Office and its subcontractors operating under a universal service obligation to provide mail services, and using the infrastructure required to fulfill that obligation. These services include delivering letters and small parcels. These articles can be described as those that can be handled by one person without using special equipment. This allows the collection, pick-up, and delivery operations to be done with limited labor costs and minimal equipment. Sorting and transportation activities, where necessary, are generally mechanized. The restriction to small parcels distinguishes these establishments from those in the transportation industries. These establishments may also provide express delivery services using the infrastructure established for provision of basic mail services." [@bls2026naics]
+
+The postal service subsector consists of a single industry group: 
+
+* Postal Service: NAICS 4911. 
+
+#### Couriers and Messengers (NAICS 492)
+
+**Definition:**
+
+> "Industries in the Couriers and Messengers subsector provide intercity and/or local delivery of parcels and documents (including express delivery services) without operating under a universal service obligation. These articles can be described as those that may be handled by one person without using special equipment. This allows the collection, pick-up, and delivery operations to be done with limited labor costs and minimal equipment. Sorting and transportation activities, where necessary, are generally mechanized. The restriction to small parcels partly distinguishes these establishments from those in the transportation industries. The complete network of courier services establishments also distinguishes these transportation services from local messenger and delivery establishments in this subsector. This includes the establishments that perform intercity transportation as well as establishments that, under contract to them, perform local pick-up and delivery. Messengers, which usually deliver within a metropolitan or single urban area, may use bicycle, foot, small truck, or van." [@bls2026naics]
+
+The couriers and messengers subsector consists of these industry groups:
+
+* Couriers: NAICS 4921
+* Local Messengers and Local Delivery: NAICS 4922
+
+
+#### Warehousing and Storage (NAICS 493)
+
+**Definition:**
+
+> "Industries in the Warehousing and Storage subsector are primarily engaged in operating warehousing and storage facilities for general merchandise, refrigerated goods, and other warehouse products. These establishments provide facilities to store goods. They do not sell the goods they handle. These establishments take responsibility for storing the goods and keeping them secure. They may also provide a range of services, often referred to as logistics services, related to the distribution of goods. Logistics services can include labeling, breaking bulk, inventory control and management, light assembly, order entry and fulfillment, packaging, pick and pack, price marking and ticketing, and transportation arrangement. However, establishments in this industry group always provide warehousing or storage services in addition to any logistic services. Furthermore, the warehousing or storage of goods must be more than incidental to the performance of services, such as price marking." [@bls2026naics]
+
+The warehousing and storage subsector consists of a single industry group:
+
+* Warehousing and Storage: NAICS 4931.
+
+### Utilities (NAICS 22)
+
+**Definition:**
+
+> "The Utilities sector comprises establishments engaged in the provision of the following utility services: electric power, natural gas, steam supply, water supply, and sewage removal. Within this sector, the specific activities associated with the utility services provided vary by utility: electric power includes generation, transmission, and distribution; natural gas includes distribution; steam supply includes provision and/or distribution; water supply includes treatment and distribution; and sewage removal includes collection, treatment, and disposal of waste through sewer systems and sewage treatment facilities." [@bls2026naics]
+
+The utilities sector consists of a single subsector, Utilities: NAICS 221. Data published under either the sector or subsector classification are included in the tables below. The subsector consists of these industry groups:
+
+* Electric Power Generation, Transmission and Distribution: NAICS 2211
+* Natural Gas Distribution: NAICS 2212
+* Water, Sewage and Other Systems: NAICS 2213
+
+
+## Information
+        
+### Information (NAICS 51)
+
+**Definition:**
+
+> "The Information sector comprises establishments engaged in the following processes: (a) producing and distributing information and cultural products, (b) providing the means to transmit or distribute these products as well as data or communications, and (c) processing data.
+> The main components of this sector are the publishing industries, including software publishing, and both traditional publishing and publishing exclusively on the Internet; the motion picture and sound recording industries; the broadcasting industries, including traditional broadcasting and those broadcasting exclusively over the Internet; the telecommunications industries; Web search portals, data processing industries, and the information services industries.
+> The Information sector groups three types of establishments: (1) those engaged in producing and distributing information and cultural products; (2) those that provide the means to transmit or distribute these products as well as data or communications; and (3) those that process data." [@bls2026naics]
+
+The information sector consists of these subsectors:
+
+* Publishing Industries (except Internet): NAICS 511
+* Motion Picture and Sound Recording Industries: NAICS 512
+* Broadcasting (except Internet): NAICS 515
+* Telecommunications: NAICS 517
+* Data Processing, Hosting, and Related Services: NAICS 518
+* Other Information Services: NAICS 519
+
+#### Publishing Industries (except Internet) (NAICS 511)
+
+**Definition:**
+
+> "Industries in the Publishing Industries (except Internet) subsector group establishments engaged in the publishing of newspapers, magazines, other periodicals, and books, as well as directory and mailing list and software publishing. In general, these establishments, which are known as publishers, issue copies of works for which they usually possess copyright. Works may be in one or more formats including traditional print form, CD-ROM, or proprietary electronic networks. Publishers may publish works originally created by others for which they have obtained the rights and/or works that they have created in-house. Software publishing is included here because the activity, creation of a copyrighted product and bringing it to market, is equivalent to the creation process for other types of intellectual products." [@bls2026naics]
+
+The publishing industries (except internet) subsector consists of these industry groups:
+
+* Newspaper, Periodical, Book, and Directory Publishers: NAICS 5111
+* Software Publishers: NAICS 5112
+
+
+#### Motion Picture and Sound Recording Industries (NAICS 512)
+
+**Definition:**
+
+> "Industries in the Motion Picture and Sound Recording Industries subsector group establishments involved in the production and distribution of motion pictures and sound recordings. While producers and distributors of motion pictures and sound recordings issue works for sale as traditional publishers do, the processes are sufficiently different to warrant placing establishments engaged in these activities in a separate subsector. Production is typically a complex process that involves several distinct types of establishments that are engaged in activities, such as contracting with performers, creating the film or sound content, and providing technical postproduction services. Film distribution is often to exhibitors, such as theaters and broadcasters, rather than through the wholesale and retail distribution chain. When the product is in a mass-produced form, NAICS treats production and distribution as the major economic activity as it does in the Publishing Industries subsector, rather than as a subsidiary activity to the manufacture of such products." [@bls2026naics]
+
+The motion picture and sound recording industries subsector consists of these industry groups:
+
+* Motion Picture and Video Industries: NAICS 5121
+* Sound Recording Industries: NAICS 5122
+
+
+#### Broadcasting (except Internet) (NAICS 515)
+
+**Definition:**
+
+> "Industries in the Broadcasting (except Internet) subsector include establishments that create content or acquire the right to distribute content and subsequently broadcast the content. The industry groups (Radio and Television Broadcasting and Cable and Other Subscription Programming) are based on differences in the methods of communication and the nature of services provided. The Radio and Television Broadcasting industry group includes establishments that operate broadcasting studios and facilities for over the air or satellite delivery of radio and television programs of entertainment, news, talk, and the like. These establishments are often engaged in the production and purchase of programs and generating revenues from the sale of air time to advertisers and from donations, subsidies, and/or the sale of programs. The Cable and Other Subscription Programming industry group includes establishments operating studios and facilities for the broadcasting of programs that are typically narrowcast in nature (limited format, such as news, sports, education, and youth-oriented programming) on a subscription or fee basis." [@bls2026naics]
+
+The broadcasting (except internet) subsector consists of these industry groups:
+
+*  Radio and Television Broadcasting: NAICS 5151
+*  Cable and Other Subscription Programming: NAICS 5152
+
+
+
+#### Telecommunications (NAICS 517)
+
+**Definition:**
+
+> "Industries in the Telecommunications subsector group establishments that provide telecommunications and the services related to that activity (e.g., telephony, including Voice over Internet Protocol (VoIP); cable and satellite television distribution services; Internet access; telecommunications reselling services). The Telecommunications subsector is primarily engaged in operating, and/or providing access to facilities for the transmission of voice, data, text, sound, and video. Transmission facilities may be based on a single technology or a combination of technologies." [@bls2026naics]
+
+The telecommunications subsector consists of these industry groups:
+
+* Wired Telecommunications Carriers: NAICS 5171
+* Wireless Telecommunications Carriers (except Satellite): NAICS 5172
+* Telecommunications Resellers: NAICS 5173
+* Satellite Telecommunications: NAICS 5174
+* Cable and Other Program Distribution: NAICS 5175
+* Other Telecommunications: NAICS 5179
+
+#### Data Processing, Hosting, and Related Services (NAICS 518)
+
+**Definition:**
+
+> "Industries in the Data Processing, Hosting, and Related Services subsector group establishments that provide the infrastructure for hosting and/or data processing services." [@bls2026naics]
+
+The data processing, hosting, and related services subsector consists of a single industry group: 
+
+* Data Processing, Hosting, and Related Services: NAICS 5182.
+
+#### Other Information Services (NAICS 519)
+
+**Definition:**
+
+> "Industries in the Other Information Services subsector group establishments supplying information, storing and providing access to information, searching and retrieving information, operating Web sites that use search engines to allow for searching information on the Internet, or publishing and/or broadcasting content exclusively on the Internet. The main components of the subsector are news syndicates, libraries, archives, exclusive Internet publishing and/or broadcasting, and Web Search Portals." [@bls2026naics]
+
+The other information services subsector consists of a single industry group:
+
+* Other Information Services: NAICS 5191.
+
+## Financial Activities
+
+### Finance and Insurance (NAICS 52)
+
+**Definition:**
+
+> "The Finance and Insurance sector comprises establishments primarily engaged in financial transactions (transactions involving the creation, liquidation, or change in ownership of financial assets) and/or in facilitating financial transactions. Three principal types of activities are identified:
+> 1. Raising funds by taking deposits and/or issuing securities and, in the process, incurring liabilities. Establishments engaged in this activity use raised funds to acquire financial assets by making loans and/or purchasing securities. Putting themselves at risk, they channel funds from lenders to borrowers and transform or repackage the funds with respect to maturity, scale, and risk. This activity is known as financial intermediation.
+> 2. Pooling of risk by underwriting insurance and annuities. Establishments engaged in this activity collect fees, insurance premiums, or annuity considerations; build up reserves; invest those reserves; and make contractual payments. Fees are based on the expected incidence of the insured risk and the expected return on investment.
+> 3. Providing specialized services facilitating or supporting financial intermediation, insurance, and employee benefit programs.
+> In addition, monetary authorities charged with monetary control are included in this sector." [@bls2026naics]
+
+The finance and insurance sector consists of these subsectors:
+
+* Monetary Authorities - Central Bank: NAICS 521
+* Credit Intermediation and Related Activities: NAICS 522
+* Securities, Commodity Contracts, and Other Financial Investments and Related Activities: NAICS 523
+* Insurance Carriers and Related Activities: NAICS 524
+* Funds, Trusts, and Other Financial Vehicles: NAICS 525
+
+#### Monetary Authorities - Central Bank (NAICS 521)
+
+**Definition:**
+
+> "The Monetary Authorities-Central Bank subsector groups establishments that engage in performing central banking functions, such as issuing currency, managing the Nation's money supply and international reserves, holding deposits that represent the reserves of other banks and other central banks, and acting as a fiscal agent for the central government." [@bls2026naics]
+
+The monetary authorities - central bank subsector consists of a single industry group: 
+
+* Monetary Authorities - Central Bank: NAICS 5211. 
+
+#### Credit Intermediation and Related Activities (NAICS 522)
+
+**Definition:**
+
+> "Industries in the Credit Intermediation and Related Activities subsector group establishments that (1) lend funds raised from depositors; (2) lend funds raised from credit market borrowing; or (3) facilitate the lending of funds or issuance of credit by engaging in such activities as mortgage and loan brokerage, clearinghouse and reserve services, and check cashing services." [@bls2026naics]
+
+The credit intermediation and related activities subsector consists of these industry groups:
+
+*  Depository Credit Intermediation: NAICS 5221
+*  Nondepository Credit Intermediation: NAICS 5222
+*  Activities Related to Credit Intermediation: NAICS 5223
+
+#### Securities, Commodity Contracts, and Other Financial Investments and Related Activities (NAICS 523)
+
+**Definition:**
+
+> "Industries in the Securities, Commodity Contracts, and Other Financial Investments and Related Activities subsector group establishments that are primarily engaged in one of the following: (1) underwriting securities issues and/or making markets for securities and commodities; (2) acting as agents (i.e., brokers) between buyers and sellers of securities and commodities; (3) providing securities and commodity exchange services; and (4) providing other services, such as managing portfolios of assets; providing investment advice; and trust, fiduciary, and custody services." [@bls2026naics]
+
+The securities, commodity contracts, and other financial investments and related activities subsector consists of these industry groups:
+
+*  Securities and Commodity Contracts Intermediation and Brokerage: NAICS 5231
+*  Securities and Commodity Exchanges: NAICS 5232
+*  Other Financial Investment Activities: NAICS 5239
+
+
+#### Insurance Carriers and Related Activities (NAICS 524)
+
+**Definition:**
+
+> "Industries in the Insurance Carriers and Related Activities subsector group establishments that are primarily engaged in one of the following: (1) underwriting (assuming the risk, assigning premiums, and so forth) annuities and insurance policies or (2) facilitating such underwriting by selling insurance policies, and by providing other insurance and employee-benefit related services." [@bls2026naics]
+
+The insurance carriers and related activities subsector consists of these industry groups:
+
+* Insurance Carriers: NAICS 5241
+* Agencies, Brokerages, and Other Insurance Related Activities: NAICS 5242
+
+
+#### Funds, Trusts, and Other Financial Vehicles (NAICS 525)
+
+**Definition:**
+
+> "Industries in the Funds, Trusts, and Other Financial Vehicles subsector are comprised of legal entities (i.e., funds, plans, and/or programs) organized to pool securities or other assets on behalf of shareholders or beneficiaries of employee benefit or other trust funds. The portfolios are customized to achieve specific investment characteristics, such as diversification, risk, rate of return, and price volatility. These entities earn interest, dividends, and other investment income, but have little or no employment and no revenue from the sale of services." [@bls2026naics]
+
+The funds, trusts, and other financial vehicles subsector consists of these industry groups:
+
+*  Insurance and Employee Benefit Funds: NAICS 5251
+*  Other Investment Pools and Funds: NAICS 5259
+
+
+### Real Estate and Rental and Leasing (NAICS 53)
+
+**Definition:**
+
+> "The Real Estate and Rental and Leasing sector comprises establishments primarily engaged in renting, leasing, or otherwise allowing the use of tangible or intangible assets, and establishments providing related services. The major portion of this sector comprises establishments that rent, lease, or otherwise allow the use of their own assets by others. The assets may be tangible, as is the case of real estate and equipment, or intangible, as is the case with patents and trademarks.
+> This sector also includes establishments primarily engaged in managing real estate for others, selling, renting and/or buying real estate for others, and appraising real estate. These activities are closely related to this sector's main activity, and it was felt that from a production basis they would best be included here. In addition, a substantial proportion of property management is self-performed by lessors.
+> The main components of this sector are the real estate lessors industries (including equity real estate investment trusts (REITs)); equipment lessors industries (including motor vehicles, computers, and consumer goods); and lessors of nonfinancial intangible assets (except copyrighted works)." [@bls2026naics]
+
+The real estate and rental and leasing sector consists of these subsectors:
+
+*  Real Estate: NAICS 531
+*  Rental and Leasing Services: NAICS 532
+*  Lessors of Nonfinancial Intangible Assets (except Copyrighted Works): NAICS 533
+
+
+#### Real Estate (NAICS 531)
+
+**Definition:**
+
+> "Industries in the Real Estate subsector group establishments that are primarily engaged in renting or leasing real estate to others; managing real estate for others; selling, buying, or renting real estate for others; and providing other real estate related services, such as appraisal services.
+> This subsector includes equity Real Estate Investment Trusts (REITs) that are primarily engaged in leasing buildings, dwellings, or other real estate property to others." [@bls2026naics]
+
+The real estate subsector consists of these industry groups:
+
+*  Lessors of Real Estate: NAICS 5311
+*  Offices of Real Estate Agents and Brokers: NAICS 5312
+*  Activities Related to Real Estate: NAICS 5313
+
+#### Rental and Leasing Services (NAICS 532)
+
+**Definition:**
+
+> "Industries in the Rental and Leasing Services subsector include establishments that provide a wide array of tangible goods, such as automobiles, computers, consumer goods, and industrial machinery and equipment, to customers in return for a periodic rental or lease payment.
+> The subsector includes two main types of establishments: (1) those that are engaged in renting consumer goods and equipment and (2) those that are engaged in leasing machinery and equipment often used for business operations." [@bls2026naics]
+
+The rental and leasing services subsector consists of these industry groups:
+
+*  Automotive Equipment Rental and Leasing: NAICS 5321
+*  Consumer Goods Rental: NAICS 5322
+*  General Rental Centers: NAICS 5323
+*  Commercial and Industrial Machinery and Equipment Rental and Leasing: NAICS 5324
+
+#### Lessors of Nonfinancial Intangible Assets (except Copyrighted Works) (NAICS 533)
+
+**Definition:**
+
+> "Industries in the Lessors of Nonfinancial Intangible Assets (except Copyrighted Works) subsector include establishments that are primarily engaged in assigning rights to assets, such as patents, trademarks, brand names, and/or franchise agreements for which a royalty payment or licensing fee is paid to the asset holder. Establishments in this subsector own the patents, trademarks, and/or franchise agreements that they allow others to use or reproduce for a fee and may or may not have created those assets." [@bls2026naics]
+
+The lessors of nonfinancial intangible assets (except copyrighted works) subsector consists of a single industry group: 
+
+* Lessors of Nonfinancial Intangible Assets (except Copyrighted Works): NAICS 5331. 
+
+## Professional and Business Services
+
+
+### Professional, Scientific, and Technical Services (NAICS 54)
+
+**Definition:**
+
+> "The Professional, Scientific, and Technical Services sector comprises establishments that specialize in performing professional, scientific, and technical activities for others. These activities require a high degree of expertise and training. The establishments in this sector specialize according to expertise and provide these services to clients in a variety of industries and, in some cases, to households. Activities performed include: legal advice and representation; accounting, bookkeeping, and payroll services; architectural, engineering, and specialized design services; computer services; consulting services; research services; advertising services; photographic services; translation and interpretation services; veterinary services; and other professional, scientific, and technical services." [@bls2026naics]
+
+The professional, scientific, and technical services sector consists of a single subsector, Professional, Scientific, and Technical Services: NAICS 541. Data published under either the sector or subsector classification are included in the tables below. The subsector consists of these industry groups:
+
+*  Legal Services: NAICS 5411
+*  Accounting, Tax Preparation, Bookkeeping, and Payroll Services: NAICS 5412
+*  Architectural, Engineering, and Related Services: NAICS 5413
+*  Specialized Design Services: NAICS 5414
+*  Computer Systems Design and Related Services: NAICS 5415
+*  Management, Scientific, and Technical Consulting Services: NAICS 5416
+*  Scientific Research and Development Services: NAICS 5417
+*  Advertising and Related Services: NAICS 5418
+*  Other Professional, Scientific, and Technical Services: NAICS 5419
+
+
+### Management of Companies and Enterprises (NAICS 55)
+
+**Definition:**
+
+> "The Management of Companies and Enterprises sector comprises (1) establishments that hold the securities of (or other equity interests in) companies and enterprises for the purpose of owning a controlling interest or influencing management decisions or (2) establishments (except government establishments) that administer, oversee, and manage establishments of the company or enterprise and that normally undertake the strategic or organizational planning and decision making role of the company or enterprise. Establishments that administer, oversee, and manage may hold the securities of the company or enterprise.
+> Establishments in this sector perform essential activities that are often undertaken, in-house, by establishments in many sectors of the economy. By consolidating the performance of these activities of the enterprise at one establishment, economies of scale are achieved." [@bls2026naics]
+
+The management of companies and enterprises sector consists of a single subsector: 
+
+* Management of Companies and Enterprises: NAICS 5511.
+
+### Administrative and Support and Waste Management and Remediation Services (NAICS 56)
+
+**Definition:**
+
+> "The Administrative and Support and Waste Management and Remediation Services sector comprises establishments performing routine support activities for the day-to-day operations of other organizations. These essential activities are often undertaken in-house by establishments in many sectors of the economy. The establishments in this sector specialize in one or more of these support activities and provide these services to clients in a variety of industries and, in some cases, to households. Activities performed include: office administration, hiring and placing of personnel, document preparation and similar clerical services, solicitation, collection, security and surveillance services, cleaning, and waste disposal services." [@bls2026naics]
+
+The administrative and support and waste management and remediation services sector consists of these subsectors:
+
+* Administrative and Support Services: NAICS 561
+* Waste Management and Remediation Services: NAICS 562
+
+
+#### Administrative and Support Services (NAICS 561)
+
+**Definition:**
+
+> "Industries in the Administrative and Support Services subsector group establishments engaged in activities that support the day-to-day operations of other organizations. The processes employed in this sector (e.g., general management, personnel administration, clerical activities, cleaning activities) are often integral parts of the activities of establishments found in all sectors of the economy. The establishments classified in this subsector have specialization in one or more of these activities and can, therefore, provide services to clients in a variety of industries and, in some cases, to households. The individual industries of this subsector are defined on the basis of the particular process that they are engaged in and the particular services they provide." [@bls2026naics]
+
+The administrative and support services subsector consists of these industry groups:
+
+*  Office Administrative Services: NAICS 5611
+*  Facilities Support Services: NAICS 5612
+*  Employment Services: NAICS 5613
+*  Business Support Services: NAICS 5614
+*  Travel Arrangement and Reservation Services: NAICS 5615
+*  Investigation and Security Services: NAICS 5616
+*  Services to Buildings and Dwellings: NAICS 5617
+*  Other Support Services: NAICS 5619
+
+
+#### Waste Management and Remediation Services (NAICS 562)
+
+**Definition:**
+
+> "Industries in the Waste Management and Remediation Services subsector group establishments engaged in the collection, treatment, and disposal of waste materials. This includes establishments engaged in local hauling of waste materials; operating materials recovery facilities (i.e., those that sort recyclable materials from the trash stream); providing remediation services (i.e., those that provide for the cleanup of contaminated buildings, mine sites, soil, or ground water); and providing septic pumping and other miscellaneous waste management services. There are three industry groups within the subsector that separate these activities into waste collection, waste treatment and disposal, and remediation and other waste management." [@bls2026naics]
+
+The waste management and remediation services subsector consists of these industry groups:
+
+*   Waste Collection: NAICS 5621
+*   Waste Treatment and Disposal: NAICS 5622
+*   Remediation and Other Waste Management Services: NAICS 5629
+
+
+## Education and Health Services
+
+### Educational Services (NAICS 61)
+
+**Definition:**
+
+> "The Educational Services sector comprises establishments that provide instruction and training in a wide variety of subjects. This instruction and training is provided by specialized establishments, such as schools, colleges, universities, and training centers. These establishments may be privately owned and operated for profit or not for profit, or they may be publicly owned and operated. They may also offer food and/or accommodation services to their students.
+> Educational services are usually delivered by teachers or instructors that explain, tell, demonstrate, supervise, and direct learning. Instruction is imparted in diverse settings, such as educational institutions, the workplace, or the home, and through diverse means, such as correspondence, television, the Internet, or other electronic and distance-learning methods. The training provided by these establishments may include the use of simulators and simulation methods. It can be adapted to the particular needs of the students, for example sign language can replace verbal language for teaching students with hearing impairments. All industries in the sector share this commonality of process, namely, labor inputs of instructors with the requisite subject matter expertise and teaching ability." [@bls2026naics]
+
+The educational services sector consists of a single subsector, Educational Services: NAICS 611. Data published under either the sector or subsector classification are included in the tables below. The subsector consists of these industry groups:
+
+*   Elementary and Secondary Schools: NAICS 6111
+*   Junior Colleges: NAICS 6112
+*   Colleges, Universities, and Professional Schools: NAICS 6113
+*   Business Schools and Computer and Management Training: NAICS 6114
+*   Technical and Trade Schools: NAICS 6115
+*   Other Schools and Instruction: NAICS 6116
+*   Educational Support Services: NAICS 6117
+
+### Health Care and Social Assistance (NAICS 62)
+
+**Definition:**
+
+> "The Health Care and Social Assistance sector comprises establishments providing health care and social assistance for individuals. The sector includes both health care and social assistance because it is sometimes difficult to distinguish between the boundaries of these two activities. The industries in this sector are arranged on a continuum starting with those establishments providing medical care exclusively, continuing with those providing health care and social assistance, and finally finishing with those providing only social assistance. The services provided by establishments in this sector are delivered by trained professionals. All industries in the sector share this commonality of process, namely, labor inputs of health practitioners or social workers with the requisite expertise. Many of the industries in the sector are defined based on the educational degree held by the practitioners included in the industry." [@bls2026naics]
+
+The health care and social assistance sector consists of these subsectors:
+
+*   Ambulatory Health Care Services: NAICS 621
+*   Hospitals: NAICS 622
+*   Nursing and Residential Care Facilities: NAICS 623
+*   Social Assistance: NAICS 624
+
+
+#### Ambulatory Health Care Services (NAICS 621)
+
+**Definition:**
+
+> "Industries in the Ambulatory Health Care Services subsector provide health care services directly or indirectly to ambulatory patients and do not usually provide inpatient services. Health practitioners in this subsector provide outpatient services, with the facilities and equipment not usually being the most significant part of the production process." [@bls2026naics]
+
+The ambulatory health care services subsector consists of these industry groups:
+
+*   Offices of Physicians: NAICS 6211
+*   Offices of Dentists: NAICS 6212
+*   Offices of Other Health Practitioners: NAICS 6213
+*   Outpatient Care Centers: NAICS 6214
+*   Medical and Diagnostic Laboratories: NAICS 6215
+*   Home Health Care Services: NAICS 6216
+*   Other Ambulatory Health Care Services: NAICS 6219
+
+
+#### Hospitals (NAICS 622)
+
+**Definition:**
+
+> "Industries in the Hospitals subsector provide medical, diagnostic, and treatment services that include physician, nursing, and other health services to inpatients and the specialized accommodation services required by inpatients. Hospitals may also provide outpatient services as a secondary activity. Establishments in the Hospitals subsector provide inpatient health services, many of which can only be provided using the specialized facilities and equipment that form a significant and integral part of the production process." [@bls2026naics]
+
+The hospitals subsector consists of these industry groups:
+
+*  General Medical and Surgical Hospitals: NAICS 6221
+*  Psychiatric and Substance Abuse Hospitals: NAICS 6222
+*  Specialty (except Psychiatric and Substance Abuse) Hospitals: NAICS 6223
+
+#### Nursing and Residential Care Facilities (NAICS 623)
+
+**Definition:**
+
+> "Industries in the Nursing and Residential Care Facilities subsector provide residential care combined with either nursing, supervisory, or other types of care as required by the residents. In this subsector, the facilities are a significant part of the production process and the care provided is a mix of health and social services with the health services being largely some level of nursing services." [@bls2026naics]
+
+The nursing and residential care facilities subsector consists of these industry groups:
+
+*  Nursing Care Facilities: NAICS 6231
+*  Residential Mental Retardation, Mental Health and Substance Abuse Facilities: NAICS 6232
+*  Community Care Facilities for the Elderly: NAICS 6233
+*  Other Residential Care Facilities: NAICS 6239
+
+#### Social Assistance (NAICS 624)
+
+**Definition:**
+
+> "Industries in the Social Assistance subsector provide a wide variety of social assistance services directly to their clients. These services do not include residential or accommodation services, except on a short stay basis." [@bls2026naics]
+
+The social assistance subsector consists of these industry groups:
+
+*   Individual and Family Services: NAICS 6241
+*   Community Food and Housing, and Emergency and Other Relief Services: NAICS 6242
+*   Vocational Rehabilitation Services: NAICS 6243
+*   Child Day Care Services: NAICS 6244
+
+
+## Leisure and Hospitality
+
+### Arts, Entertainment, and Recreation (NAICS 71)
+
+**Definition:**
+
+> "The Arts, Entertainment, and Recreation sector includes a wide range of establishments that operate facilities or provide services to meet varied cultural, entertainment, and recreational interests of their patrons. This sector comprises (1) establishments that are involved in producing, promoting, or participating in live performances, events, or exhibits intended for public viewing; (2) establishments that preserve and exhibit objects and sites of historical, cultural, or educational interest; and (3) establishments that operate facilities or provide services that enable patrons to participate in recreational activities or pursue amusement, hobby, and leisure-time interests.
+> Some establishments that provide cultural, entertainment, or recreational facilities and services are classified in other sectors." [@bls2026naics]
+
+The arts, entertainment, and recreation sector consists of these subsectors:
+
+*   Performing Arts, Spectator Sports, and Related Industries: NAICS 711
+*   Museums, Historical Sites, and Similar Institutions: NAICS 712
+*   Amusement, Gambling, and Recreation Industries: NAICS 713
+
+#### Performing Arts, Spectator Sports, and Related Industries (NAICS 711)
+
+**Definition:**
+
+> "Industries in the Performing Arts, Spectator Sports, and Related Industries subsector group establishments that produce or organize and promote live presentations involving the performances of actors and actresses, singers, dancers, musical groups and artists, athletes, and other entertainers, including independent (i.e., freelance) entertainers and the establishments that manage their careers. The classification recognizes four basic processes: (1) producing (i.e., presenting) events; (2) organizing, managing, and/or promoting events; (3) managing and representing entertainers; and (4) providing the artistic, creative and technical skills necessary to the production of these live events. Also, this subsector contains four industries for performing arts companies. Each is defined on the basis of the particular skills of the entertainers involved in the presentations." [@bls2026naics]
+
+The performing arts, spectator sports, and related industries subsector consists of these industry groups:
+
+*  Performing Arts Companies: NAICS 7111
+*  Spectator Sports: NAICS 7112
+*  Promoters of Performing Arts, Sports, and Similar Events: NAICS 7113
+*  Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures: NAICS 7114
+*  Independent Artists, Writers, and Performers: NAICS 7115
+
+#### Museums, Historical Sites, and Similar Institutions (NAICS 712)
+
+**Definition:**
+
+> "Industries in the Museums, Historical Sites, and Similar Institutions subsector engage in the preservation and exhibition of objects, sites, and natural wonders of historical, cultural, and/or educational value." [@bls2026naics]
+
+The museums, historical sites, and similar institutions subsector consists of a single industry group: 
+
+* Museums, Historical Sites, and Similar Institutions: NAICS 7121. 
+
+#### Amusement, Gambling, and Recreation Industries (NAICS 713)
+
+**Definition:**
+
+> "Industries in the Amusement, Gambling, and Recreation Industries subsector (1) operate facilities where patrons can primarily engage in sports, recreation, amusement, or gambling activities and/or (2) provide other amusement and recreation services, such as supplying and servicing amusement devices in places of business operated by others; operating sports teams, clubs, or leagues engaged in playing games for recreational purposes; and guiding tours without using transportation equipment." [@bls2026naics]
+
+The amusement, gambling, and recreation industries subsector consists of these industry groups:
+
+*  Amusement Parks and Arcades: NAICS 7131
+*  Gambling Industries: NAICS 7132
+*  Other Amusement and Recreation Industries: NAICS 7139
+
+
+### Accommodation and Food Services (NAICS 72)
+
+**Definition:**
+
+> "The Accommodation and Food Services sector comprises establishments providing customers with lodging and/or preparing meals, snacks, and beverages for immediate consumption. The sector includes both accommodation and food services establishments because the two activities are often combined at the same establishment." [@bls2026naics]
+
+The accommodation and food services sector consists of these subsectors:
+
+*   Accommodation: NAICS 721
+*   Food Services and Drinking Places: NAICS 722
+
+#### Accommodation (NAICS 721)
+
+**Definition:**
+
+> "Industries in the Accommodation subsector provide lodging or short-term accommodations for travelers, vacationers, and others. There is a wide range of establishments in these industries. Some provide lodging only; while others provide meals, laundry services, and recreational facilities, as well as lodging. Lodging establishments are classified in this subsector even if the provision of complementary services generates more revenue. The types of complementary services provided vary from establishment to establishment." [@bls2026naics]
+
+The accommodation subsector consists of these industry groups:
+
+*  Traveler Accommodation: NAICS 7211
+*  RV (Recreational Vehicle) Parks and Recreational Camps: NAICS 7212
+*  Rooming and Boarding Houses: NAICS 7213
+
+
+#### Food Services and Drinking Places (NAICS 722)
+
+**Definition:**
+
+> "Industries in the Food Services and Drinking Places subsector prepare meals, snacks, and beverages to customer order for immediate on-premises and off-premises consumption. There is a wide range of establishments in these industries. Some provide food and drink only; while others provide various combinations of seating space, waiter/waitress services and incidental amenities, such as limited entertainment. The industries in the subsector are grouped based on the type and level of services provided. The industry groups are full-service restaurants; limited-service eating places; special food services, such as food service contractors, caterers, and mobile food services; and drinking places." [@bls2026naics]
+
+The food services and drinking places subsector consists of these industry groups:
+
+*  Full-Service Restaurants: NAICS 7221
+*  Limited-Service Eating Places: NAICS 7222
+*  Special Food Services: NAICS 7223
+*  Drinking Places (Alcoholic Beverages): NAICS 7224
+
+## Other Services (except Public Administration)
+
+### Other Services (except Public Administration) (NAICS 81)
+
+**Definition:**
+
+> "The Other Services (except Public Administration) sector comprises establishments engaged in providing services not specifically provided for elsewhere in the classification system. Establishments in this sector are primarily engaged in activities, such as equipment and machinery repairing, promoting or administering religious activities, grantmaking, advocacy, and providing drycleaning and laundry services, personal care services, death care services, pet care services, photofinishing services, temporary parking services, and dating services." [@bls2026naics]
+
+The other services (except public administration) sector consists of these subsectors:
+
+*  Repair and Maintenance: NAICS 811
+*  Personal and Laundry Services: NAICS 812
+*  Religious, Grantmaking, Civic, Professional, and Similar Organizations: NAICS 813
+*  Private Households: NAICS 814
+
+
+#### Repair and Maintenance (NAICS 811)
+
+**Definition:**
+
+> "Industries in the Repair and Maintenance subsector restore machinery, equipment, and other products to working order. These establishments also typically provide general or routine maintenance (i.e., servicing) on such products to ensure they work efficiently and to prevent breakdown and unnecessary repairs." [@bls2026naics]
+
+The repair and maintenance subsector consists of these industry groups:
+
+*   Automotive Repair and Maintenance: NAICS 8111
+*   Electronic and Precision Equipment Repair and Maintenance: NAICS 8112
+*   Commercial and Industrial Machinery and Equipment (except Automotive and Electronic) Repair and Maintenance: NAICS 8113
+*   Personal and Household Goods Repair and Maintenance: NAICS 8114
+
+#### Personal and Laundry Services (NAICS 812)
+
+**Definition:**
+
+> "Industries in the Personal and Laundry Services subsector group establishments that provide personal and laundry services to individuals, households, and businesses. Services performed include: personal care services; death care services; laundry and drycleaning services; and a wide range of other personal services, such as pet care (except veterinary) services, photofinishing services, temporary parking services, and dating services." [@bls2026naics]
+
+The personal and laundry services subsector consists of these industry groups:
+
+*   Personal Care Services: NAICS 8121
+*   Death Care Services: NAICS 8122
+*   Drycleaning and Laundry Services: NAICS 8123
+*   Other Personal Services: NAICS 8129
+
+#### Religious, Grantmaking, Civic, Professional, and Similar Organizations (NAICS 813)
+
+**Definition:**
+
+> "Industries in the Religious, Grantmaking, Civic, Professional, and Similar Organizations subsector group establishments that organize and promote religious activities; support various causes through grantmaking; advocate various social and political causes; and promote and defend the interests of their members." [@bls2026naics]
+
+The religious, grantmaking, civic, professional, and similar organizations subsector consists of these industry groups:
+
+* Religious Organizations: NAICS 8131
+* Grantmaking and Giving Services: NAICS 8132
+* Social Advocacy Organizations: NAICS 8133
+* Civic and Social Organizations: NAICS 8134
+* Business, Professional, Labor, Political, and Similar Organizations: NAICS 8139
+
+#### Private Households (NAICS 814)
+
+**Definition:**
+
+> "Industries in the Private Households subsector include private households that engage in employing workers on or about the premises in activities primarily concerned with the operation of the household. These private households may employ individuals, such as cooks, maids, butlers, and outside workers, such as gardeners, caretakers, and other maintenance workers." [@bls2026naics]
+
+The private households subsector consists of a single industry group: 
+
+* Private Households: NAICS 8141. 
+
