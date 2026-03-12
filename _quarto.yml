@@ -38,8 +38,6 @@ website:
 
       - section: Methodology
         contents:
-          - href: methods/natural_resource.qmd
-            text: Natural Resources
           - href: methods/ecosystem_services.qmd
             text: Ecosystem Services
           - href: methods/naics.qmd

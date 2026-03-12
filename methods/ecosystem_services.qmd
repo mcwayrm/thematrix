@@ -3,6 +3,676 @@ title: "Environmental Inputs: Ecosystem Services"
 bibliography: ../references.bib
 ---
 
-This is the about page for your Quarto website.
+Set up ecosystem services as the private good, public good, and common pool resources derived from nature. 
+This is both biotic and abotic. 
+Classifcation by the SEEA-EA framework -- Matching accounting standards 
+Distinguish measured value through stock supply, quantity used, market price or willingness-to-pay, and nature's contribution to human value of these services. 
 
-Add information about yourself or your project here.
+SEEA-EA Framework: https://seea.un.org/sites/seea.un.org/files/documents/EA/seea_ea_f124_web_12dec24.pdf
+- I downloaded the crosswalk. Update this with GEP classifications. Use these as the key ecosystem service classifications. 
+
+I need to note that natural resources fold within ecosystem services as a provisioning service. 
+
+https://esml.epa.gov/search/ems
+https://www.epa.gov/eco-research/ecoservice-models-library
+https://www.ipbes.net/models
+https://naturalcapitalalliance.stanford.edu/software/invest/invest-models
+https://data.jrc.ec.europa.eu/collection/MAES
+
+IPBES Global Assessment (2019): https://files.ipbes.net/ipbes-web-prod-public-files/inline/files/ipbes_global_assessment_report_summary_for_policymakers.pdf
+IPBES Business Assessment: https://zenodo.org/records/18538597
+
+
+# Provisioning (Material) Services 
+
+## Biomass Provisioning Services 
+
+### Crop Provisioning Services (SEEA 1.1)
+
+**Definition:**   
+
+> Crop provisioning services are the ecosystem contributions to the growth of cultivated plants that are harvested by economic units for various uses including food and fibre production, fodder and energy. This is a final ecosystem service. [@SEEAEA2024]
+
+GEP 1.1: Crop Provision Commerical 
+GEP 1.2: Crop Provision Subsistence 
+
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+### Grazed Biomass Provisioning Services (SEEA 1.2)
+
+**Definition:**
+
+> Grazed biomass provisioning services are the ecosystem contributions to the growth of grazed biomass that is an input to the growth of cultivated livestock. This service excludes the ecosystem contributions to the growth of crops used to produce fodder for livestock (e.g., hay, soybean meal). These contributions are included under crop provisioning services. This is a final ecosystem service but may be intermediate to livestock provisioning services. [@SEEAEA2024]
+
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+### Livestock Provisioning Services (SEEA 1.3)
+
+**Definition:**
+
+> Livestock provisioning services are the ecosystem contributions to the growth of cultivated livestock and livestock products (e.g., meat, milk, eggs, wool, leather), that are used by economic units for various uses, primarily food production. This is a final ecosystem service. No distinct livestock provisioning services to be recorded if grazed biomass provisioning services are recorded as a final ecosystem service. [@SEEAEA2024]
+
+GEP 1.3: Livestock Provision 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+### Aquaculture Provisioning Services (SEEA 1.4)
+
+**Definition:**    
+
+> Aquaculture provisioning services are the ecosystem contributions to the growth of animals and plants (e.g. fish, shellfish, seaweed) in aquaculture facilities that are harvested by economic units for various uses. This is a final ecosystem service. [@SEEAEA2024]
+
+GEP 1.4: Fish Provision Commerical
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+### Wood Provisioning Services (SEEA 1.5)
+
+**Definition:**  
+
+> Wood provisioning services are the ecosystem contributions to the growth of trees and other woody biomass in both cultivated (plantation) and uncultivated production contexts that are harvested by economic units for various uses including timber production and energy. This service excludes contributions to non-wood forest products. This is a final ecosystem service.  [@SEEAEA2024]
+
+GEP 1.6: Timber Provision 
+GEP 1.7: Fuelwood 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+### Wild Fish and Other Natural Aquatic Products Provisioning Services (SEEA 1.6)
+
+**Definition:**   
+
+> Wild fish and other natural aquatic biomass provisioning services are the ecosystem contributions to the growth of fish and other aquatic biomass that are captured in uncultivated production contexts by economic units for various uses, primarily food production. This is a final ecosystem service. [@SEEAEA2024]
+
+GEP 1.5: Fish Provision Subsistence
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+### Wild Animals, Plants, and Other Biomass Provisioning Services (SEEA 1.7)
+
+**Definition:**  
+
+> Wild animals, plants and other biomass provisioning services are the ecosystem contributions to the growth of wild animals, plants and other biomass that are captured and harvested in uncultivated production contexts by economic units for various uses. The scope includes non-wood forest products (NWFP)  and services related to hunting, trapping and bio-prospecting activities; but excludes wild fish and other natural aquatic biomass (included in previous class). This is a final ecosystem service  [@SEEAEA2024]
+
+GEP 1.8: Non-timber Forest Product (NTFP) Provision 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Genetic Material Services (SEEA 1.8)
+
+**Definition:**   
+
+> Genetic material services are the ecosystem contributions from all biota (including seed, spore or gamete production) that are used by economic units, for example (i) to develop new animal and plant breeds; (ii) in gene synthesis; or (iii) in product development directly using genetic material. This is most commonly recorded as an intermediate service to biomass provisioning. [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Water Supply (SEEA 1.9)
+
+**Definition:**  
+
+> Water supply services reflect the combined ecosystem contributions of water flow regulation, water purification, and other ecosystem services to the supply of water of appropriate quality to users for various uses including household consumption. This is a final ecosystem service.   [@SEEAEA2024]
+
+GEP 1.9: Water Supply 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Other Provisioning Services (SEEA 1.10)
+
+**Definition:**  
+
+Animals reared  for nutritional purposes
+Fibres and other materials from reared animals for direct use or processing (excluding genetic materials)
+Animals reared to provide energy (including mechanical)
+Animals reared by in-situ aquaculture as an energy source
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Energy Production (SEEA CF)
+
+**Definition:**  
+
+GEP 1.10: Solar Energy Provision 
+GEP 1.11: Wind Energy Provision 
+GEP 1.12: Geothermal Energy Provision 
+GEP 1.13: Hydropower Provision 
+GEP 1.14: Fossil Fuels Oil 
+GEP 1.15: Fossil Fuels Natural Gas 
+GEP 1.16: Fossil Fuels Coal 
+GEP 1.17: Extractive Material Provision (Minerals)
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+# Regulating Services 
+
+
+## Global Climate Regulation Services (SEEA 2.1)
+
+**Definition:**  
+
+> Global climate regulation services are the ecosystem contributions to the regulation of the chemical composition of the atmosphere and oceans that affect global climate through the accumulation and retention of carbon and other GHG (e.g., methane) in ecosystems and the ability of ecosystems to remove (sequester) carbon from the atmosphere. This is a final ecosystem service.  [@SEEAEA2024]
+
+GEP 1.18: Global Climate Regulation (Terrestrial and Coastal Carbon)
+GEP 1.19: Global Climate Regulation (Marine Carbon)
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Rainfall Pattern Regulation Services (SEEA 2.2)
+
+- Sub-contintenal 
+
+**Definition:** 
+
+> Rainfall pattern regulation services are the ecosystem contributions of vegetation, in particular forests, in maintaining rainfall patterns through evapotranspiration at the sub-continental scale. Forests and other vegetation recycle moisture back to the atmosphere where it is available for the generation of rainfall. Rainfall in interior parts of continents fully depends upon this recycling. This may be a final or intermediate service.   [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Local Climate Regulation Services (SEEA 2.3)
+
+- Micro or meso
+
+**Definition:**  
+
+> Local climate regulation services are the ecosystem contributions to the regulation of ambient atmospheric conditions (including micro and mesoscale climates) through the presence of vegetation that improves the living conditions for people and supports economic production. Examples include the evaporative cooling provided by urban trees (‘green space’), the role of urban water bodies (‘blue space’) and the contribution of trees in providing shade for humans and livestock. This may be a final or intermediate service.  [@SEEAEA2024]
+
+GEP.20: Local Climate Regulation (Urban Cooling)
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Air Filtration Services (SEEA 2.4)
+
+**Definition:** 
+
+> Air filtration services are the ecosystem contributions to the filtering of air-borne pollutants through the deposition, uptake, fixing and storage of pollutants by ecosystem components, particularly plants, that mitigates the harmful effects of the pollutants. This is most commonly a final ecosystem service.    [@SEEAEA2024]
+
+GEP.21: Air Filtration 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Soil Quality Regulation Servicees (SEEA 2.5)
+
+**Definition:**  
+
+> Soil quality regulation services are the ecosystem contributions to the decomposition of organic and inorganic materials and to the fertility and characteristics of soils, e.g., for input to biomass production. This is most commonly recorded as an intermediate service.   [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Soil and Sediment Retention Services 
+
+### Soil Erosion Control Services (SEEA 2.6)
+
+**Definition:**  
+
+>  Soil erosion control services are the ecosystem contributions, particularly the stabilising effects of vegetation, that reduce the loss of soil (and sediment) and support use of the environment (e.g., agricultural activity, water supply). This is may be recorded as a final or intermediate service.  [@SEEAEA2024]
+
+GEP.22: Erosion Control 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+### Landslide Mitiation (SEEA 2.7)
+
+**Definition:**  
+
+> Landslide mitigation services are the ecosystem contributions, particularly the stabilising effects of vegetation, that mitigates or prevents potential damage to human health and safety and damaging effects to buildings and infrastructure that arise from the mass movement (wasting) of soil, rock and snow. This is a final ecosystem service.  [@SEEAEA2024]
+
+GEP.23: Landslide Mitigation 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Solid Waste Remediation (SEEA 2.8)
+
+**Definition:**   
+
+> Solid waste remediation services are the ecosystem contributions to the transformation of organic or inorganic substances, through the action of micro-organisms, algae, plants and animals that mitigates their harmful effects. This is may be recorded as a final or intermediate service.  [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Water Purification Services
+
+Water quality amelioration
+
+### Water Retention and Breakdwon of Nutrients (SEEA 2.9)
+
+**Definition:** 
+
+> Water purification services are the ecosystem contributions to the restoration and maintenance of the chemical condition of surface water and groundwater bodies through the breakdown or removal of nutrients and other pollutants by ecosystem components that mitigate the harmful effects of the pollutants on human use or health. This may be recorded as a final or intermediate ecosystem service.   [@SEEAEA2024]
+
+GEP.24: Water Quality-Nutrient
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+### Water Retention and Breakdown of Other Pollutants (SEEA 2.10)
+
+**Definition:**  
+
+> Water purification services are the ecosystem contributions to the restoration and maintenance of the chemical condition of surface water and groundwater bodies through the breakdown or removal of nutrients and other pollutants by ecosystem components that mitigate the harmful effects of the pollutants on human use or health. This may be recorded as a final or intermediate ecosystem service.  [@SEEAEA2024]
+
+GEP.25: Groundwater Recharge
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Water Flow Regulation Services
+
+### Baseline Water Flow Maintenance Services (SEEA 2.11)
+
+**Definition:**   
+
+> Water regulation services are the ecosystem contributions to the regulation of river flows and groundwater and lake water tables. They are derived from the ability of ecosystems to absorb and store water, and gradually release water during dry seasons or periods through evapotranspiration and hence secure a regular flow of water. This may be recorded as a final or intermediate ecosystem service. [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+### Peak Water Flow Mitigation Services (SEEA 2.12)
+
+**Definition:**  
+
+> Water regulation services are the ecosystem contributions to the regulation of river flows and groundwater and lake water tables. They are derived from the ability of ecosystems to absorb and store water, and hence mitigate the effects of flood and other extreme water-related events. Peak flow mitigation services will be supplied together with river flood mitigation services in providing the benefit of flood protection. This is a final ecosystem service.  [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Flood Mitigation Services 
+
+### Coastal Protection Services (SEEA 2.13)
+
+**Definition:**  
+
+> Coastal protection services are the ecosystem contributions of linear elements in the seascape, for instance coral reefs, sand banks, dunes or mangrove ecosystems along the shore, in protecting the shore and thus mitigating the impacts of tidal surges or storms on local communities. This is a final ecosystem service.  [@SEEAEA2024]
+
+GEP.26: Coastal Protection
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+### River Flood Mitigation Services (SEEA 2.14)
+
+**Definition:** 
+
+> River flood mitigation services are the ecosystem contributions of riparian vegetation which provides structure and a physical barrier to high water levels and thus mitigates the impacts of floods on local communities. River flood mitigation services will be supplied together with peak flow mitigation services in providing the benefit of flood protection. This is a final ecosystem service.   [@SEEAEA2024]
+
+GEP.27: River Flood Mitigation 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Storm Mitigation Services (SEEA 2.15)
+
+**Definition:**   
+
+> Storm mitigation services are the ecosystem contributions of vegetation including linear elements, in mitigating the impacts of wind, sand and other storms (other than water related events) on local communities. This is a final ecosystem service.  [@SEEAEA2024]
+
+GEP.28: Storm Mitigation
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Noise Attenuation Services (SEEA 2.16)
+
+**Definition:**  
+
+> Noise attenuation services are the ecosystem contributions to the reduction in the impact of noise on people that mitigates its harmful or stressful effects. This is most commonly a final ecosystem service.  [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Pollination Services (SEEA 2.17)
+
+**Definition:**  
+
+> Pollination services are the ecosystem contributions by wild pollinators to the fertilization of crops that maintains or increases the abundance and/or diversity of other species that economic units use or enjoy. This may be recorded as a final or intermediate service.   [@SEEAEA2024]
+
+GEP.29: Pollination 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Biological Control Services 
+
+### Pest Control Services (SEEA 2.18)
+
+**Definition:**  
+
+> Biological control services are the ecosystem contributions to the reduction in the incidence of species that may prevent or reduce the effects of pests on biomass production processes or other economic and human activity. This is may be recorded as a final or intermediate service.  [@SEEAEA2024]
+
+GEP.30 Pest Control 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+### Disease Control Services (SEEA 2.19)
+
+
+**Definition:**  
+
+> Disease control services are the ecosystem contributions to the reduction in the incidence of species that may prevent or reduce the effects of species on human health. This is most commonly a final ecosystem service.  [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Nursery Population and Habitat Maintenance Services (SEEA 2.20)
+
+
+**Definition:**   
+
+> Nursery population and habitat maintenance services are the ecosystem contributions necessary for sustaining populations of species that economic units ultimately use or enjoy either through the maintenance of habitats (e.g., for nurseries or migration) or the protection of natural gene pools. This service is an intermediate service and may input to a number of different final ecosystem services including biomass provision and recreation-related services. [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Other Regulating and Maintenance Services (SEEA 2.21)
+
+
+**Definition:**   
+
+Visual screening                                    
+Fire protection
+Seed dispersal
+Disease control                                        
+Regulation of the chemical condition of salt waters by living processes
+
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+# Cultural (Non-material) Services 
+
+## Recreation-related Services (SEEA 3.1)
+
+
+**Definition:**  
+
+> Recreation-related services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that enable people to use and enjoy the environment through direct, in-situ, physical and experiential interactions with the environment. This includes services to both locals and non-locals (i.e. visitors, including tourists). Recreation-related services may also be supplied to those undertaking recreational fishing and hunting. This is a final ecosystem service.  [@SEEAEA2024]
+
+GEP.31 Recreation and Tourism 
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Visual Amenity Services (SEEA 3.2)
+
+
+**Definition:**   
+
+> Visual amenity services are the ecosystem contributions to local living conditions, in particular through the biophysical characteristics and qualities of ecosystems that provide sensory benefits, especially visual. This service combines with other ecosystem services, including recreation-related services and noise attenuation services to underpin amenity values. This is a final ecosystem service. [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Education, Scientific, and Research Services (SEEA 3.3)
+
+
+**Definition:**  
+
+> Education, scientific and research services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that enable people to use the environment through intellectual interactions with the environment. This is a final ecosystem service.  [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+## Spiritual, Artistic, and Symbolic Services (SEEA 3.4)
+
+**Definition:**  
+
+> Spiritual artistic and symbolic services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that are recognised by people for their cultural, historical, aesthetic, sacred or religious significance. These services may underpin people’s cultural identity and may inspire people to express themselves through various artistic media. This is a final ecosystem service.  [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Other Cultural Services (SEEA 3.5)
+
+**Definition:**   
+
+GEP.32: Physical Health Benefits from Nature Exposure
+GEP.33: Mental Health Benefits from Nature Exposure
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+
+## Ecosystem and Species Appreciation Services (SEEA 4.1)
+
+**Definition:**  
+
+> Ecosystem and species appreciation concerns the wellbeing that people derive from the existence and preservation of the environment for current and future generations, irrespective of any direct or indirect use.  [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
+
+### Maintenance of Options Services 
+
+**Definition:**    [@SEEAEA2024]
+
+**Supply (S):**
+
+**Use (Q):**
+
+**Price (P):**
+
+**Nature's Contribution ($\lambda$):**
