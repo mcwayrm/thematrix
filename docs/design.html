@@ -188,12 +188,6 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./methods/natural_resource.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Natural Resources</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./methods/ecosystem_services.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ecosystem Services</span></a>
   </div>
@@ -213,7 +207,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./methods/econ_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Economic Mapping ~ The Matrix</span></a>
+ <span class="menu-text">Economic Mapping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./methods/the_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Matrix</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -394,9 +394,61 @@ window.Quarto = {
 <section id="company-activity-matrix-c" class="level2">
 <h2 class="anchored" data-anchor-id="company-activity-matrix-c">Company Activity Matrix (C)</h2>
 <p>With information about where, what, and how much, we can generate a Company Activity Matrix, where each cell specifies the amount of activity (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) occurring in each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>), for example, the amount of maize production (measured in hectares), or the amount of cement production (measured in tons produced) in each location x. For some activities a course region is fine (e.g., county, province, or state). For other activities, more detailed location information will be needed (e.g., for water quality how close to streams or rivers is the activity). In the latter case, “location” might be all land units within a region (county, province, or state) that lie within a buffer of a water body. For some activities, there may be more than one dimension that characterizes the activity. For example, to adequately characterize a mining activity, we might need to know both the land area (measured in hectares) and the output of the mine (measured in tons).</p>
-<div class="line-block">Location | Activity 1 | Activity 2 | Activity 3 | Activity 3 |<br>
-.. | .. | .. | Indicator 1 | Indicator 2 |</div>
-<p>|———-|———–|———–|———–|———–| | Location 1 | 0 | 20 tons | 100 ha | 1,000 tons | | Location 2 | 10 ha | 0 | 0 | 0 | | Location 3 | 5 ha | 5 tons | 0 | 0 | | <span class="math inline">\(\dots\)</span> | | | | | | Location X | | | | |</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Location</th>
+<th>Activity 1</th>
+<th>Activity 2</th>
+<th>Activity 3</th>
+<th>Activity 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td>Indicator 1</td>
+<td>Indicator 2</td>
+</tr>
+<tr class="even">
+<td>Location 1</td>
+<td>0</td>
+<td>20 tons</td>
+<td>100 ha</td>
+<td>1,000 tons</td>
+</tr>
+<tr class="odd">
+<td>Location 2</td>
+<td>10 ha</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Location 3</td>
+<td>5 ha</td>
+<td>5 tons</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\dots\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Location X</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <section id="company-activity-matrix-c-1" class="level3">
 <h3 class="anchored" data-anchor-id="company-activity-matrix-c-1">Company Activity Matrix (C)</h3>
 <p>The amount of activity undertaken by Company i at each location (<span class="math inline">\(x = 1, 2, \dots , X\)</span>) for each activity (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) Note: this matrix will likely be a very sparse matrix (lots of zeros).</p>

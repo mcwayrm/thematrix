@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link href="../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
 
-<script src="../site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="../site_libs/leaflet-binding-2.2.3/leaflet.js"></script>
 
 
 
@@ -194,12 +194,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../methods/natural_resource.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Natural Resources</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../methods/ecosystem_services.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ecosystem Services</span></a>
   </div>
@@ -219,7 +213,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../methods/econ_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Economic Mapping ~ The Matrix</span></a>
+ <span class="menu-text">Economic Mapping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../methods/the_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Matrix</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -332,7 +332,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="find-and-geocode-factories" class="level1">
 <h1>Find and Geocode Factories</h1>
 <p>Naively, we know from Bloomberg a list of publicly traded automotive companies. Use the <code>geocode_factories.py</code> script to search the internet for factory information and geocode them using openstreet maps.</p>
+<p>Once this has been figure out, proceed with the following companies and tickers:</p>
+<ul>
+<li>7203 JP TOYOTA MOTOR</li>
+<li>1211 HK BYD COMPANY</li>
+<li>GM US GENERAL MOTORS C</li>
+<li>005380 KS HYUNDAI MOTOR</li>
+<li>MBG GR MERCEDES-BENZ GR</li>
+<li>BMW GR BMW AG</li>
+<li>VOW GR VOLKSWAGEN AG</li>
+<li>RACE US FERRARI NV</li>
+<li>7267 JP HONDA MOTOR CO</li>
+<li>MSIL IN MARUTI SUZUKI IN</li>
+<li>MM IN MAHINDRA &amp; MAHIN</li>
+<li>P911 GY DR ING HC F PORS</li>
+<li>000270 KS KIA CORP</li>
+<li>BJAUT IN BAJAJ AUTO LTD</li>
+<li>STLAM IM STELLANTIS NV</li>
+<li>SERES GROUP CO-A SERES GROUP CO-A</li>
+<li>7269 JP SUZUKI MOTOR</li>
+<li>600104 CH SAIC MOTOR-A</li>
+<li>2333 HK GWMOTOR</li>
+<li>GELYF US GEELY AUTOMOBILE</li>
+<li>EIM IN EICHER MOTORS</li>
+<li>HYUNDAI IN HYUNDAI MOTOR IN</li>
+<li>TVSL IN TVS MOTOR CO LTD</li>
+<li>RIVN US RIVIAN AUTOMOT-A</li>
+<li>LI US Equity LI AUTO INC -ADR</li>
+<li>9868 HK Equity XPENG INC-A SHRS</li>
+<li>7270 JP Equity SUBARU CORP</li>
+<li>000625 CH Equity CHONGQING CHAN-B</li>
+<li>TMPV IN Equity TATA MOTORS PASS</li>
+<li>P911 GY Equity PORSCHE AUTO-PRF</li>
+<li>HMCL IN Equity HERO MOTOCORP LT</li>
+<li>NIO US Equity NIO INC - ADR</li>
+<li>RNO FP Equity RENAULT SA</li>
+<li>VOLCARB SS Equity VOLVO CAR AB-B</li>
+<li>601238 CH Equity GUANGZHOU AUTO-H</li>
+<li>489 HK Equity DONGFENG MOTOR-H</li>
+<li>FROTO TI Equity FORD OTO</li>
+<li>7201 JP Equity NISSAN MOTOR CO</li>
+<li>7272 JP Equity YAMAHA MOTOR CO</li>
+<li>9863 HK Equity ZHEJIANG LEAPM-H</li>
+<li>601777 CH Equity CHONGQING AFAR-A</li>
+<li>600733 CH Equity BAIC BLUEPARK-A</li>
+<li>603129 CH Equity ZHEJIANG CFMOT-A</li>
+<li>7261 JP Equity MAZDA MOTOR</li>
+<li>603766 CH Equity LONCIN MOTOR C-A</li>
+<li>1585 HK Equity YADEA GROUP HOLD</li>
+<li>TOASO TI Equity TOFAS</li>
+<li>7211 JP Equity MITSUBISHI MOTOR</li>
+<li>LCID US Equity LUCID GROUP INC</li>
+<li>301345 CH Equity ZHEJIANG TAOTA-A</li>
+<li>FML IN Equity FORCE MOTORS LTD</li>
+<li>1114 HK Equity BRILLIANCE CHINA</li>
+<li>GTCAP PM Equity GT CAPITAL HOLD</li>
+<li>600418 CH Equity ANHUI AUTOMOBI-A</li>
+<li>HOG US Equity HARLEY-DAVIDSON</li>
+<li>600006 CH Equity DONGFENG AUTO-A</li>
+<li>1958 HK Equity BAIC MOTOR-H</li>
+<li>MHSC IN Equity MAHARASHTRA SC</li>
+<li>2206 TT Equity SANYANG MOTOR</li>
+<li>PSNY US Equity POLESTAR A-A ADS</li>
+<li>HLI MK Equity HONG LEONG INDS</li>
+<li>OTKAR TI Equity OTOKAR</li>
+<li>2201 TT Equity YULON MOTOR</li>
+<li>2204 TT Equity CHINA MOTOR</li>
+<li>7222 JP Equity NISSAN SHATAI</li>
+<li>AML LN Equity ASTON MARTIN</li>
+<li>LOT US Equity LOTUS TECHNOLOGY</li>
+<li>ATLH PA Equity ATLAS HONDA</li>
+<li>PIA IM Equity PIAGGIO &amp; C. SPA</li>
+<li>GBCO EY Equity GB CORP</li>
+<li>JYGCLZ CH Equity JIANGSU YUEDA -A</li>
+<li>BJAUT IN Equity BAJAJ MOBILITY A</li>
+<li>003620 KS Equity KG MOBILITY CO</li>
+<li>DRB MK Equity DRB-HICOM BHD</li>
+<li>2227 TT Equity YULON NISSAN</li>
+<li>LVWR US Equity LIVEWIRE GROUP I</li>
+<li>8937 TT Equity HER CHEE</li>
+<li>1656311D CH Equity NIU TECHNOLO-ADR</li>
+<li>3333 HK Equity CHINA EVERGRANDE</li>
+<li>IMS IM Equity IMMSI SPA</li>
+<li>HCAR PA Equity HONDA ATLAS CAR</li>
+<li>0K4R LN Equity CARS MOTORCYCLES</li>
+<li>NRDE US Equity NU RIDE INC</li>
+</ul>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set location to save geocodes</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -359,9 +447,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    geocode_from_csv(<span class="st">"F US"</span>, ford_output_1, ford_output_2)</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:   </span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Ford geocodes already exist at </span><span class="sc">{</span>ford_output_2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Ford geocodes already exist at E:/matrix/data/firms/geocodes\F_factory_info.csv</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Search Tesla factories </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(tesla_output_2):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Geocoding Tesla factories (Step 1: Search)..."</span>)</span>
@@ -370,10 +461,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    geocode_from_csv(<span class="st">"TSLA US"</span>, tesla_output_1, tesla_output_2)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Tesla geocodes already exist at </span><span class="sc">{</span>tesla_output_2<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Tesla geocodes already exist at E:/matrix/data/firms/geocodes\TSLA_factory_info.csv</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Done!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Done!</code></pre>
@@ -384,64 +479,50 @@ Done!</code></pre>
 <h1>Create a Map of Industry</h1>
 <p>Use the geocodes to create an interactive map of the factories and production locations for the industry in question.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.4     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'rio'
-
-The following object is masked from 'package:reticulate':
-
-    import</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/matrix/"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ford_factories <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"./data/firms/F_factory_info.csv"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>tesla_factories <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"./data/firms/geocodes/TSLA_factory_geocodes.csv"</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># factories &lt;- rbind(ford_factories, tesla_factories)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/matrix/"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ford_factories <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"./data/firms/F_factory_info.csv"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tesla_factories <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"./data/firms/geocodes/TSLA_factory_geocodes.csv"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># factories &lt;- rbind(ford_factories, tesla_factories)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>company_icons <span class="ot">&lt;-</span> <span class="fu">iconList</span>(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F US"</span> <span class="ot">=</span> <span class="fu">makeIcon</span>(</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconUrl =</span> <span class="st">"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconWidth =</span> <span class="dv">30</span>,</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconHeight =</span> <span class="dv">30</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(ford_factories) <span class="sc">%&gt;%</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addMarkers</span>(</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span>longitude,</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span>latitude,</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">icon =</span> <span class="sc">~</span> company_icons[ticker],</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="sc">~</span> <span class="fu">paste0</span>(facility_name, <span class="st">" ("</span>, ticker, <span class="st">")"</span>),</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">popup =</span> <span class="sc">~</span> <span class="fu">paste</span>(</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"&lt;b&gt;"</span>, facility_name, <span class="st">"&lt;/b&gt;&lt;br&gt;"</span>,</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Ticker: "</span>, ticker, <span class="st">"&lt;br&gt;"</span>,</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Type: "</span>, facility_type, <span class="st">"&lt;br&gt;"</span>,</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Products: "</span>, products, <span class="st">"&lt;br&gt;"</span>,</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Active: "</span>, status</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>company_icons <span class="ot">&lt;-</span> <span class="fu">iconList</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"F US"</span> <span class="ot">=</span> <span class="fu">makeIcon</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconUrl =</span> <span class="st">"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconWidth =</span> <span class="dv">30</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">iconHeight =</span> <span class="dv">30</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(ford_factories) <span class="sc">%&gt;%</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addMarkers</span>(</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span>longitude,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span>latitude,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">icon =</span> <span class="sc">~</span> company_icons[ticker],</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="sc">~</span> <span class="fu">paste0</span>(facility_name, <span class="st">" ("</span>, ticker, <span class="st">")"</span>),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">popup =</span> <span class="sc">~</span> <span class="fu">paste</span>(</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"&lt;b&gt;"</span>, facility_name, <span class="st">"&lt;/b&gt;&lt;br&gt;"</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Ticker: "</span>, ticker, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Type: "</span>, facility_type, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Products: "</span>, products, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Active: "</span>, status</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-9e9deef847eac7d9486b" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-9e9deef847eac7d9486b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[42.3032,42.299,42.2773,42.0983,42.3976,42.5558,42.21,42.5803,40.7397,41.5086,41.652,41.5061,39.2025,38.3175,38.2078,35.455,37.6125,43.4725,42.3097,19.6725,29.07,28.6353,51.5278,53.3615,51.5644,50.8634,49.3167,39.3667,44.3167,40.7167,39.8333,12.7944,22.9833,29.5583,28.6833,30.2741,12.6833,-25.7461,-34.4583,-12.695,-23.02],[-83.1527,-83.149,-83.386,-83.27160000000001,-83.38630000000001,-83.0261,-83.605,-83.0094,-84.12779999999999,-82.0175,-87.5548,-87.6356,-94.4914,-85.705,-85.6718,-89.395,-85.89749999999999,-79.6575,-83.0364,-99.205,-110.96,-106.0889,0.1536,-2.8272,0.4364,6.975,6.75,-0.4167,23.8,29.8833,30.3667,80.02500000000001,72.38330000000001,106.55,115.8833,120.1551,101.25,28.305,-58.6333,-38.3264,-45.5558],{"iconUrl":{"data":"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg","index":0},"iconWidth":30,"iconHeight":30},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b> Dearborn Truck Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150, F-150 Lightning <br> Active:  Active","<b> Rouge Complex / Rouge Electric Vehicle Center <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150 Lightning <br> Active:  Active","<b> Michigan Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Bronco, Ranger <br> Active:  Active","<b> Flat Rock Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Mustang <br> Active:  Active","<b> Livonia Transmission Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Transmissions <br> Active:  Active","<b> Van Dyke Transmission Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Transmissions, Electric Motors <br> Active:  Active","<b> Rawsonville Components Plant <\/b><br> Ticker:  F US <br> Type:  Components <br> Products:  Battery packs, EV components <br> Active:  Active","<b> Sterling Axle Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Axles <br> Active:  Active","<b> Lima Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Avon Lake Assembly Plant (Ohio Assembly) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  E-Series, Super Duty Medium Trucks <br> Active:  Active","<b> Chicago Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Explorer, Lincoln Aviator <br> Active:  Active","<b> Chicago Stamping Plant <\/b><br> Ticker:  F US <br> Type:  Stamping <br> Products:  Stampings <br> Active:  Active","<b> Kansas City Assembly Plant (Claycomo) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150, Transit <br> Active:  Active","<b> Kentucky Truck Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Super Duty, Expedition, Lincoln Navigator <br> Active:  Active","<b> Louisville Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Escape, Lincoln Corsair <br> Active:  Active","<b> BlueOval City (Tennessee) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Electric trucks (under construction) <br> Active:  Under Construction","<b> BlueOval SK Battery Park <\/b><br> Ticker:  F US <br> Type:  Battery <br> Products:  EV batteries (under construction) <br> Active:  Under Construction","<b> Oakville Assembly Complex <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Edge, Lincoln Nautilus (retooling for EVs) <br> Active:  Active","<b> Essex Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Cuautitlan Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Mustang Mach-E <br> Active:  Active","<b> Hermosillo Stamping and Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Bronco Sport, Maverick <br> Active:  Active","<b> Chihuahua Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Dagenham Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Diesel engines <br> Active:  Active","<b> Halewood Body & Assembly <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transmission, EV components <br> Active:  Active","<b> Dunton Technical Centre <\/b><br> Ticker:  F US <br> Type:  Engineering <br> Products:  R&D / Engineering <br> Active:  Active","<b> Cologne Assembly Plant (Cologne EV Center) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Electric Explorer <br> Active:  Active","<b> Saarlouis Body & Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Focus (winding down) <br> Active:  Active","<b> Valencia Assembly Plant (Almussafes) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Kuga, Galaxy, S-Max, Transit Connect <br> Active:  Active","<b> Craiova Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Puma, EcoSport, Transit Courier <br> Active:  Active","<b> Ford Otosan Kocaeli Plant (Gölcük/Yeniköy) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transit, Transit Custom, Courier <br> Active:  Active","<b> Ford Otosan Inönü Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines, Trucks <br> Active:  Active","<b> Chennai Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  EcoSport, Endeavour (closed 2022) <br> Active:  Closed","<b> Sanand Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Figo, Aspire (closed 2022) <br> Active:  Closed","<b> Chongqing Assembly Plant (CAF) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Explorer, Escape, Edge (JV with Changan) <br> Active:  Active","<b> Nanchang Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transit, Transit Classic (JV with JMC) <br> Active:  Active","<b> Hangzhou Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Lincoln models (JV with Changan) <br> Active:  Active","<b> Rayong Assembly Plant (AutoAlliance Thailand) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Everest <br> Active:  Active","<b> Silverton Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Everest <br> Active:  Active","<b> Pacheco Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Transit <br> Active:  Active","<b> Camaçari Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  EcoSport, Ka, Troller (closed 2021) <br> Active:  Closed","<b> Taubaté Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines (closed 2021) <br> Active:  Closed"],null,null,null,["Dearborn Truck Plant (F US)","Rouge Complex / Rouge Electric Vehicle Center (F US)","Michigan Assembly Plant (F US)","Flat Rock Assembly Plant (F US)","Livonia Transmission Plant (F US)","Van Dyke Transmission Plant (F US)","Rawsonville Components Plant (F US)","Sterling Axle Plant (F US)","Lima Engine Plant (F US)","Avon Lake Assembly Plant (Ohio Assembly) (F US)","Chicago Assembly Plant (F US)","Chicago Stamping Plant (F US)","Kansas City Assembly Plant (Claycomo) (F US)","Kentucky Truck Plant (F US)","Louisville Assembly Plant (F US)","BlueOval City (Tennessee) (F US)","BlueOval SK Battery Park (F US)","Oakville Assembly Complex (F US)","Essex Engine Plant (F US)","Cuautitlan Assembly Plant (F US)","Hermosillo Stamping and Assembly Plant (F US)","Chihuahua Engine Plant (F US)","Dagenham Engine Plant (F US)","Halewood Body &amp; Assembly (F US)","Dunton Technical Centre (F US)","Cologne Assembly Plant (Cologne EV Center) (F US)","Saarlouis Body &amp; Assembly Plant (F US)","Valencia Assembly Plant (Almussafes) (F US)","Craiova Assembly Plant (F US)","Ford Otosan Kocaeli Plant (Gölcük/Yeniköy) (F US)","Ford Otosan Inönü Plant (F US)","Chennai Assembly Plant (F US)","Sanand Assembly Plant (F US)","Chongqing Assembly Plant (CAF) (F US)","Nanchang Assembly Plant (F US)","Hangzhou Assembly Plant (F US)","Rayong Assembly Plant (AutoAlliance Thailand) (F US)","Silverton Assembly Plant (F US)","Pacheco Assembly Plant (F US)","Camaçari Assembly Plant (F US)","Taubaté Engine Plant (F US)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-34.4583,53.3615],"lng":[-110.96,120.1551]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-1796afba44eb231af297" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1796afba44eb231af297">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[42.3032,42.299,42.2773,42.0983,42.3976,42.5558,42.21,42.5803,40.7397,41.5086,41.652,41.5061,39.2025,38.3175,38.2078,35.455,37.6125,43.4725,42.3097,19.6725,29.07,28.6353,51.5278,53.3615,51.5644,50.8634,49.3167,39.3667,44.3167,40.7167,39.8333,12.7944,22.9833,29.5583,28.6833,30.2741,12.6833,-25.7461,-34.4583,-12.695,-23.02],[-83.1527,-83.149,-83.386,-83.27160000000001,-83.38630000000001,-83.0261,-83.605,-83.0094,-84.12779999999999,-82.0175,-87.5548,-87.6356,-94.4914,-85.705,-85.6718,-89.395,-85.89749999999999,-79.6575,-83.0364,-99.205,-110.96,-106.0889,0.1536,-2.8272,0.4364,6.975,6.75,-0.4167,23.8,29.8833,30.3667,80.02500000000001,72.38330000000001,106.55,115.8833,120.1551,101.25,28.305,-58.6333,-38.3264,-45.5558],{"iconUrl":{"data":"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg","index":0},"iconWidth":30,"iconHeight":30},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<b> Dearborn Truck Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150, F-150 Lightning <br> Active:  Active","<b> Rouge Complex / Rouge Electric Vehicle Center <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150 Lightning <br> Active:  Active","<b> Michigan Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Bronco, Ranger <br> Active:  Active","<b> Flat Rock Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Mustang <br> Active:  Active","<b> Livonia Transmission Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Transmissions <br> Active:  Active","<b> Van Dyke Transmission Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Transmissions, Electric Motors <br> Active:  Active","<b> Rawsonville Components Plant <\/b><br> Ticker:  F US <br> Type:  Components <br> Products:  Battery packs, EV components <br> Active:  Active","<b> Sterling Axle Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Axles <br> Active:  Active","<b> Lima Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Avon Lake Assembly Plant (Ohio Assembly) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  E-Series, Super Duty Medium Trucks <br> Active:  Active","<b> Chicago Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Explorer, Lincoln Aviator <br> Active:  Active","<b> Chicago Stamping Plant <\/b><br> Ticker:  F US <br> Type:  Stamping <br> Products:  Stampings <br> Active:  Active","<b> Kansas City Assembly Plant (Claycomo) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  F-150, Transit <br> Active:  Active","<b> Kentucky Truck Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Super Duty, Expedition, Lincoln Navigator <br> Active:  Active","<b> Louisville Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Escape, Lincoln Corsair <br> Active:  Active","<b> BlueOval City (Tennessee) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Electric trucks (under construction) <br> Active:  Under Construction","<b> BlueOval SK Battery Park <\/b><br> Ticker:  F US <br> Type:  Battery <br> Products:  EV batteries (under construction) <br> Active:  Under Construction","<b> Oakville Assembly Complex <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Edge, Lincoln Nautilus (retooling for EVs) <br> Active:  Active","<b> Essex Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Cuautitlan Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Mustang Mach-E <br> Active:  Active","<b> Hermosillo Stamping and Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Bronco Sport, Maverick <br> Active:  Active","<b> Chihuahua Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines <br> Active:  Active","<b> Dagenham Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Diesel engines <br> Active:  Active","<b> Halewood Body & Assembly <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transmission, EV components <br> Active:  Active","<b> Dunton Technical Centre <\/b><br> Ticker:  F US <br> Type:  Engineering <br> Products:  R&D / Engineering <br> Active:  Active","<b> Cologne Assembly Plant (Cologne EV Center) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Electric Explorer <br> Active:  Active","<b> Saarlouis Body & Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Focus (winding down) <br> Active:  Active","<b> Valencia Assembly Plant (Almussafes) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Kuga, Galaxy, S-Max, Transit Connect <br> Active:  Active","<b> Craiova Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Puma, EcoSport, Transit Courier <br> Active:  Active","<b> Ford Otosan Kocaeli Plant (Gölcük/Yeniköy) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transit, Transit Custom, Courier <br> Active:  Active","<b> Ford Otosan Inönü Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines, Trucks <br> Active:  Active","<b> Chennai Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  EcoSport, Endeavour (closed 2022) <br> Active:  Closed","<b> Sanand Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Figo, Aspire (closed 2022) <br> Active:  Closed","<b> Chongqing Assembly Plant (CAF) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Explorer, Escape, Edge (JV with Changan) <br> Active:  Active","<b> Nanchang Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Transit, Transit Classic (JV with JMC) <br> Active:  Active","<b> Hangzhou Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Lincoln models (JV with Changan) <br> Active:  Active","<b> Rayong Assembly Plant (AutoAlliance Thailand) <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Everest <br> Active:  Active","<b> Silverton Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Everest <br> Active:  Active","<b> Pacheco Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  Ranger, Transit <br> Active:  Active","<b> Camaçari Assembly Plant <\/b><br> Ticker:  F US <br> Type:  Assembly <br> Products:  EcoSport, Ka, Troller (closed 2021) <br> Active:  Closed","<b> Taubaté Engine Plant <\/b><br> Ticker:  F US <br> Type:  Powertrain <br> Products:  Engines (closed 2021) <br> Active:  Closed"],null,null,null,["Dearborn Truck Plant (F US)","Rouge Complex / Rouge Electric Vehicle Center (F US)","Michigan Assembly Plant (F US)","Flat Rock Assembly Plant (F US)","Livonia Transmission Plant (F US)","Van Dyke Transmission Plant (F US)","Rawsonville Components Plant (F US)","Sterling Axle Plant (F US)","Lima Engine Plant (F US)","Avon Lake Assembly Plant (Ohio Assembly) (F US)","Chicago Assembly Plant (F US)","Chicago Stamping Plant (F US)","Kansas City Assembly Plant (Claycomo) (F US)","Kentucky Truck Plant (F US)","Louisville Assembly Plant (F US)","BlueOval City (Tennessee) (F US)","BlueOval SK Battery Park (F US)","Oakville Assembly Complex (F US)","Essex Engine Plant (F US)","Cuautitlan Assembly Plant (F US)","Hermosillo Stamping and Assembly Plant (F US)","Chihuahua Engine Plant (F US)","Dagenham Engine Plant (F US)","Halewood Body &amp; Assembly (F US)","Dunton Technical Centre (F US)","Cologne Assembly Plant (Cologne EV Center) (F US)","Saarlouis Body &amp; Assembly Plant (F US)","Valencia Assembly Plant (Almussafes) (F US)","Craiova Assembly Plant (F US)","Ford Otosan Kocaeli Plant (Gölcük/Yeniköy) (F US)","Ford Otosan Inönü Plant (F US)","Chennai Assembly Plant (F US)","Sanand Assembly Plant (F US)","Chongqing Assembly Plant (CAF) (F US)","Nanchang Assembly Plant (F US)","Hangzhou Assembly Plant (F US)","Rayong Assembly Plant (AutoAlliance Thailand) (F US)","Silverton Assembly Plant (F US)","Pacheco Assembly Plant (F US)","Camaçari Assembly Plant (F US)","Taubaté Engine Plant (F US)"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-34.4583,53.3615],"lng":[-110.96,120.1551]}},"evals":[],"jsHooks":[]}</script>
 <p>Global distribution of manufacturing facilities</p>
 </div>
 </div>

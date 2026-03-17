@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Environmental Inputs: Natural Resources – The Matrix - Environmental Mapping of Firms</title>
+<title>The Matrix: Firm Environmental Activities – The Matrix - Environmental Mapping of Firms</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,9 +66,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Environmental Inputs: Natural Resources – The Matrix - Environmental Mapping of Firms">
-<meta property="og:description" content="The Matrix - Environmental Mapping of Firms">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="The Matrix: Firm Environmental Activities – The Matrix - Environmental Mapping of Firms">
 <meta property="og:site_name" content="The Matrix - Environmental Mapping of Firms">
 </head>
 
@@ -82,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <a class="flex-grow-1 no-decor" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-          <h1 class="quarto-secondary-nav-title">Environmental Inputs: Natural Resources</h1>
+          <h1 class="quarto-secondary-nav-title">The Matrix: Firm Environmental Activities</h1>
         </a>     
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -140,12 +168,6 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../methods/natural_resource.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Natural Resources</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../methods/ecosystem_services.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ecosystem Services</span></a>
   </div>
@@ -165,7 +187,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../methods/econ_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Economic Mapping ~ The Matrix</span></a>
+ <span class="menu-text">Economic Mapping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../methods/the_matrix.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The Matrix</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -238,15 +266,32 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#constructing-the-matrix" id="toc-constructing-the-matrix" class="nav-link active" data-scroll-target="#constructing-the-matrix">Constructing the Matrix</a>
+  <ul class="collapse">
+  <li><a href="#company-activity-matrix-c" id="toc-company-activity-matrix-c" class="nav-link" data-scroll-target="#company-activity-matrix-c">Company Activity Matrix (C)</a>
+  <ul class="collapse">
+  <li><a href="#single-impact-matrix-iz" id="toc-single-impact-matrix-iz" class="nav-link" data-scroll-target="#single-impact-matrix-iz">Single Impact Matrix (Iz):</a></li>
+  <li><a href="#company-single-impact-matrix-ciz" id="toc-company-single-impact-matrix-ciz" class="nav-link" data-scroll-target="#company-single-impact-matrix-ciz">Company Single Impact Matrix (CIz):</a></li>
+  <li><a href="#company-location-single-impact-vector-lciz" id="toc-company-location-single-impact-vector-lciz" class="nav-link" data-scroll-target="#company-location-single-impact-vector-lciz">Company Location Single Impact Vector (LCIz)</a></li>
+  <li><a href="#company-impact-matrix-ci" id="toc-company-impact-matrix-ci" class="nav-link" data-scroll-target="#company-impact-matrix-ci">Company Impact Matrix (CI):</a></li>
+  <li><a href="#financial-impact-matrix-f" id="toc-financial-impact-matrix-f" class="nav-link" data-scroll-target="#financial-impact-matrix-f">Financial Impact Matrix (F)</a></li>
+  <li><a href="#company-financial-impact-matrix-cfi" id="toc-company-financial-impact-matrix-cfi" class="nav-link" data-scroll-target="#company-financial-impact-matrix-cfi">Company Financial Impact Matrix (CFI):</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Environmental Inputs: Natural Resources</h1>
+<h1 class="title d-none d-lg-block">The Matrix: Firm Environmental Activities</h1>
 </div>
 
 
@@ -263,10 +308,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is the about page for your Quarto website.</p>
-<p>Add information about yourself or your project here.</p>
+<section id="constructing-the-matrix" class="level1">
+<h1>Constructing the Matrix</h1>
+<section id="company-activity-matrix-c" class="level2">
+<h2 class="anchored" data-anchor-id="company-activity-matrix-c">Company Activity Matrix (C)</h2>
+<p>The amount of activity undertaken by Company i at each location (<span class="math inline">\(x = 1, 2, \dots , X\)</span>) for each activity (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) Note: this matrix will likely be a very sparse matrix (lots of zeros).</p>
+<p>The company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables <code>[@Carrico2020]</code> to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.</p>
+<section id="single-impact-matrix-iz" class="level3">
+<h3 class="anchored" data-anchor-id="single-impact-matrix-iz">Single Impact Matrix (Iz):</h3>
+<p>The impact of each activity (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) at each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>), on impact z (<span class="math inline">\(z = 1, 2, \dots, Z\)</span>).</p>
+</section>
+<section id="company-single-impact-matrix-ciz" class="level3">
+<h3 class="anchored" data-anchor-id="company-single-impact-matrix-ciz">Company Single Impact Matrix (CIz):</h3>
+<p>For impact z what is the impact of each activity (<span class="math inline">\(y = 1, 2, \dots, Y\)</span>) at each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>).</p>
+</section>
+<section id="company-location-single-impact-vector-lciz" class="level3">
+<h3 class="anchored" data-anchor-id="company-location-single-impact-vector-lciz">Company Location Single Impact Vector (LCIz)</h3>
+<p>The impact of all company activities at each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>) for impact z.</p>
+</section>
+<section id="company-impact-matrix-ci" class="level3">
+<h3 class="anchored" data-anchor-id="company-impact-matrix-ci">Company Impact Matrix (CI):</h3>
+<p>The amount of each impact (<span class="math inline">\(z = 1, 2, \dots, Z\)</span>) for each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>) by the company.</p>
+</section>
+<section id="financial-impact-matrix-f" class="level3">
+<h3 class="anchored" data-anchor-id="financial-impact-matrix-f">Financial Impact Matrix (F)</h3>
+<p>The monetary value of each impact (<span class="math inline">\(z = 1, 2, \dots, Z\)</span>) for each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>)</p>
+</section>
+<section id="company-financial-impact-matrix-cfi" class="level3">
+<h3 class="anchored" data-anchor-id="company-financial-impact-matrix-cfi">Company Financial Impact Matrix (CFI):</h3>
+<p>The monetary value of company impact by each impact (<span class="math inline">\(z = 1, 2, \dots, Z\)</span>) for each location (<span class="math inline">\(x = 1, 2, \dots, X\)</span>).</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,49 +1,257 @@
 ---
-title: "Environmental-Economic Mapping: The Matrix"
+title: "Environmental-Economic Mapping"
 bibliography: ../references.bib
 ---
 
 # Earth-Economy Mapping
 
-Create sanky plot that is interactive. Show ecosystem and natural resource categories. These map into NAICS codes. Then map into emissions.
+Create sankey plot that is interactive. Show ecosystem categories. These map into NAICS codes. Then map into emissions.
 
-# Constructing the Matrix 
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| cache: true
+
+# Ensure necessary pacakages
+required_pkgs <- c("readxl", "dplyr", "tidyr", "stringr", "plotly")
+missing_pkgs <- required_pkgs[!vapply(required_pkgs, requireNamespace, logical(1), quietly = TRUE)]
+if (length(missing_pkgs) > 0) {
+	stop("Install required packages first: ", paste(missing_pkgs, collapse = ", "))
+}
+
+# Library
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(plotly)
+
+# Set WD 
+setwd("E:/matrix/")
+
+# Pull code labels from Quarto headers so Sankey hover text includes meanings.
+extract_code_labels <- function(path, code_prefix = c("SEEA", "EM")) {
+	code_prefix <- match.arg(code_prefix)
+	if (!file.exists(path)) {
+		return(tibble(code = character(), label = character()))
+	}
+
+	lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+	pattern <- if (code_prefix == "SEEA") {
+		"^\\s*#{1,6}\\s*(.*?)\\s*\\((SEEA\\s+(?:CF|[0-9]+\\.[0-9]+))\\)"
+	} else {
+		"^\\s*#{1,6}\\s*(.*?)\\s*\\((EM\\s+[0-9]+\\.[0-9]+)\\)"
+	}
+
+	m <- stringr::str_match(lines, pattern)
+	out <- tibble(
+		label = stringr::str_squish(m[, 2]),
+		code = stringr::str_squish(m[, 3])
+	) |>
+		filter(!is.na(code), code != "") |>
+		distinct(code, .keep_all = TRUE)
+
+	out
+}
+
+seea_labels <- extract_code_labels("./thematrix/methods/ecosystem_services.qmd", "SEEA")
+em_labels <- extract_code_labels("./thematrix/methods/emissions.qmd", "EM")
+
+seea_lookup <- setNames(seea_labels$label, seea_labels$code)
+em_lookup <- setNames(em_labels$label, em_labels$code)
+
+# Read data 
+raw_map <- read_excel("./thematrix/assets/naics_mapping_ai.xlsx")
+
+# Column positions are fixed in the generated workbook.
+map_df <- tibble(
+	naics_code = as.character(raw_map[[2]]),
+	naics_title = as.character(raw_map[[3]]),
+	prov = as.character(raw_map[[4]]),
+	reg = as.character(raw_map[[5]]),
+	nonmat = as.character(raw_map[[6]]),
+	s1 = as.character(raw_map[[7]]),
+	s2 = as.character(raw_map[[8]]),
+	s3 = as.character(raw_map[[9]])
+    ) |>
+	mutate(
+		naics_code = str_trim(naics_code),
+		naics_title = str_squish(naics_title),
+		naics_node = if_else(
+			is.na(naics_code) | naics_code == "",
+			naics_title,
+			paste0(naics_code, " - ", naics_title)
+		)
+	)
+
+# For simplicity, keep only 3 digit 
+# map_df <- map_df[nchar(map_df$naics_code) == 3, ]
+map_df <- map_df[nchar(map_df$naics_code) == 2, ]
+
+# Shift to Long Format
+services_long <- map_df |>
+	pivot_longer(
+		cols = c(prov, reg, nonmat),
+		names_to = "service_bucket",
+		values_to = "service_codes"
+	) |>
+	filter(!is.na(service_codes), service_codes != "") |>
+	separate_rows(service_codes, sep = ";\\s*") |>
+	mutate(
+		service_codes = str_trim(service_codes),
+		service_label = dplyr::coalesce(unname(seea_lookup[service_codes]), service_codes),
+		service_bucket = recode(
+			service_bucket,
+			prov = "Provisioning",
+			reg = "Regulating",
+			nonmat = "Non-material"
+		),
+		service_node = paste0(service_bucket, ": ", service_codes, " - ", service_label)
+	) |>
+	filter(service_codes != "")
+
+emissions_long <- map_df |>
+	pivot_longer(
+		cols = c(s1, s2, s3),
+		names_to = "scope_bucket",
+		values_to = "emission_codes"
+	) |>
+	filter(!is.na(emission_codes), emission_codes != "") |>
+	separate_rows(emission_codes, sep = ";\\s*") |>
+	mutate(
+		emission_codes = str_trim(emission_codes),
+		emission_label = dplyr::coalesce(unname(em_lookup[emission_codes]), emission_codes),
+		scope_bucket = recode(
+			scope_bucket,
+			s1 = "Scope 1",
+			s2 = "Scope 2",
+			s3 = "Scope 3"
+		),
+		emission_node = paste0(scope_bucket, ": ", emission_codes, " - ", emission_label)
+	) |>
+	filter(emission_codes != "")
+
+# Link Across Groups
+links_services_naics <- services_long |>
+	distinct(service_node, naics_node) |>
+	count(service_node, naics_node, name = "value") |>
+	transmute(source = service_node, target = naics_node, value, link_group = "Service -> NAICS")
+
+links_naics_emissions <- emissions_long |>
+	distinct(naics_node, emission_node) |>
+	count(naics_node, emission_node, name = "value") |>
+	transmute(source = naics_node, target = emission_node, value, link_group = "NAICS -> Emission")
+
+links_all <- bind_rows(links_services_naics, links_naics_emissions)
+
+# Create Major Nodes
+nodes <- tibble(name = unique(c(links_all$source, links_all$target))) |>
+	mutate(
+		node_group = case_when(
+			str_detect(name, "^(Provisioning|Regulating|Non-material):") ~ "Service",
+			str_detect(name, "^Scope [123]:") ~ "Emission",
+			TRUE ~ "NAICS"
+		),
+		node_color = case_when(
+			str_detect(name, "^Provisioning:") ~ "rgba(9, 103, 18, 0.88)",
+			str_detect(name, "^Regulating:") ~ "rgba(19, 160, 179, 0.88)",
+			str_detect(name, "^Non-material:") ~ "rgba(151, 60, 225, 0.88)",
+			node_group == "NAICS" ~ "rgba(8, 8, 8, 0.85)",
+			str_detect(name, "^Scope 1:") ~ "rgba(154, 21, 21, 0.88)",
+			str_detect(name, "^Scope 2:") ~ "rgba(209, 155, 31, 0.88)",
+			str_detect(name, "^Scope 3:") ~ "rgba(235, 205, 53, 0.88)",
+			TRUE ~ "rgba(120, 120, 120, 0.85)"
+		),
+		hover_label = name,
+		display_label = ""
+	) |>
+	group_by(node_group) |>
+	arrange(name, .by_group = TRUE) |>
+	mutate(
+		node_x = case_when(
+			node_group == "Service" ~ 0.02,
+			node_group == "NAICS" ~ 0.50,
+			TRUE ~ 0.98
+		),
+		node_y = if (dplyr::n() == 1) 0.5 else (row_number() - 1) / (dplyr::n() - 1)
+	) |>
+	ungroup()
+
+# Create Linkage
+links_idx <- links_all |>
+	transmute(
+		source = match(source, nodes$name) - 1,
+		target = match(target, nodes$name) - 1,
+		value = value,
+		link_group = link_group,
+		hover_label = paste0(source, " -> ", target),
+		link_color = case_when(
+			link_group == "Service -> NAICS" ~ "rgba(123, 198, 126, 0.45)",
+			TRUE ~ "rgba(216, 138, 111, 0.45)"
+		)
+	)
+
+# Dynamic height so the full sankey remains visible in Quarto render.
+max_nodes_in_column <- max(as.integer(table(nodes$node_group)))
+plot_height <- max(900, 32 * max_nodes_in_column)
+
+# Sankey Plot
+plot_ly(
+	type = "sankey",
+	arrangement = "snap",
+	node = list(
+		label = nodes$display_label,
+		x = nodes$node_x,
+		y = nodes$node_y,
+		customdata = nodes$hover_label,
+		color = nodes$node_color,
+		pad = 18,
+		thickness = 18,
+		line = list(color = "rgba(0, 0, 0, 0.18)", width = 0.5),
+		hovertemplate = "%{customdata}<extra></extra>"
+	),
+	link = list(
+		source = links_idx$source,
+		target = links_idx$target,
+		value = links_idx$value,
+		color = links_idx$link_color,
+		customdata = links_idx$hover_label,
+		hovertemplate = "%{customdata}<br>Mapped links: %{value}<extra></extra>"
+	)
+) |>
+	layout(
+		height = plot_height,
+		autosize = TRUE,
+		font = list(size = 11),
+		margin = list(l = 20, r = 20, t = 10, b = 10)
+	)
+
+```
 
 
-## Company Activity Matrix (C)
-
-The amount of activity undertaken by Company i at each location ($x = 1, 2, \dots , X$) for each activity ($y = 1, 2, \dots, Y$) Note: this matrix will likely be a very sparse matrix (lots of zeros).
+# Heuristics-Based Mapping
 
 
-The company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables `[@Carrico2020]` to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.
+We implement a deterministic Python rule to map ecosystem service inputs into NAICS codes and then NAICS codes into emission byproducts. The output of this product can be foudn in: [naics_mapping.xlsx](assets/naics_mapping_ai.xlsx).
 
-### Single Impact Matrix (Iz): 
+The heuristic workflow is:
 
-The impact of each activity ($y = 1, 2, \dots, Y$) at each location ($x = 1, 2, \dots, X$), on impact z ($z = 1, 2, \dots, Z$).
+1. Read the NAICS sheet with 2022 NAICS codes and titles.
+2. Build ecosystem-service code candidates from the Quarto taxonomy in [Ecosystem Services](methods/ecosystem_services.qmd):
+* Provisioning mapped as SEEA 1.x and SEEA CF
+* Regulating mapped as SEEA 2.x,
+* And non-material mapped as SEEA 3.x and SEEA 4.1.
+3. Build emissions code candidates from the Quarto taxonomy in [Emissions](methods/emissions.qmd):
+* Scope 1 for direct activity-linked emissions,
+* Scope 2 for purchased energy-related indirect emissions, 
+* And Scope 3 for upstream and downstream value-chain emissions.
+4. Apply layered rules per row:
+* NAICS prefix rules, 
+* Then title keyword rules, 
+* Then de-duplication while preserving insertion order.
 
+This mapping requires expert review to refine the inital mapping procedure. 
+The most robust method would be to improve on the heuristic classification. 
+But idonsycratic decisions can be inserted though the logic will be left to the expert reviewer and absent from the coding structure. 
 
-
-### Company Single Impact Matrix (CIz): 
-
-For impact z what is the impact of each activity ($y = 1, 2, \dots, Y$) at each location ($x = 1, 2, \dots, X$).
-
-
-
-### Company Location Single Impact Vector (LCIz)
-
-The impact of all company activities at each location ($x = 1, 2, \dots, X$) for impact z. 
-
-
-### Company Impact Matrix (CI): 
-
-The amount of each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$) by the company.  
-
-
-### Financial Impact Matrix (F) 
-
-The monetary value of each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$)  
-
-
-### Company Financial Impact Matrix (CFI): 
-
-The monetary value of company impact by each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$).  

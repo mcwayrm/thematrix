@@ -1,0 +1,46 @@
+---
+title: "The Matrix: Firm Environmental Activities"
+bibliography: ../references.bib
+---
+
+
+# Constructing the Matrix 
+
+
+## Company Activity Matrix (C)
+
+The amount of activity undertaken by Company i at each location ($x = 1, 2, \dots , X$) for each activity ($y = 1, 2, \dots, Y$) Note: this matrix will likely be a very sparse matrix (lots of zeros).
+
+
+The company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables `[@Carrico2020]` to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.
+
+### Single Impact Matrix (Iz): 
+
+The impact of each activity ($y = 1, 2, \dots, Y$) at each location ($x = 1, 2, \dots, X$), on impact z ($z = 1, 2, \dots, Z$).
+
+
+
+### Company Single Impact Matrix (CIz): 
+
+For impact z what is the impact of each activity ($y = 1, 2, \dots, Y$) at each location ($x = 1, 2, \dots, X$).
+
+
+
+### Company Location Single Impact Vector (LCIz)
+
+The impact of all company activities at each location ($x = 1, 2, \dots, X$) for impact z. 
+
+
+### Company Impact Matrix (CI): 
+
+The amount of each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$) by the company.  
+
+
+### Financial Impact Matrix (F) 
+
+The monetary value of each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$)  
+
+
+### Company Financial Impact Matrix (CFI): 
+
+The monetary value of company impact by each impact ($z = 1, 2, \dots, Z$) for each location ($x = 1, 2, \dots, X$).  

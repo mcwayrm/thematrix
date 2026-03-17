@@ -45,7 +45,9 @@ website:
           - href: methods/emissions.qmd
             text: Emissions
           - href: methods/econ_mapping.qmd
-            text: Economic Mapping ~ The Matrix
+            text: Economic Mapping
+          - href: methods/the_matrix.qmd
+            text: The Matrix
           - href: methods/policy_industry.qmd
             text: Environmental Policies ~ Industry Based
           - href: methods/policy_place.qmd
