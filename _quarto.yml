@@ -48,7 +48,7 @@ website:
             text: Impacts
           - href: methods/econ_mapping.qmd
             text: Economic Mapping
-          - href: methods/counterfactuals.qmd
+          - href: methods/counterfactual.qmd
             text: Counterfactuals
           - href: methods/policy_industry.qmd
             text: Environmental Policies ~ Industry Based
