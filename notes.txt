@@ -1,3 +1,14 @@
+Meeting: 03/17/2026 
+- Attendance: Steve, Ryan 
+- Questions: 
+	- Not clear on how Company Single Impact Matrix ($CI_z$) is different from the Single Impact Matrix I_z
+	- How should we expand on SEEA classifications?
+		- For example, all energy, metals, minerals, plastics, etc. are ending up in SEEA 1.10. 
+		- That does not help us narrow down the scope as well. 
+		- Adding GEP classification system...
+	- Update ecosystem services to be dependencies and emissions to be impacts 
+		- Add deforestation, water withdrawals, and biodiversity loss as impacts
+
 Work Notes: 02/27/2026
 - Ryan
 - TODO: 
