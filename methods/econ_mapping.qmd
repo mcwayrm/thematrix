@@ -5,7 +5,7 @@ bibliography: ../references.bib
 
 # Earth-Economy Mapping
 
-Create sankey plot that is interactive. Show ecosystem categories. These map into NAICS codes. Then map into emissions.
+Below is a Sankey plot showing the mapping of ecosystem services (dependencies) as inputs into the economic production of NAICS industry classifications. Then NAICS codes then map into the emissions by-products (impacts) from their production. This illustrates a general sense of the mapping of the environmental dependencies and impacts of economic production. 
 
 ```{r}
 #| echo: false
@@ -226,7 +226,6 @@ plot_ly(
 		font = list(size = 11),
 		margin = list(l = 20, r = 20, t = 10, b = 10)
 	)
-
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Environmental Outputs: Emissions"
+title: "Environmental Outputs: Impacts"
 bibliography: ../references.bib
 ---
 
@@ -12,7 +12,7 @@ We can conceptualize emissions emiting from the corporate value chain using the 
 
 In this manner, we are able to categorize a variety of emissions and negative externalities from economic production into either these three scopes considering and if the emission comes from upstream activities, company activites, or downstream activities.
 
-![](/thematrix/assets/images/ghg-protocol-scopes.png)
+![](../assets/images/ghg-protocol-scopes.png)
 
 
 # Air Pollutants 

@@ -38,16 +38,16 @@ website:
 
       - section: Methodology
         contents:
+          - href: methods/the_matrix.qmd
+            text: The Matrix
           - href: methods/ecosystem_services.qmd
-            text: Ecosystem Services
+            text: Dependencies
           - href: methods/naics.qmd
             text: Industry Classification
           - href: methods/emissions.qmd
-            text: Emissions
+            text: Impacts
           - href: methods/econ_mapping.qmd
             text: Economic Mapping
-          - href: methods/the_matrix.qmd
-            text: The Matrix
           - href: methods/policy_industry.qmd
             text: Environmental Policies ~ Industry Based
           - href: methods/policy_place.qmd
@@ -58,6 +58,8 @@ website:
         contents:
         - section: Test Example
           contents:
+            - href: application/simulated_matrix.qmd
+              text: Simulated Matrix
             - href: application/test_example.qmd
               text: Starting Example
   

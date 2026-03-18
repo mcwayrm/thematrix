@@ -17,7 +17,7 @@ In the context of earth-economy modeling, this project attempts to examine the m
 First, we begin by establishing an exahustive list of natural resources and ecosystem service inputs into production. 
 Second, we determine an exhaustive list of potential emissions from production. 
 Third, we classify firms into their NAICS sectoral classification. Within these NAICS classifications, we establish a broad categorization of products. 
-Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST `[@Johnson2023]`. In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions. 
+Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST [@Johnson2023]. In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions. 
 
 The two main obstacles in achieving this exercise are: 
 

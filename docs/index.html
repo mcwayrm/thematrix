@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -140,8 +160,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./methods/the_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Matrix</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./methods/ecosystem_services.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ecosystem Services</span></a>
+ <span class="menu-text">Dependencies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -153,19 +179,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./methods/emissions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Emissions</span></a>
+ <span class="menu-text">Impacts</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./methods/econ_mapping.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Economic Mapping</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./methods/the_matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Matrix</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -200,6 +220,12 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./application/simulated_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulated Matrix</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./application/test_example.html" class="sidebar-item-text sidebar-link">
@@ -267,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The Matrix is an application to determine the relationship between firm activity and the environment. To achieve this we need to know where firms are located, what they do in those locations, and how much do they at those locations. The Matrix is designed to capture these three pieces of information:</p>
 <p><strong>Where, What, and How Much?</strong> <strong>A Method for Measuring Business Dependencies and Impacts on Nature: Where, What and How Much?</strong></p>
 <p>In the context of earth-economy modeling, this project attempts to examine the microeconomic relationship of firms. Firms interact with the environment in two directions. First, firms use a variety of natural resources and ecosystem services in their product process. Second, firms produce a variety of negative externalities primarily through emissions.</p>
-<p>First, we begin by establishing an exahustive list of natural resources and ecosystem service inputs into production. Second, we determine an exhaustive list of potential emissions from production. Third, we classify firms into their NAICS sectoral classification. Within these NAICS classifications, we establish a broad categorization of products. Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST <code>[@Johnson2023]</code>. In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions.</p>
+<p>First, we begin by establishing an exahustive list of natural resources and ecosystem service inputs into production. Second, we determine an exhaustive list of potential emissions from production. Third, we classify firms into their NAICS sectoral classification. Within these NAICS classifications, we establish a broad categorization of products. Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST <span class="citation" data-cites="Johnson2023">(<a href="#ref-Johnson2023" role="doc-biblioref">Johnson et al. 2023</a>)</span>. In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions.</p>
 <p>The two main obstacles in achieving this exercise are:</p>
 <ol type="1">
 <li>Limited information about spatio-temporal activity of firms</li>
@@ -280,7 +306,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Johnson2023" class="csl-entry" role="listitem">
+Johnson, Justin Andrew, Uris Lantz Baldos, Erwin Corong, Thomas Hertel, Stephen Polasky, Raffaello Cervigni, Toby Roxburgh, Giovanni Ruta, Colette Salemi, and Sumil Thakrar. 2023. <span>“Investing in Nature Can Improve Equity and Economic Returns.”</span> <em>Proceedings of the National Academy of Sciences</em> 120 (27): e2220401120. <a href="https://doi.org/10.1073/pnas.2220401120">https://doi.org/10.1073/pnas.2220401120</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,558 +1,511 @@
 [
   {
-    "objectID": "application/test_example.html",
-    "href": "application/test_example.html",
-    "title": "Automotives Example",
+    "objectID": "application/simulated_matrix.html",
+    "href": "application/simulated_matrix.html",
+    "title": "Simulated Matrix",
     "section": "",
-    "text": "In this example, I apply the matrix to the automotive industry\n\nSet up Coding Environment\n\n\nFind and Geocode Factories\nNaively, we know from Bloomberg a list of publicly traded automotive companies. Use the geocode_factories.py script to search the internet for factory information and geocode them using openstreet maps.\nOnce this has been figure out, proceed with the following companies and tickers:\n\n7203 JP TOYOTA MOTOR\n1211 HK BYD COMPANY\nGM US GENERAL MOTORS C\n005380 KS HYUNDAI MOTOR\nMBG GR MERCEDES-BENZ GR\nBMW GR BMW AG\nVOW GR VOLKSWAGEN AG\nRACE US FERRARI NV\n7267 JP HONDA MOTOR CO\nMSIL IN MARUTI SUZUKI IN\nMM IN MAHINDRA & MAHIN\nP911 GY DR ING HC F PORS\n000270 KS KIA CORP\nBJAUT IN BAJAJ AUTO LTD\nSTLAM IM STELLANTIS NV\nSERES GROUP CO-A SERES GROUP CO-A\n7269 JP SUZUKI MOTOR\n600104 CH SAIC MOTOR-A\n2333 HK GWMOTOR\nGELYF US GEELY AUTOMOBILE\nEIM IN EICHER MOTORS\nHYUNDAI IN HYUNDAI MOTOR IN\nTVSL IN TVS MOTOR CO LTD\nRIVN US RIVIAN AUTOMOT-A\nLI US Equity LI AUTO INC -ADR\n9868 HK Equity XPENG INC-A SHRS\n7270 JP Equity SUBARU CORP\n000625 CH Equity CHONGQING CHAN-B\nTMPV IN Equity TATA MOTORS PASS\nP911 GY Equity PORSCHE AUTO-PRF\nHMCL IN Equity HERO MOTOCORP LT\nNIO US Equity NIO INC - ADR\nRNO FP Equity RENAULT SA\nVOLCARB SS Equity VOLVO CAR AB-B\n601238 CH Equity GUANGZHOU AUTO-H\n489 HK Equity DONGFENG MOTOR-H\nFROTO TI Equity FORD OTO\n7201 JP Equity NISSAN MOTOR CO\n7272 JP Equity YAMAHA MOTOR CO\n9863 HK Equity ZHEJIANG LEAPM-H\n601777 CH Equity CHONGQING AFAR-A\n600733 CH Equity BAIC BLUEPARK-A\n603129 CH Equity ZHEJIANG CFMOT-A\n7261 JP Equity MAZDA MOTOR\n603766 CH Equity LONCIN MOTOR C-A\n1585 HK Equity YADEA GROUP HOLD\nTOASO TI Equity TOFAS\n7211 JP Equity MITSUBISHI MOTOR\nLCID US Equity LUCID GROUP INC\n301345 CH Equity ZHEJIANG TAOTA-A\nFML IN Equity FORCE MOTORS LTD\n1114 HK Equity BRILLIANCE CHINA\nGTCAP PM Equity GT CAPITAL HOLD\n600418 CH Equity ANHUI AUTOMOBI-A\nHOG US Equity HARLEY-DAVIDSON\n600006 CH Equity DONGFENG AUTO-A\n1958 HK Equity BAIC MOTOR-H\nMHSC IN Equity MAHARASHTRA SC\n2206 TT Equity SANYANG MOTOR\nPSNY US Equity POLESTAR A-A ADS\nHLI MK Equity HONG LEONG INDS\nOTKAR TI Equity OTOKAR\n2201 TT Equity YULON MOTOR\n2204 TT Equity CHINA MOTOR\n7222 JP Equity NISSAN SHATAI\nAML LN Equity ASTON MARTIN\nLOT US Equity LOTUS TECHNOLOGY\nATLH PA Equity ATLAS HONDA\nPIA IM Equity PIAGGIO & C. SPA\nGBCO EY Equity GB CORP\nJYGCLZ CH Equity JIANGSU YUEDA -A\nBJAUT IN Equity BAJAJ MOBILITY A\n003620 KS Equity KG MOBILITY CO\nDRB MK Equity DRB-HICOM BHD\n2227 TT Equity YULON NISSAN\nLVWR US Equity LIVEWIRE GROUP I\n8937 TT Equity HER CHEE\n1656311D CH Equity NIU TECHNOLO-ADR\n3333 HK Equity CHINA EVERGRANDE\nIMS IM Equity IMMSI SPA\nHCAR PA Equity HONDA ATLAS CAR\n0K4R LN Equity CARS MOTORCYCLES\nNRDE US Equity NU RIDE INC\n\n\n\nCode\n# Set location to save geocodes\nimport os\nimport sys\n\n# Add scripts directory to path so we can import geocode_factories\nsys.path.insert(0, \"E:/matrix/thematrix/scripts\")\nfrom geocode_factories import search_factories, geocode_from_csv\n\n# Set directory for firm geocodes\noutput_dir = \"E:/matrix/data/firms/geocodes\"\nos.makedirs(output_dir, exist_ok=True)\n\n# Define output files\nford_output_1 = os.path.join(output_dir, \"F_factory_geocodes.csv\")\nford_output_2 = os.path.join(output_dir, \"F_factory_info.csv\")\ntesla_output_1 = os.path.join(output_dir, \"TSLA_factory_geocodes.csv\")\ntesla_output_2 = os.path.join(output_dir, \"TSLA_factory_info.csv\")\n\n# Search Ford factories \nif not os.path.exists(ford_output_2):\n    print(\"Geocoding Ford factories (Step 1: Search)...\")\n    search_factories(\"F US\", \"Ford Motor\", ford_output_1)\n    print(\"Geocoding Ford factories (Step 2: Detailed geocoding)...\")\n    geocode_from_csv(\"F US\", ford_output_1, ford_output_2)\nelse:   \n    print(f\"Ford geocodes already exist at {ford_output_2}\")\n\n\nFord geocodes already exist at E:/matrix/data/firms/geocodes\\F_factory_info.csv\n\n\nCode\n# Search Tesla factories \nif not os.path.exists(tesla_output_2):\n    print(\"\\nGeocoding Tesla factories (Step 1: Search)...\")\n    search_factories(\"TSLA US\", \"Tesla\", tesla_output_1)\n    print(\"Geocoding Tesla factories (Step 2: Detailed geocoding)...\")\n    geocode_from_csv(\"TSLA US\", tesla_output_1, tesla_output_2)\nelse:\n    print(f\"Tesla geocodes already exist at {tesla_output_2}\")\n\n\nTesla geocodes already exist at E:/matrix/data/firms/geocodes\\TSLA_factory_info.csv\n\n\nCode\nprint(\"\\nDone!\")\n\n\n\nDone!\n\n\n\n\nCreate a Map of Industry\nUse the geocodes to create an interactive map of the factories and production locations for the industry in question.\n\n\nCode\nlibrary(tidyverse)\nlibrary(rio)\nsetwd(\"E:/matrix/\")\n\nford_factories &lt;- import(\"./data/firms/F_factory_info.csv\")\ntesla_factories &lt;- import(\"./data/firms/geocodes/TSLA_factory_geocodes.csv\")\n\n# factories &lt;- rbind(ford_factories, tesla_factories)\n\n\n\n\nCode\nlibrary(leaflet)\n\ncompany_icons &lt;- iconList(\n    \"F US\" = makeIcon(\n        iconUrl = \"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg\",\n        iconWidth = 30,\n        iconHeight = 30\n    )\n)\n\nleaflet(ford_factories) %&gt;%\n    addTiles() %&gt;%\n    addMarkers(\n        ~longitude,\n        ~latitude,\n        icon = ~ company_icons[ticker],\n        label = ~ paste0(facility_name, \" (\", ticker, \")\"),\n        popup = ~ paste(\n            \"&lt;b&gt;\", facility_name, \"&lt;/b&gt;&lt;br&gt;\",\n            \"Ticker: \", ticker, \"&lt;br&gt;\",\n            \"Type: \", facility_type, \"&lt;br&gt;\",\n            \"Products: \", products, \"&lt;br&gt;\",\n            \"Active: \", status\n        )\n    )\n\n\n\n\nGlobal distribution of manufacturing facilities\n\n\nTODO: Add a version with bi-variate map of emissions and ecosystem services as a layer.",
+    "text": "In this example, I take the concept of the Matrix developed in the Design and construct a fictious firm. This demonstrates in practice how this design made be implemented with real firm data.\nFor example, suppose we have a Minnesota firm such as Red Wing Shoes. This firm mainly produces a variety of one type of commodity: Shoes similar to the one shown below.",
     "crumbs": [
       "Application",
       "Test Example",
-      "Starting Example"
+      "Simulated Matrix"
     ]
   },
   {
-    "objectID": "methods/policy_place.html",
-    "href": "methods/policy_place.html",
-    "title": "Environmental Policies: Place-based Policies",
+    "objectID": "application/simulated_matrix.html#company-impact-matrix-c",
+    "href": "application/simulated_matrix.html#company-impact-matrix-c",
+    "title": "Simulated Matrix",
+    "section": "Company Impact Matrix (\\(C\\))",
+    "text": "Company Impact Matrix (\\(C\\))\nTo implement the matrix, first we start with the Company Activity Matrix \\((C)\\). This specifies a list of activities in specific locations. To keep this simple, let us suppose the shoe manufacturer conducts only two production activities: factories to assemble shoes (assembly) and distribution of the manufactured product (distribution). Suppose that both assembly and distribution is measured by thousands of shoes. The following matrix describes activities \\(y\\) in locations \\(x\\).\n\n\nCode\nlibrary(tibble)\nlibrary(knitr)\nlibrary(tidyverse)\n\n# Simulate company activities for Red Wing Shoes\nc &lt;- tibble(\n    city = c(\"Duluth\", \"Minneapolis\", \"St Paul\", \"Rochester\", \"Mankato\"),\n    assembly = c(100, 50, 0, 0, 10), \n    distribution = c(10, 40, 60, 25, 25)\n)\n\n# Print Company Activity Matrix\nkable(c)\n\n\n\n\n\ncity\nassembly\ndistribution\n\n\n\n\nDuluth\n100\n10\n\n\nMinneapolis\n50\n40\n\n\nSt Paul\n0\n60\n\n\nRochester\n0\n25\n\n\nMankato\n10\n25",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#single-impact-matrix-i_z",
+    "href": "application/simulated_matrix.html#single-impact-matrix-i_z",
+    "title": "Simulated Matrix",
+    "section": "Single Impact Matrix (\\(I_z\\))",
+    "text": "Single Impact Matrix (\\(I_z\\))\nThe impact of Red Wings can be viewed through the three following categories:\nImpact Categories:\n\n\n\n\n\n\n\n\nCategory\nScope\nDescription\n\n\n\n\nCategory 1\nDirect Operations\nDependencies and impacts from the company’s own operations only\n\n\nCategory 2\nSupply Chain\nCategory 1 plus dependencies and impacts from upstream suppliers back to primary producers\n\n\nCategory 3\nFull Value Chain\nCategory 2 plus dependencies and impacts from downstream activities through to final end consumers\n\n\n\nFor this example, let us consider only three potential impacts (\\(z\\)). These are:\n\nWater Pollution (Category 1): Water pollution from the tanning and dyeing processes in assembly activities.\nCarbon Emissions (Category 1): GHG emissions related to distribution of shoes from the distribution centers.\nCarbon Emissions (Category 2): GHG emissions from the animal hides necessary to produce the leather for shoe production.\n\nFor each of these three impacts, we then construct a single impact matrix \\((I_z)\\). This means for the Company Activities Matrix \\((C)\\) we translate the activities \\(y\\) in locaiton \\(x\\) into impacts \\(z | y,x\\).\n\nWater Pollution (Category 1)\nThis relates to assembly plants only. We will measure pollution as g/ha of total dissolved solids (TDS).\n\n\nCode\n# Simulate company activities for Red Wing Shoes\nz1 &lt;- tibble(\n    city = c(\"Duluth\", \"Minneapolis\", \"St Paul\", \"Rochester\", \"Mankato\"),\n    assembly = c(10, 5, 0, 0, 1)\n)\n\n# Print Impact Matrix\nkable(z1)\n\n\n\n\n\ncity\nassembly\n\n\n\n\nDuluth\n10\n\n\nMinneapolis\n5\n\n\nSt Paul\n0\n\n\nRochester\n0\n\n\nMankato\n1\n\n\n\n\n\n\n\nCarbon Emissions (Category 1)\nThis relates to distribution centers only. We will measure GHG as tons of \\(CO_2e\\).\n\n\nCode\n# Simulate company activities for Red Wing Shoes\nz2 &lt;- tibble(\n    city = c(\"Duluth\", \"Minneapolis\", \"St Paul\", \"Rochester\", \"Mankato\"),\n    distribution = c(1, 4, 6, 2.5, 2.5)\n)\n\n# Print Impact Matrix\nkable(z2)\n\n\n\n\n\ncity\ndistribution\n\n\n\n\nDuluth\n1.0\n\n\nMinneapolis\n4.0\n\n\nSt Paul\n6.0\n\n\nRochester\n2.5\n\n\nMankato\n2.5\n\n\n\n\n\n\n\nCarbon Emissions (Category 2)\nThis relates to assembly plants only. We will measure GHG as tons of \\(CO_2e\\).\n\n\nCode\n# Simulate company activities for Red Wing Shoes\nz3 &lt;- tibble(\n    city = c(\"Duluth\", \"Minneapolis\", \"St Paul\", \"Rochester\", \"Mankato\"),\n    assembly = c(5, 2, 0, 0, 0.5)\n)\n\n# Print Impact Matrix\nkable(z3)\n\n\n\n\n\ncity\nassembly\n\n\n\n\nDuluth\n5.0\n\n\nMinneapolis\n2.0\n\n\nSt Paul\n0.0\n\n\nRochester\n0.0\n\n\nMankato\n0.5",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-single-impact-matrix-ci_z",
+    "href": "application/simulated_matrix.html#company-single-impact-matrix-ci_z",
+    "title": "Simulated Matrix",
+    "section": "Company Single Impact Matrix (\\(CI_z\\))",
+    "text": "Company Single Impact Matrix (\\(CI_z\\))\nNot clear on this…",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-location-single-impact-vector-lci_z",
+    "href": "application/simulated_matrix.html#company-location-single-impact-vector-lci_z",
+    "title": "Simulated Matrix",
+    "section": "Company Location Single Impact Vector (\\(LCI_z\\))",
+    "text": "Company Location Single Impact Vector (\\(LCI_z\\))\nWe can summarize the impact of all activites \\(y\\) in a locaiton \\(x\\) for any given impact \\(z\\). In our example, this produces two vectors of location level impacts for water pollution and GHG emissions. Note, that this only impacts GHG emissions as they are covered via two seperate activities \\(y\\) (distribution and assembly) through two seperate impact scopes (Scope 1 and 2, respectively).\n\nWater Pollution\n\n\nCode\n# Repeat z1\ncz1 &lt;- z1 |&gt; \n    rename(water = assembly)\n\n# Print Company Impact\nkable(cz1)\n\n\n\n\n\ncity\nwater\n\n\n\n\nDuluth\n10\n\n\nMinneapolis\n5\n\n\nSt Paul\n0\n\n\nRochester\n0\n\n\nMankato\n1\n\n\n\n\n\n\n\nCarbon Emissions\n\n\nCode\n# Summarize z2 and z3 across cities \ncz2 &lt;- left_join(z2, z3, by = \"city\") |&gt;\n    mutate(ghg = distribution + assembly) |&gt;\n    select(-c(distribution, assembly))\n\n# Print Company Impact\nkable(cz2)\n\n\n\n\n\ncity\nghg\n\n\n\n\nDuluth\n6.0\n\n\nMinneapolis\n6.0\n\n\nSt Paul\n6.0\n\n\nRochester\n2.5\n\n\nMankato\n3.0",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-impact-matrix-ci",
+    "href": "application/simulated_matrix.html#company-impact-matrix-ci",
+    "title": "Simulated Matrix",
+    "section": "Company Impact Matrix (\\(CI\\))",
+    "text": "Company Impact Matrix (\\(CI\\))\nWe can determine the overall impact at each location \\(x\\) across all environmental concerns \\(z\\) by combining the individual impact vectors (\\(LCI_z\\))\n\n\nCode\n# Combine water and ghg emissions\nci &lt;- left_join(cz1, cz2, by = \"city\")\n\n# Print Company Impact\nkable(ci)\n\n\n\n\n\ncity\nwater\nghg\n\n\n\n\nDuluth\n10\n6.0\n\n\nMinneapolis\n5\n6.0\n\n\nSt Paul\n0\n6.0\n\n\nRochester\n0\n2.5\n\n\nMankato\n1\n3.0",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#financial-impact-matrix-fi",
+    "href": "application/simulated_matrix.html#financial-impact-matrix-fi",
+    "title": "Simulated Matrix",
+    "section": "Financial Impact Matrix (\\(FI\\))",
+    "text": "Financial Impact Matrix (\\(FI\\))\nWith \\(CI\\) we have the location \\(x\\) level aggregation of all impacts \\(z\\) in environmental terms. To translate this into monetary terms, we need to use either a non-market valuation method or avoided abatement cost to translate these emissions into financial terms. For our example, we want to know the willingness-to-pay (WTP) to reduce TDS of water pollution and the social cost of carbon (SCC) as measured through carbon rental rates.\n\nWater Pollution\nFor water pollution, suppose that we have a homogenous WTP for reducing a g/ha of total dissolved solids (TDS). You can imagine that this translates to heterogenous prices spatially across locations if there is important variation. Or this could be modified if the activity for the source of the impact has different abatement costs (e.g., it is cheaper or more expensive to abatement emissions at different stages of the production process).\nFor our example, suppose:\n\\[\nWTP_{TDS} = \\$500 \\text{ g/ha}\n\\]\nWe can simply multiply this rate by the emissions rate from the Company Location Single Impact Vector (\\(LCI_z\\)).\n\n\nCode\n# WTP \nwtp &lt;- 500\n\n# Convert by WTP\nfi1 &lt;- cz1 |&gt; \n    mutate(water = water * wtp)\n\n# Print Financial Impact\nkable(fi1)\n\n\n\n\n\ncity\nwater\n\n\n\n\nDuluth\n5000\n\n\nMinneapolis\n2500\n\n\nSt Paul\n0\n\n\nRochester\n0\n\n\nMankato\n500\n\n\n\n\n\n\n\nCarbon Emissions\nFor our example, suppose:\n\\[\nWTP_{GHG} = \\$190 \\text{ tons } CO_2e\n\\]\nWe can simply multiply this rate by the emissions rate from the Company Location Single Impact Vector (\\(LCI_z\\)).\n\n\nCode\n# WTP \nwtp &lt;- 190\n\n# Convert by WTP\nfi2 &lt;- cz2 |&gt; \n    mutate(ghg = ghg * wtp)\n\n# Print Financial Impact\nkable(fi2)\n\n\n\n\n\ncity\nghg\n\n\n\n\nDuluth\n1140\n\n\nMinneapolis\n1140\n\n\nSt Paul\n1140\n\n\nRochester\n475\n\n\nMankato\n570",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-financial-impact-matrix-cfi",
+    "href": "application/simulated_matrix.html#company-financial-impact-matrix-cfi",
+    "title": "Simulated Matrix",
+    "section": "Company Financial Impact Matrix (\\(CFI\\))",
+    "text": "Company Financial Impact Matrix (\\(CFI\\))\nThis is a trival aggregation of the monetary impact values the same analogous to the Company Impact Matrix (\\(CI\\)).\n\n\nCode\n# Combine water and ghg emissions\nfi &lt;- left_join(fi1, fi2, by = \"city\")\n\n# Print Company Impact\nkable(fi)\n\n\n\n\n\ncity\nwater\nghg\n\n\n\n\nDuluth\n5000\n1140\n\n\nMinneapolis\n2500\n1140\n\n\nSt Paul\n0\n1140\n\n\nRochester\n0\n475\n\n\nMankato\n500\n570",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#single-dependency-matrix-d_z",
+    "href": "application/simulated_matrix.html#single-dependency-matrix-d_z",
+    "title": "Simulated Matrix",
+    "section": "Single Dependency Matrix (\\(D_z\\))",
+    "text": "Single Dependency Matrix (\\(D_z\\))\n\nWater Supply (Scope 1)\nThis relates to assembly plants only. We will measure water supply in \\(m^3\\).\n\n\nCode\n# Simulate company dependencies for Red Wing Shoes\nd1 &lt;- tibble(\n    city = c(\"Duluth\", \"Minneapolis\", \"St Paul\", \"Rochester\", \"Mankato\"),\n    assembly = c(8, 4, 0, 0, 0.8)\n)\n\n# Print Dependency Matrix\nkable(d1)\n\n\n\n\n\ncity\nassembly\n\n\n\n\nDuluth\n8.0\n\n\nMinneapolis\n4.0\n\n\nSt Paul\n0.0\n\n\nRochester\n0.0\n\n\nMankato\n0.8\n\n\n\n\n\n\n\nEnergy Resources (Scope 1)\nThis relates to both assembly plants and distribution centers. We will measure energy in MWh.\n\n\nCode\n# Simulate company dependencies for Red Wing Shoes\nd2 &lt;- tibble(\n    city = c(\"Duluth\", \"Minneapolis\", \"St Paul\", \"Rochester\", \"Mankato\"),\n    assembly = c(20, 10, 0, 0, 2),\n    distribution = c(5, 20, 30, 12.5, 12.5)\n)\n\n# Print Dependency Matrix\nkable(d2)\n\n\n\n\n\ncity\nassembly\ndistribution\n\n\n\n\nDuluth\n20\n5.0\n\n\nMinneapolis\n10\n20.0\n\n\nSt Paul\n0\n30.0\n\n\nRochester\n0\n12.5\n\n\nMankato\n2\n12.5\n\n\n\n\n\n\n\nLivestock Production (Scope 2)\nThis relates to assembly plants only. We will measure biomass dependence in tons.\n\n\nCode\n# Simulate company dependencies for Red Wing Shoes\nd3 &lt;- tibble(\n    city = c(\"Duluth\", \"Minneapolis\", \"St Paul\", \"Rochester\", \"Mankato\"),\n    assembly = c(3, 1.2, 0, 0, 0.3)\n)\n\n# Print Dependency Matrix\nkable(d3)\n\n\n\n\n\ncity\nassembly\n\n\n\n\nDuluth\n3.0\n\n\nMinneapolis\n1.2\n\n\nSt Paul\n0.0\n\n\nRochester\n0.0\n\n\nMankato\n0.3",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-single-dependency-matrix-cd_z",
+    "href": "application/simulated_matrix.html#company-single-dependency-matrix-cd_z",
+    "title": "Simulated Matrix",
+    "section": "Company Single Dependency Matrix (\\(CD_z\\))",
+    "text": "Company Single Dependency Matrix (\\(CD_z\\))\nNot clear on this…",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-location-single-dependency-vector-lcd_z",
+    "href": "application/simulated_matrix.html#company-location-single-dependency-vector-lcd_z",
+    "title": "Simulated Matrix",
+    "section": "Company Location Single Dependency Vector (\\(LCD_z\\))",
+    "text": "Company Location Single Dependency Vector (\\(LCD_z\\))\n\nWater Supply\n\n\nCode\n# Repeat d1\ncd1 &lt;- d1 |&gt; \n    rename(water_supply = assembly)\n\n# Print Company Dependency\nkable(cd1)\n\n\n\n\n\ncity\nwater_supply\n\n\n\n\nDuluth\n8.0\n\n\nMinneapolis\n4.0\n\n\nSt Paul\n0.0\n\n\nRochester\n0.0\n\n\nMankato\n0.8\n\n\n\n\n\n\n\nEnergy Resources\n\n\nCode\n# Summarize energy dependencies across cities\ncd2 &lt;- d2 |&gt;\n    mutate(energy = assembly + distribution) |&gt;\n    select(-c(assembly, distribution))\n\n# Print Company Dependency\nkable(cd2)\n\n\n\n\n\ncity\nenergy\n\n\n\n\nDuluth\n25.0\n\n\nMinneapolis\n30.0\n\n\nSt Paul\n30.0\n\n\nRochester\n12.5\n\n\nMankato\n14.5\n\n\n\n\n\n\n\nLivestock Production\n\n\nCode\n# Repeat d3\ncd3 &lt;- d3 |&gt; \n    rename(livestock = assembly)\n\n# Print Company Dependency\nkable(cd3)\n\n\n\n\n\ncity\nlivestock\n\n\n\n\nDuluth\n3.0\n\n\nMinneapolis\n1.2\n\n\nSt Paul\n0.0\n\n\nRochester\n0.0\n\n\nMankato\n0.3",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-dependency-matrix-cd",
+    "href": "application/simulated_matrix.html#company-dependency-matrix-cd",
+    "title": "Simulated Matrix",
+    "section": "Company Dependency Matrix (\\(CD\\))",
+    "text": "Company Dependency Matrix (\\(CD\\))\n\n\nCode\n# Combine water, energy, and livestock dependencies\ncd &lt;- cd1 |&gt;\n    left_join(cd2, by = \"city\") |&gt;\n    left_join(cd3, by = \"city\")\n\n# Print Company Dependency\nkable(cd)\n\n\n\n\n\ncity\nwater_supply\nenergy\nlivestock\n\n\n\n\nDuluth\n8.0\n25.0\n3.0\n\n\nMinneapolis\n4.0\n30.0\n1.2\n\n\nSt Paul\n0.0\n30.0\n0.0\n\n\nRochester\n0.0\n12.5\n0.0\n\n\nMankato\n0.8\n14.5\n0.3",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#financial-dependence-matrix-fd",
+    "href": "application/simulated_matrix.html#financial-dependence-matrix-fd",
+    "title": "Simulated Matrix",
+    "section": "Financial Dependence Matrix (\\(FD\\))",
+    "text": "Financial Dependence Matrix (\\(FD\\))\n\nWater Supply\n\n\nCode\n# Unit value\nwtp &lt;- 40\n\n# Convert by unit value\nfd1 &lt;- cd1 |&gt;\n    mutate(water_supply = water_supply * wtp)\n\n# Print Financial Dependence\nkable(fd1)\n\n\n\n\n\ncity\nwater_supply\n\n\n\n\nDuluth\n320\n\n\nMinneapolis\n160\n\n\nSt Paul\n0\n\n\nRochester\n0\n\n\nMankato\n32\n\n\n\n\n\n\n\nEnergy Resources\n\n\nCode\n# Unit value\nwtp &lt;- 120\n\n# Convert by unit value\nfd2 &lt;- cd2 |&gt;\n    mutate(energy = energy * wtp)\n\n# Print Financial Dependence\nkable(fd2)\n\n\n\n\n\ncity\nenergy\n\n\n\n\nDuluth\n3000\n\n\nMinneapolis\n3600\n\n\nSt Paul\n3600\n\n\nRochester\n1500\n\n\nMankato\n1740\n\n\n\n\n\n\n\nLivestock Production\n\n\nCode\n# Unit value\nwtp &lt;- 250\n\n# Convert by unit value\nfd3 &lt;- cd3 |&gt;\n    mutate(livestock = livestock * wtp)\n\n# Print Financial Dependence\nkable(fd3)\n\n\n\n\n\ncity\nlivestock\n\n\n\n\nDuluth\n750\n\n\nMinneapolis\n300\n\n\nSt Paul\n0\n\n\nRochester\n0\n\n\nMankato\n75",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "application/simulated_matrix.html#company-financial-dependence-matrix-cfd",
+    "href": "application/simulated_matrix.html#company-financial-dependence-matrix-cfd",
+    "title": "Simulated Matrix",
+    "section": "Company Financial Dependence Matrix (\\(CFD\\))",
+    "text": "Company Financial Dependence Matrix (\\(CFD\\))\n\n\nCode\n# Combine water, energy, and livestock dependence values\ncfd &lt;- fd1 |&gt;\n    left_join(fd2, by = \"city\") |&gt;\n    left_join(fd3, by = \"city\")\n\n# Print Company Financial Dependence\nkable(cfd)\n\n\n\n\n\ncity\nwater_supply\nenergy\nlivestock\n\n\n\n\nDuluth\n320\n3000\n750\n\n\nMinneapolis\n160\n3600\n300\n\n\nSt Paul\n0\n3600\n0\n\n\nRochester\n0\n1500\n0\n\n\nMankato\n32\n1740\n75",
+    "crumbs": [
+      "Application",
+      "Test Example",
+      "Simulated Matrix"
+    ]
+  },
+  {
+    "objectID": "methods/the_matrix.html",
+    "href": "methods/the_matrix.html",
+    "title": "The Matrix: Firm Environmental Activities",
+    "section": "",
+    "text": "The amount of activity undertaken by Company i at each location (\\(x = 1, 2, \\dots , X\\)) for each activity (\\(y = 1, 2, \\dots, Y\\)) Note: this matrix will likely be a very sparse matrix (lots of zeros).\nThe company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables [@Carrico2020] to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.\n\n\nThe impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)), on impact z (\\(z = 1, 2, \\dots, Z\\)).\n\n\n\nFor impact z what is the impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)).\n\n\n\nThe impact of all company activities at each location (\\(x = 1, 2, \\dots, X\\)) for impact z.\n\n\n\nThe amount of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)) by the company.\n\n\n\nThe monetary value of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\))\n\n\n\nThe monetary value of company impact by each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)).",
+    "crumbs": [
+      "Methodology",
+      "The Matrix"
+    ]
+  },
+  {
+    "objectID": "methods/the_matrix.html#company-activity-matrix-c",
+    "href": "methods/the_matrix.html#company-activity-matrix-c",
+    "title": "The Matrix: Firm Environmental Activities",
+    "section": "",
+    "text": "The amount of activity undertaken by Company i at each location (\\(x = 1, 2, \\dots , X\\)) for each activity (\\(y = 1, 2, \\dots, Y\\)) Note: this matrix will likely be a very sparse matrix (lots of zeros).\nThe company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables [@Carrico2020] to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.\n\n\nThe impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)), on impact z (\\(z = 1, 2, \\dots, Z\\)).\n\n\n\nFor impact z what is the impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)).\n\n\n\nThe impact of all company activities at each location (\\(x = 1, 2, \\dots, X\\)) for impact z.\n\n\n\nThe amount of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)) by the company.\n\n\n\nThe monetary value of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\))\n\n\n\nThe monetary value of company impact by each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)).",
+    "crumbs": [
+      "Methodology",
+      "The Matrix"
+    ]
+  },
+  {
+    "objectID": "methods/policy_industry.html",
+    "href": "methods/policy_industry.html",
+    "title": "Environmental Policies: Industry-based Policies",
     "section": "",
     "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
     "crumbs": [
       "Methodology",
-      "Environmental Policies ~ Place Based"
+      "Environmental Policies ~ Industry Based"
     ]
   },
   {
-    "objectID": "methods/econ_mapping.html",
-    "href": "methods/econ_mapping.html",
-    "title": "Environmental-Economic Mapping",
+    "objectID": "methods/emissions.html",
+    "href": "methods/emissions.html",
+    "title": "Environmental Outputs: Impacts",
     "section": "",
-    "text": "Earth-Economy Mapping\nCreate sankey plot that is interactive. Show ecosystem categories. These map into NAICS codes. Then map into emissions.\n\n\n\n\n\n\n\n\nHeuristics-Based Mapping\nWe implement a deterministic Python rule to map ecosystem service inputs into NAICS codes and then NAICS codes into emission byproducts. The output of this product can be foudn in: naics_mapping.xlsx.\nThe heuristic workflow is:\n\nRead the NAICS sheet with 2022 NAICS codes and titles.\nBuild ecosystem-service code candidates from the Quarto taxonomy in Ecosystem Services:\n\n\nProvisioning mapped as SEEA 1.x and SEEA CF\nRegulating mapped as SEEA 2.x,\nAnd non-material mapped as SEEA 3.x and SEEA 4.1.\n\n\nBuild emissions code candidates from the Quarto taxonomy in Emissions:\n\n\nScope 1 for direct activity-linked emissions,\nScope 2 for purchased energy-related indirect emissions,\nAnd Scope 3 for upstream and downstream value-chain emissions.\n\n\nApply layered rules per row:\n\n\nNAICS prefix rules,\nThen title keyword rules,\nThen de-duplication while preserving insertion order.\n\nThis mapping requires expert review to refine the inital mapping procedure. The most robust method would be to improve on the heuristic classification. But idonsycratic decisions can be inserted though the logic will be left to the expert reviewer and absent from the coding structure.",
+    "text": "We can categorize the environmental impact of economic production through the emissions produced as a by-product of production. We can conceptualize emissions emiting from the corporate value chain using the three scope approach of the Greenhouse Gas Protocol. These three scopes are:\nIn this manner, we are able to categorize a variety of emissions and negative externalities from economic production into either these three scopes considering and if the emission comes from upstream activities, company activites, or downstream activities.",
     "crumbs": [
       "Methodology",
-      "Economic Mapping"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html",
-    "href": "methods/ecosystem_services.html",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "",
-    "text": "Set up ecosystem services as the private good, public good, and common pool resources derived from nature. This is both biotic and abotic. Classifcation by the SEEA-EA framework – Matching accounting standards Distinguish measured value through stock supply, quantity used, market price or willingness-to-pay, and nature’s contribution to human value of these services.\nSEEA-EA Framework: https://seea.un.org/sites/seea.un.org/files/documents/EA/seea_ea_f124_web_12dec24.pdf - I downloaded the crosswalk. Update this with GEP classifications. Use these as the key ecosystem service classifications.\nI need to note that natural resources fold within ecosystem services as a provisioning service.\nhttps://esml.epa.gov/search/ems https://www.epa.gov/eco-research/ecoservice-models-library https://www.ipbes.net/models https://naturalcapitalalliance.stanford.edu/software/invest/invest-models https://data.jrc.ec.europa.eu/collection/MAES\nIPBES Global Assessment (2019): https://files.ipbes.net/ipbes-web-prod-public-files/inline/files/ipbes_global_assessment_report_summary_for_policymakers.pdf IPBES Business Assessment: https://zenodo.org/records/18538597",
+    "objectID": "methods/emissions.html#carbon-dioxide-co_2-em-1.1",
+    "href": "methods/emissions.html#carbon-dioxide-co_2-em-1.1",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Carbon Dioxide (\\(CO_2\\)) (EM 1.1)",
+    "text": "Carbon Dioxide (\\(CO_2\\)) (EM 1.1)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#biomass-provisioning-services",
-    "href": "methods/ecosystem_services.html#biomass-provisioning-services",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Biomass Provisioning Services",
-    "text": "Biomass Provisioning Services\n\nCrop Provisioning Services (SEEA 1.1)\nDefinition:\n\nCrop provisioning services are the ecosystem contributions to the growth of cultivated plants that are harvested by economic units for various uses including food and fibre production, fodder and energy. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.1: Crop Provision Commerical GEP 1.2: Crop Provision Subsistence\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nGrazed Biomass Provisioning Services (SEEA 1.2)\nDefinition:\n\nGrazed biomass provisioning services are the ecosystem contributions to the growth of grazed biomass that is an input to the growth of cultivated livestock. This service excludes the ecosystem contributions to the growth of crops used to produce fodder for livestock (e.g., hay, soybean meal). These contributions are included under crop provisioning services. This is a final ecosystem service but may be intermediate to livestock provisioning services. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nLivestock Provisioning Services (SEEA 1.3)\nDefinition:\n\nLivestock provisioning services are the ecosystem contributions to the growth of cultivated livestock and livestock products (e.g., meat, milk, eggs, wool, leather), that are used by economic units for various uses, primarily food production. This is a final ecosystem service. No distinct livestock provisioning services to be recorded if grazed biomass provisioning services are recorded as a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.3: Livestock Provision\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nAquaculture Provisioning Services (SEEA 1.4)\nDefinition:\n\nAquaculture provisioning services are the ecosystem contributions to the growth of animals and plants (e.g. fish, shellfish, seaweed) in aquaculture facilities that are harvested by economic units for various uses. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.4: Fish Provision Commerical\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWood Provisioning Services (SEEA 1.5)\nDefinition:\n\nWood provisioning services are the ecosystem contributions to the growth of trees and other woody biomass in both cultivated (plantation) and uncultivated production contexts that are harvested by economic units for various uses including timber production and energy. This service excludes contributions to non-wood forest products. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.6: Timber Provision GEP 1.7: Fuelwood\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWild Fish and Other Natural Aquatic Products Provisioning Services (SEEA 1.6)\nDefinition:\n\nWild fish and other natural aquatic biomass provisioning services are the ecosystem contributions to the growth of fish and other aquatic biomass that are captured in uncultivated production contexts by economic units for various uses, primarily food production. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.5: Fish Provision Subsistence\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWild Animals, Plants, and Other Biomass Provisioning Services (SEEA 1.7)\nDefinition:\n\nWild animals, plants and other biomass provisioning services are the ecosystem contributions to the growth of wild animals, plants and other biomass that are captured and harvested in uncultivated production contexts by economic units for various uses. The scope includes non-wood forest products (NWFP) and services related to hunting, trapping and bio-prospecting activities; but excludes wild fish and other natural aquatic biomass (included in previous class). This is a final ecosystem service (United Nations et al. 2024)\n\nGEP 1.8: Non-timber Forest Product (NTFP) Provision\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#black-carbon-bc-em-1.2",
+    "href": "methods/emissions.html#black-carbon-bc-em-1.2",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Black Carbon (BC) (EM 1.2)",
+    "text": "Black Carbon (BC) (EM 1.2)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#genetic-material-services-seea-1.8",
-    "href": "methods/ecosystem_services.html#genetic-material-services-seea-1.8",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Genetic Material Services (SEEA 1.8)",
-    "text": "Genetic Material Services (SEEA 1.8)\nDefinition:\n\nGenetic material services are the ecosystem contributions from all biota (including seed, spore or gamete production) that are used by economic units, for example (i) to develop new animal and plant breeds; (ii) in gene synthesis; or (iii) in product development directly using genetic material. This is most commonly recorded as an intermediate service to biomass provisioning. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#methane-ch_4-em-1.3",
+    "href": "methods/emissions.html#methane-ch_4-em-1.3",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Methane (\\(CH_4\\)) (EM 1.3)",
+    "text": "Methane (\\(CH_4\\)) (EM 1.3)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#water-supply-seea-1.9",
-    "href": "methods/ecosystem_services.html#water-supply-seea-1.9",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Water Supply (SEEA 1.9)",
-    "text": "Water Supply (SEEA 1.9)\nDefinition:\n\nWater supply services reflect the combined ecosystem contributions of water flow regulation, water purification, and other ecosystem services to the supply of water of appropriate quality to users for various uses including household consumption. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.9: Water Supply\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#nitrous-oxide-n_2o-em-1.4",
+    "href": "methods/emissions.html#nitrous-oxide-n_2o-em-1.4",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Nitrous Oxide (\\(N_2O\\)) (EM 1.4)",
+    "text": "Nitrous Oxide (\\(N_2O\\)) (EM 1.4)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#other-provisioning-services-seea-1.10",
-    "href": "methods/ecosystem_services.html#other-provisioning-services-seea-1.10",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Other Provisioning Services (SEEA 1.10)",
-    "text": "Other Provisioning Services (SEEA 1.10)\nDefinition:\nAnimals reared for nutritional purposes Fibres and other materials from reared animals for direct use or processing (excluding genetic materials) Animals reared to provide energy (including mechanical) Animals reared by in-situ aquaculture as an energy source\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#fluorinated-gases-em-1.5",
+    "href": "methods/emissions.html#fluorinated-gases-em-1.5",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Fluorinated Gases (EM 1.5)",
+    "text": "Fluorinated Gases (EM 1.5)\nHydrofluorocarbons, perfluorocarbons, sulfur hexafluoride, and nitrogen trifluorid\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#energy-production-seea-cf",
-    "href": "methods/ecosystem_services.html#energy-production-seea-cf",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Energy Production (SEEA CF)",
-    "text": "Energy Production (SEEA CF)\nDefinition:\nGEP 1.10: Solar Energy Provision GEP 1.11: Wind Energy Provision GEP 1.12: Geothermal Energy Provision GEP 1.13: Hydropower Provision GEP 1.14: Fossil Fuels Oil GEP 1.15: Fossil Fuels Natural Gas GEP 1.16: Fossil Fuels Coal GEP 1.17: Extractive Material Provision (Minerals)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#ozone-depleting-substances-em-1.6",
+    "href": "methods/emissions.html#ozone-depleting-substances-em-1.6",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Ozone-Depleting Substances (EM 1.6)",
+    "text": "Ozone-Depleting Substances (EM 1.6)\nOzone \\(O_3\\) chlorofluorocarbons, hydrochlorofluorocarbons, and halons\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#global-climate-regulation-services-seea-2.1",
-    "href": "methods/ecosystem_services.html#global-climate-regulation-services-seea-2.1",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Global Climate Regulation Services (SEEA 2.1)",
-    "text": "Global Climate Regulation Services (SEEA 2.1)\nDefinition:\n\nGlobal climate regulation services are the ecosystem contributions to the regulation of the chemical composition of the atmosphere and oceans that affect global climate through the accumulation and retention of carbon and other GHG (e.g., methane) in ecosystems and the ability of ecosystems to remove (sequester) carbon from the atmosphere. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.18: Global Climate Regulation (Terrestrial and Coastal Carbon) GEP 1.19: Global Climate Regulation (Marine Carbon)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#particulate-matter-pm-em-1.7",
+    "href": "methods/emissions.html#particulate-matter-pm-em-1.7",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Particulate Matter (PM) (EM 1.7)",
+    "text": "Particulate Matter (PM) (EM 1.7)\nCoarse PM10 Fine PM2.5\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#rainfall-pattern-regulation-services-seea-2.2",
-    "href": "methods/ecosystem_services.html#rainfall-pattern-regulation-services-seea-2.2",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Rainfall Pattern Regulation Services (SEEA 2.2)",
-    "text": "Rainfall Pattern Regulation Services (SEEA 2.2)\n\nSub-contintenal\n\nDefinition:\n\nRainfall pattern regulation services are the ecosystem contributions of vegetation, in particular forests, in maintaining rainfall patterns through evapotranspiration at the sub-continental scale. Forests and other vegetation recycle moisture back to the atmosphere where it is available for the generation of rainfall. Rainfall in interior parts of continents fully depends upon this recycling. This may be a final or intermediate service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#sulfur-dioxide-so_2-em-1.8",
+    "href": "methods/emissions.html#sulfur-dioxide-so_2-em-1.8",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Sulfur Dioxide (\\(SO_2\\)) (EM 1.8)",
+    "text": "Sulfur Dioxide (\\(SO_2\\)) (EM 1.8)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#local-climate-regulation-services-seea-2.3",
-    "href": "methods/ecosystem_services.html#local-climate-regulation-services-seea-2.3",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Local Climate Regulation Services (SEEA 2.3)",
-    "text": "Local Climate Regulation Services (SEEA 2.3)\n\nMicro or meso\n\nDefinition:\n\nLocal climate regulation services are the ecosystem contributions to the regulation of ambient atmospheric conditions (including micro and mesoscale climates) through the presence of vegetation that improves the living conditions for people and supports economic production. Examples include the evaporative cooling provided by urban trees (‘green space’), the role of urban water bodies (‘blue space’) and the contribution of trees in providing shade for humans and livestock. This may be a final or intermediate service. (United Nations et al. 2024)\n\nGEP.20: Local Climate Regulation (Urban Cooling)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#carbon-monoxide-co-em-1.9",
+    "href": "methods/emissions.html#carbon-monoxide-co-em-1.9",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Carbon Monoxide (\\(CO\\)) (EM 1.9)",
+    "text": "Carbon Monoxide (\\(CO\\)) (EM 1.9)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#air-filtration-services-seea-2.4",
-    "href": "methods/ecosystem_services.html#air-filtration-services-seea-2.4",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Air Filtration Services (SEEA 2.4)",
-    "text": "Air Filtration Services (SEEA 2.4)\nDefinition:\n\nAir filtration services are the ecosystem contributions to the filtering of air-borne pollutants through the deposition, uptake, fixing and storage of pollutants by ecosystem components, particularly plants, that mitigates the harmful effects of the pollutants. This is most commonly a final ecosystem service. (United Nations et al. 2024)\n\nGEP.21: Air Filtration\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#non-methane-volatile-organic-compounds-vocs-em-1.10",
+    "href": "methods/emissions.html#non-methane-volatile-organic-compounds-vocs-em-1.10",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Non-methane Volatile Organic Compounds (VOCS) (EM 1.10)",
+    "text": "Non-methane Volatile Organic Compounds (VOCS) (EM 1.10)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#soil-quality-regulation-servicees-seea-2.5",
-    "href": "methods/ecosystem_services.html#soil-quality-regulation-servicees-seea-2.5",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Soil Quality Regulation Servicees (SEEA 2.5)",
-    "text": "Soil Quality Regulation Servicees (SEEA 2.5)\nDefinition:\n\nSoil quality regulation services are the ecosystem contributions to the decomposition of organic and inorganic materials and to the fertility and characteristics of soils, e.g., for input to biomass production. This is most commonly recorded as an intermediate service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#ammonia-nh_3-em-1.11",
+    "href": "methods/emissions.html#ammonia-nh_3-em-1.11",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Ammonia (\\(NH_3\\)) (EM 1.11)",
+    "text": "Ammonia (\\(NH_3\\)) (EM 1.11)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#soil-and-sediment-retention-services",
-    "href": "methods/ecosystem_services.html#soil-and-sediment-retention-services",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Soil and Sediment Retention Services",
-    "text": "Soil and Sediment Retention Services\n\nSoil Erosion Control Services (SEEA 2.6)\nDefinition:\n\nSoil erosion control services are the ecosystem contributions, particularly the stabilising effects of vegetation, that reduce the loss of soil (and sediment) and support use of the environment (e.g., agricultural activity, water supply). This is may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nGEP.22: Erosion Control\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nLandslide Mitiation (SEEA 2.7)\nDefinition:\n\nLandslide mitigation services are the ecosystem contributions, particularly the stabilising effects of vegetation, that mitigates or prevents potential damage to human health and safety and damaging effects to buildings and infrastructure that arise from the mass movement (wasting) of soil, rock and snow. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.23: Landslide Mitigation\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#suspended-solids",
+    "href": "methods/emissions.html#suspended-solids",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Suspended Solids",
+    "text": "Suspended Solids\n\nPrimary Sludge (EM 2.1)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nSecondary Sludge (EM 2.2)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nChemical Sludge (EM 2.3)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nMineral Sludge (EM 2.4)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nWaste Activated Sludge (EM 2.5)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#solid-waste-remediation-seea-2.8",
-    "href": "methods/ecosystem_services.html#solid-waste-remediation-seea-2.8",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Solid Waste Remediation (SEEA 2.8)",
-    "text": "Solid Waste Remediation (SEEA 2.8)\nDefinition:\n\nSolid waste remediation services are the ecosystem contributions to the transformation of organic or inorganic substances, through the action of micro-organisms, algae, plants and animals that mitigates their harmful effects. This is may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#biodegradable-organic-matter",
+    "href": "methods/emissions.html#biodegradable-organic-matter",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Biodegradable Organic Matter",
+    "text": "Biodegradable Organic Matter\n\nDissolved Oxygen (DO) (EM 2.6)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nBiochemical Oxygen Demand (BOD) (EM 2.7)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#water-purification-services",
-    "href": "methods/ecosystem_services.html#water-purification-services",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Water Purification Services",
-    "text": "Water Purification Services\nWater quality amelioration\n\nWater Retention and Breakdwon of Nutrients (SEEA 2.9)\nDefinition:\n\nWater purification services are the ecosystem contributions to the restoration and maintenance of the chemical condition of surface water and groundwater bodies through the breakdown or removal of nutrients and other pollutants by ecosystem components that mitigate the harmful effects of the pollutants on human use or health. This may be recorded as a final or intermediate ecosystem service. (United Nations et al. 2024)\n\nGEP.24: Water Quality-Nutrient\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWater Retention and Breakdown of Other Pollutants (SEEA 2.10)\nDefinition:\n\nWater purification services are the ecosystem contributions to the restoration and maintenance of the chemical condition of surface water and groundwater bodies through the breakdown or removal of nutrients and other pollutants by ecosystem components that mitigate the harmful effects of the pollutants on human use or health. This may be recorded as a final or intermediate ecosystem service. (United Nations et al. 2024)\n\nGEP.25: Groundwater Recharge\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#chemical-oxygen-demand-cod-em-2.8",
+    "href": "methods/emissions.html#chemical-oxygen-demand-cod-em-2.8",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Chemical Oxygen Demand (COD) (EM 2.8)",
+    "text": "Chemical Oxygen Demand (COD) (EM 2.8)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#water-flow-regulation-services",
-    "href": "methods/ecosystem_services.html#water-flow-regulation-services",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Water Flow Regulation Services",
-    "text": "Water Flow Regulation Services\n\nBaseline Water Flow Maintenance Services (SEEA 2.11)\nDefinition:\n\nWater regulation services are the ecosystem contributions to the regulation of river flows and groundwater and lake water tables. They are derived from the ability of ecosystems to absorb and store water, and gradually release water during dry seasons or periods through evapotranspiration and hence secure a regular flow of water. This may be recorded as a final or intermediate ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nPeak Water Flow Mitigation Services (SEEA 2.12)\nDefinition:\n\nWater regulation services are the ecosystem contributions to the regulation of river flows and groundwater and lake water tables. They are derived from the ability of ecosystems to absorb and store water, and hence mitigate the effects of flood and other extreme water-related events. Peak flow mitigation services will be supplied together with river flood mitigation services in providing the benefit of flood protection. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#non-biodegradable-organic-matter",
+    "href": "methods/emissions.html#non-biodegradable-organic-matter",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Non-biodegradable Organic Matter",
+    "text": "Non-biodegradable Organic Matter\n\nPesticides (EM 2.9)\nOrganochlorines\nOrganophosphates\nNeonicotinoids\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nDetergents (EM 2.10)\nChromium-6, Arsenic, Nitrates\nLinear alkylbenzene sulfonates (LAS)\nAlcohol ether sulfates (AES)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#flood-mitigation-services",
-    "href": "methods/ecosystem_services.html#flood-mitigation-services",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Flood Mitigation Services",
-    "text": "Flood Mitigation Services\n\nCoastal Protection Services (SEEA 2.13)\nDefinition:\n\nCoastal protection services are the ecosystem contributions of linear elements in the seascape, for instance coral reefs, sand banks, dunes or mangrove ecosystems along the shore, in protecting the shore and thus mitigating the impacts of tidal surges or storms on local communities. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.26: Coastal Protection\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nRiver Flood Mitigation Services (SEEA 2.14)\nDefinition:\n\nRiver flood mitigation services are the ecosystem contributions of riparian vegetation which provides structure and a physical barrier to high water levels and thus mitigates the impacts of floods on local communities. River flood mitigation services will be supplied together with peak flow mitigation services in providing the benefit of flood protection. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.27: River Flood Mitigation\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#inorganic-dissolved-solids",
+    "href": "methods/emissions.html#inorganic-dissolved-solids",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Inorganic Dissolved solids",
+    "text": "Inorganic Dissolved solids\n\nTotal dissolved solids (TDS) (EM 2.11)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nSalinity (Na) (EM 2.12)\nSodium Chloride\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nArsenic (EM 2.13)\nIndustrial smelting, pesticides\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nCyanide (Plastics) (EM 2.14)\nPlastics\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\nMicroplastics\n\n\n\nLead (EM 2.15)\nMining, plumbing, gasoline, coal\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nMercury (EM 2.16)\nMining, combustion, industrial waste\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nThallium (EM 2.17)\nGlass, pharmaceuticals, electronics\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#storm-mitigation-services-seea-2.15",
-    "href": "methods/ecosystem_services.html#storm-mitigation-services-seea-2.15",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Storm Mitigation Services (SEEA 2.15)",
-    "text": "Storm Mitigation Services (SEEA 2.15)\nDefinition:\n\nStorm mitigation services are the ecosystem contributions of vegetation including linear elements, in mitigating the impacts of wind, sand and other storms (other than water related events) on local communities. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.28: Storm Mitigation\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#pathogens",
+    "href": "methods/emissions.html#pathogens",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Pathogens",
+    "text": "Pathogens\n\nEscherichia Coli (E. Coli) (EM 2.18)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nParasitic Worms (EM 2.19)\nEggs from helminths (large macro parasites) Parasticially steals nutrients from the host Most common: - Ascaris - Hookworm - Whipworm\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#noise-attenuation-services-seea-2.16",
-    "href": "methods/ecosystem_services.html#noise-attenuation-services-seea-2.16",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Noise Attenuation Services (SEEA 2.16)",
-    "text": "Noise Attenuation Services (SEEA 2.16)\nDefinition:\n\nNoise attenuation services are the ecosystem contributions to the reduction in the impact of noise on people that mitigates its harmful or stressful effects. This is most commonly a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#nitrogen-runoff-em-2.20",
+    "href": "methods/emissions.html#nitrogen-runoff-em-2.20",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Nitrogen Runoff (EM 2.20)",
+    "text": "Nitrogen Runoff (EM 2.20)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#pollination-services-seea-2.17",
-    "href": "methods/ecosystem_services.html#pollination-services-seea-2.17",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Pollination Services (SEEA 2.17)",
-    "text": "Pollination Services (SEEA 2.17)\nDefinition:\n\nPollination services are the ecosystem contributions by wild pollinators to the fertilization of crops that maintains or increases the abundance and/or diversity of other species that economic units use or enjoy. This may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nGEP.29: Pollination\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#phosphorus-runoff-em-2.21",
+    "href": "methods/emissions.html#phosphorus-runoff-em-2.21",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Phosphorus Runoff (EM 2.21)",
+    "text": "Phosphorus Runoff (EM 2.21)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#biological-control-services",
-    "href": "methods/ecosystem_services.html#biological-control-services",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Biological Control Services",
-    "text": "Biological Control Services\n\nPest Control Services (SEEA 2.18)\nDefinition:\n\nBiological control services are the ecosystem contributions to the reduction in the incidence of species that may prevent or reduce the effects of pests on biomass production processes or other economic and human activity. This is may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nGEP.30 Pest Control\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nDisease Control Services (SEEA 2.19)\nDefinition:\n\nDisease control services are the ecosystem contributions to the reduction in the incidence of species that may prevent or reduce the effects of species on human health. This is most commonly a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#petroleum-hydrocarbons-em-3.1",
+    "href": "methods/emissions.html#petroleum-hydrocarbons-em-3.1",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Petroleum Hydrocarbons (EM 3.1)",
+    "text": "Petroleum Hydrocarbons (EM 3.1)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#nursery-population-and-habitat-maintenance-services-seea-2.20",
-    "href": "methods/ecosystem_services.html#nursery-population-and-habitat-maintenance-services-seea-2.20",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Nursery Population and Habitat Maintenance Services (SEEA 2.20)",
-    "text": "Nursery Population and Habitat Maintenance Services (SEEA 2.20)\nDefinition:\n\nNursery population and habitat maintenance services are the ecosystem contributions necessary for sustaining populations of species that economic units ultimately use or enjoy either through the maintenance of habitats (e.g., for nurseries or migration) or the protection of natural gene pools. This service is an intermediate service and may input to a number of different final ecosystem services including biomass provision and recreation-related services. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#polynuclear-aromatic-hydrocarbons-pahs-em-3.2",
+    "href": "methods/emissions.html#polynuclear-aromatic-hydrocarbons-pahs-em-3.2",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Polynuclear Aromatic Hydrocarbons (PAHs) (EM 3.2)",
+    "text": "Polynuclear Aromatic Hydrocarbons (PAHs) (EM 3.2)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#other-regulating-and-maintenance-services-seea-2.21",
-    "href": "methods/ecosystem_services.html#other-regulating-and-maintenance-services-seea-2.21",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Other Regulating and Maintenance Services (SEEA 2.21)",
-    "text": "Other Regulating and Maintenance Services (SEEA 2.21)\nDefinition:\nVisual screening\nFire protection Seed dispersal Disease control\nRegulation of the chemical condition of salt waters by living processes\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#heavy-metals",
+    "href": "methods/emissions.html#heavy-metals",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Heavy Metals",
+    "text": "Heavy Metals\n\nLead (EM 3.3)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes\n\n\nMercury (EM 3.4)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes\n\n\nCadmium (EM 3.5)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#recreation-related-services-seea-3.1",
-    "href": "methods/ecosystem_services.html#recreation-related-services-seea-3.1",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Recreation-related Services (SEEA 3.1)",
-    "text": "Recreation-related Services (SEEA 3.1)\nDefinition:\n\nRecreation-related services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that enable people to use and enjoy the environment through direct, in-situ, physical and experiential interactions with the environment. This includes services to both locals and non-locals (i.e. visitors, including tourists). Recreation-related services may also be supplied to those undertaking recreational fishing and hunting. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.31 Recreation and Tourism\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#solid-municipal-waste-em-3.6",
+    "href": "methods/emissions.html#solid-municipal-waste-em-3.6",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Solid Municipal Waste (EM 3.6)",
+    "text": "Solid Municipal Waste (EM 3.6)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#visual-amenity-services-seea-3.2",
-    "href": "methods/ecosystem_services.html#visual-amenity-services-seea-3.2",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Visual Amenity Services (SEEA 3.2)",
-    "text": "Visual Amenity Services (SEEA 3.2)\nDefinition:\n\nVisual amenity services are the ecosystem contributions to local living conditions, in particular through the biophysical characteristics and qualities of ecosystems that provide sensory benefits, especially visual. This service combines with other ecosystem services, including recreation-related services and noise attenuation services to underpin amenity values. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#plastic-waste-em-3.7",
+    "href": "methods/emissions.html#plastic-waste-em-3.7",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Plastic Waste (EM 3.7)",
+    "text": "Plastic Waste (EM 3.7)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#education-scientific-and-research-services-seea-3.3",
-    "href": "methods/ecosystem_services.html#education-scientific-and-research-services-seea-3.3",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Education, Scientific, and Research Services (SEEA 3.3)",
-    "text": "Education, Scientific, and Research Services (SEEA 3.3)\nDefinition:\n\nEducation, scientific and research services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that enable people to use the environment through intellectual interactions with the environment. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#electronic-waste-e-waste-em-3.8",
+    "href": "methods/emissions.html#electronic-waste-e-waste-em-3.8",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Electronic Waste (E-Waste) (EM 3.8)",
+    "text": "Electronic Waste (E-Waste) (EM 3.8)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#spiritual-artistic-and-symbolic-services-seea-3.4",
-    "href": "methods/ecosystem_services.html#spiritual-artistic-and-symbolic-services-seea-3.4",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Spiritual, Artistic, and Symbolic Services (SEEA 3.4)",
-    "text": "Spiritual, Artistic, and Symbolic Services (SEEA 3.4)\nDefinition:\n\nSpiritual artistic and symbolic services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that are recognised by people for their cultural, historical, aesthetic, sacred or religious significance. These services may underpin people’s cultural identity and may inspire people to express themselves through various artistic media. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#perfluoroalkyl-and-polyfluoroalkyl-substances-pfas-em-3.9",
+    "href": "methods/emissions.html#perfluoroalkyl-and-polyfluoroalkyl-substances-pfas-em-3.9",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Perfluoroalkyl and Polyfluoroalkyl Substances (PFAS) (EM 3.9)",
+    "text": "Perfluoroalkyl and Polyfluoroalkyl Substances (PFAS) (EM 3.9)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
+      "Impacts"
     ]
   },
   {
-    "objectID": "methods/ecosystem_services.html#other-cultural-services-seea-3.5",
-    "href": "methods/ecosystem_services.html#other-cultural-services-seea-3.5",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Other Cultural Services (SEEA 3.5)",
-    "text": "Other Cultural Services (SEEA 3.5)\nDefinition:\nGEP.32: Physical Health Benefits from Nature Exposure GEP.33: Mental Health Benefits from Nature Exposure\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "objectID": "methods/emissions.html#pharamecutical-waste-em-3.10",
+    "href": "methods/emissions.html#pharamecutical-waste-em-3.10",
+    "title": "Environmental Outputs: Impacts",
+    "section": "Pharamecutical Waste (EM 3.10)",
+    "text": "Pharamecutical Waste (EM 3.10)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
     "crumbs": [
       "Methodology",
-      "Ecosystem Services"
-    ]
-  },
-  {
-    "objectID": "methods/ecosystem_services.html#ecosystem-and-species-appreciation-services-seea-4.1",
-    "href": "methods/ecosystem_services.html#ecosystem-and-species-appreciation-services-seea-4.1",
-    "title": "Environmental Inputs: Ecosystem Services",
-    "section": "Ecosystem and Species Appreciation Services (SEEA 4.1)",
-    "text": "Ecosystem and Species Appreciation Services (SEEA 4.1)\nDefinition:\n\nEcosystem and species appreciation concerns the wellbeing that people derive from the existence and preservation of the environment for current and future generations, irrespective of any direct or indirect use. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\nMaintenance of Options Services\nDefinition: (United Nations et al. 2024)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
-    "crumbs": [
-      "Methodology",
-      "Ecosystem Services"
-    ]
-  },
-  {
-    "objectID": "technical_support.html",
-    "href": "technical_support.html",
-    "title": "Technical Support",
-    "section": "",
-    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
-    "crumbs": [
-      "Technical Appendix",
-      "Technical Support"
-    ]
-  },
-  {
-    "objectID": "CITATION_GUIDE.html",
-    "href": "CITATION_GUIDE.html",
-    "title": "Citation Guide",
-    "section": "",
-    "text": "This website uses a centralized bibliography system. All references are stored in references.bib and can be cited in any .qmd file.\n\n\nAdd new entries to references.bib in BibTeX format. Common entry types:\n\n\n@article{authorYear,\n  title={Article Title},\n  author={Last, First and Last, First},\n  journal={Journal Name},\n  volume={10},\n  number={2},\n  pages={123--145},\n  year={2024}\n}\n\n\n\n@book{authorYear,\n  title={Book Title},\n  author={Last, First},\n  year={2023},\n  publisher={Publisher Name}\n}\n\n\n\n\nUse the @ symbol followed by the citation key:\n\nIn-text citation: @authorYear renders as: Author (Year)\nParenthetical: [@authorYear] renders as: (Author, Year)\nMultiple citations: [@author2024; @other2023]\nWith page numbers: [@authorYear, pp. 42-43]\nSuppress author: [-@authorYear] renders as: (Year)\n\n\n\n\nAccording to @example2024, this is important. \nOther research supports this claim [@examplebook2023; @exampleconf2025].\n\n\n\nThe website uses APA style by default (configured in _quarto.yml). You can change this by:\n\nDownload a different .csl file from the Zotero Style Repository\nSave it in your project directory\nUpdate the csl: field in _quarto.yml\n\nCommon styles: apa.csl, chicago.csl, ieee.csl, nature.csl\n\n\n\nAll cited references automatically appear on the References page."
-  },
-  {
-    "objectID": "CITATION_GUIDE.html#how-to-add-references",
-    "href": "CITATION_GUIDE.html#how-to-add-references",
-    "title": "Citation Guide",
-    "section": "",
-    "text": "Add new entries to references.bib in BibTeX format. Common entry types:\n\n\n@article{authorYear,\n  title={Article Title},\n  author={Last, First and Last, First},\n  journal={Journal Name},\n  volume={10},\n  number={2},\n  pages={123--145},\n  year={2024}\n}\n\n\n\n@book{authorYear,\n  title={Book Title},\n  author={Last, First},\n  year={2023},\n  publisher={Publisher Name}\n}"
-  },
-  {
-    "objectID": "CITATION_GUIDE.html#how-to-cite-in-.qmd-files",
-    "href": "CITATION_GUIDE.html#how-to-cite-in-.qmd-files",
-    "title": "Citation Guide",
-    "section": "",
-    "text": "Use the @ symbol followed by the citation key:\n\nIn-text citation: @authorYear renders as: Author (Year)\nParenthetical: [@authorYear] renders as: (Author, Year)\nMultiple citations: [@author2024; @other2023]\nWith page numbers: [@authorYear, pp. 42-43]\nSuppress author: [-@authorYear] renders as: (Year)"
-  },
-  {
-    "objectID": "CITATION_GUIDE.html#example",
-    "href": "CITATION_GUIDE.html#example",
-    "title": "Citation Guide",
-    "section": "",
-    "text": "According to @example2024, this is important. \nOther research supports this claim [@examplebook2023; @exampleconf2025]."
-  },
-  {
-    "objectID": "CITATION_GUIDE.html#citation-style",
-    "href": "CITATION_GUIDE.html#citation-style",
-    "title": "Citation Guide",
-    "section": "",
-    "text": "The website uses APA style by default (configured in _quarto.yml). You can change this by:\n\nDownload a different .csl file from the Zotero Style Repository\nSave it in your project directory\nUpdate the csl: field in _quarto.yml\n\nCommon styles: apa.csl, chicago.csl, ieee.csl, nature.csl"
-  },
-  {
-    "objectID": "CITATION_GUIDE.html#references-page",
-    "href": "CITATION_GUIDE.html#references-page",
-    "title": "Citation Guide",
-    "section": "",
-    "text": "All cited references automatically appear on the References page."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "The Matrix",
-    "section": "",
-    "text": "The Matrix is an application to determine the relationship between firm activity and the environment. To achieve this we need to know where firms are located, what they do in those locations, and how much do they at those locations. The Matrix is designed to capture these three pieces of information:\nWhere, What, and How Much? A Method for Measuring Business Dependencies and Impacts on Nature: Where, What and How Much?\nIn the context of earth-economy modeling, this project attempts to examine the microeconomic relationship of firms. Firms interact with the environment in two directions. First, firms use a variety of natural resources and ecosystem services in their product process. Second, firms produce a variety of negative externalities primarily through emissions.\nFirst, we begin by establishing an exahustive list of natural resources and ecosystem service inputs into production. Second, we determine an exhaustive list of potential emissions from production. Third, we classify firms into their NAICS sectoral classification. Within these NAICS classifications, we establish a broad categorization of products. Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST [@Johnson2023]. In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions.\nThe two main obstacles in achieving this exercise are:\n\nLimited information about spatio-temporal activity of firms\nLimited ability to quantify environmental change and attach it to specific production\n\nThe Matrix resolves these two issues. This application provides a means by which we can determine spatio-temporal activity of firms. For publicly listed firms, we generate a script to geolocate information on exisiting production activities. For private firms, we provide a template form which firms may complete to generate this information. To determine environmental effects, we collect a variety of global raster data on natural resources, ecosystem services, and emissions to create a spatially distribution of environmental characteristics.\nNeed to add here details on how we attach firm activity to environmental maps (e.g., methodology)\nCan add something here about firm motivations: profit motivation or regulatory compliance\nAdd here discussion of attempting to collect a census of industry-based and place-based environmental regulation and assign these to specific products or industries",
-    "crumbs": [
-      "The Matrix",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "All references cited throughout this website are listed below.",
-    "crumbs": [
-      "Technical Appendix",
-      "Bibliography"
-    ]
-  },
-  {
-    "objectID": "references.html#bibliography",
-    "href": "references.html#bibliography",
-    "title": "References",
-    "section": "",
-    "text": "All references cited throughout this website are listed below.",
-    "crumbs": [
-      "Technical Appendix",
-      "Bibliography"
-    ]
-  },
-  {
-    "objectID": "design.html",
-    "href": "design.html",
-    "title": "Design",
-    "section": "",
-    "text": "The aim of this paper is to describe a method for measuring the inputs from nature into a company’s operations (dependencies) and the outputs of a company that affect nature (impacts). Dependencies can include a company’s use of material natural resources (e.g., fish, timber, water, minerals), ecological processes (e.g., processes that enhance soil fertility, pest and pathogen control, flood or drought protection, air or water purification, carbon sequestration), and other inputs (e.g., genetic information that yields new products or processes, natural attractions and scenic amenities that enhance property values, tourism, and recreation). Impacts of a company’s operations on nature can include greenhouse gas emissions, land use change leading to loss of biodiversity, air and water pollution, water withdrawals, and other effects.\nOur method aims to measure dependencies and impacts in both biophysical and monetary terms. Measurement in a monetary metric facilities analysis allowing comparisons in a common metric and facilities communication with businesses and business analysts who are used to evaluating business operations in monetary terms. However, in some cases it may make more sense to report dependencies and impacts in biophysical terms (e.g., numbers of species, tons of carbon, cubic meters of water), such as when there are no reliable indicators of monetary value that would allow translation of dependencies or impacts into a monetary metric.\nOur approach to measuring dependencies and impacts of a company requires information on:\n\nWhere: location of company activities\nWhat: production processes at each location (what is produced and by what process)\nHow much: what is the scale of activities at each location.\n\n{Describe why where, what, and how much are important}\nWe define data inputs and analysis methods that can be used to measure the dependencies and impacts for individual companies, or for portfolios of companies. We describe various methods that can be used to measure dependencies and impacts with different availability of data inputs. These methods can also be used to analyze dependencies and impacts for different coverage (similar to “scope” coverage for greenhouse gas emissions) ranging from counting only dependencies and impacts of the operations of company operations itself (Category 1), Category 1 plus dependencies and impacts up the supply chain from primary producers (Category 2), and Category 2 dependencies and impacts through the entire supply chain to final end users (Category 3). Including dependencies and impacts of upstream and downstream activities requires additional steps, which we will explain as we proceed.\nOur approach makes a number of advances over prior work attempting to characterize or quantify business dependencies and impacts, including work on ESG indicators incorporating components of biodiversity or nature. First, our approach yields a measure of dependencies and impacts of company activity rather than simply a measure of an indicator reflecting the current state of biodiversity or nature in regions where the company operates. For example, just knowing that mean species abundance is high or low in a region in which the company operates does not show whether the company is having an impact or not on species or other aspects of biodiversity. Only by analyzing company activities in terms of where, what, and how much, is it possible to measure dependencies and impacts. Our approach builds on the InVEST (Integrated Valuation of Ecosystem Services and Tradeoffs) suite of models from the Natural Capital Project that quantify a wide range of ecosystem services and metrics of biodiversity. InVEST is designed to measure changes in ecosystem services with changes in environmental conditions such as those caused by land use change. By comparing measures of ecosystem services with and without company activities we can calculate a measure of company dependencies and impacts. InVEST is a spatially explicit model allowing fine-scale analysis of impacts at specific locations but also has global coverage for many ecosystem services allowing for aggregation of dependencies and impacts for companies that operate globally. Second, our approach provides a much wider set of dependency and impact measures than do other approaches that typically focus solely on greenhouse gases or a specific measure of biodiversity such as mean species abundance. In addition to including measures of multiple greenhouse gases and a range of biodiversity measures, our approach includes a wide set of ecosystem services. Ecosystem services currently modeled in InVEST and related modeling work by the Natural Capital Project team includes air quality, biodiversity metrics (species richness, habitat for endemic, rare, threatened and endangered species, forest intactness, and Key Biodiversity Areas), coastal blue carbon, coastal vulnerability, crop pollination, crop production, forestry production, grazing, habitat quality, habitat risk assessment, recreation, renewable energy, scenic quality, seasonal water yield, sediment retention, terrestrial greenhouse gases, urban cooling, urban flood risk mitigation, urban storm water retention, water purification, wave energy. Third, our approach can be extended to include impacts from primary producers through to end consumers (Scope 1, 2, and 3). Finally, our approach can measure dependencies and impacts in biophysical terms (e.g., tons of carbon, cubic meters of water, pollution parts per million), and in monetary terms, as discussed above.\nWe begin with a description of data inputs for measuring company dependencies and impacts. We then describe methods for measuring company impacts, followed by a description of methods for measuring dependencies.",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#location-where",
-    "href": "design.html#location-where",
-    "title": "Design",
-    "section": "Location (where):",
-    "text": "Location (where):\nInformation on geographic location of company facilities. Ideal data would be latitude/longitude of facilities providing the exact footprint of company facilities. If the company does not wish to provide this information, we could use geographic region in which the facility exists, which could be political units such as county, state, country, or biophysically defined regions such as ecoregions or watersheds, or regions defined by other groups such as the Global Trade Analysis Project Agro-ecological Zones (GTAP AEZ; https://www.gtap.agecon.purdue.edu/about/data_models.asp).",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#activities-what",
-    "href": "design.html#activities-what",
-    "title": "Design",
-    "section": "Activities (what):",
-    "text": "Activities (what):\nFor each location, what does the company do there, i.e., what does the company produce and what process methods are used to produce it? Ideal data would include all inputs from nature into the activity (dependencies) and all outputs of the activity affecting nature (impacts). However, most companies are unlikely to have the kind of detailed information that would allow them to calculate and report this information, and even if they had this information, many might be reluctant to make such information publicly available. The standard approach (described below) does not require this information from the company but instead uses industry averages for a given activity in a given region. Even this approach, however, requires information on what activities are undertaken at company facilities, for example is the facility a headquarters building, distribution center, or production facility? For production facilities, we would require information on what products are produced (e.g., steel mill, coal-fired electricity generator, chemical plant specifying what chemicals are produced, car assembly plant…).",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#size-how-much",
-    "href": "design.html#size-how-much",
-    "title": "Design",
-    "section": "Size (how much):",
-    "text": "Size (how much):\nInformation about how much of each activity is done in each location (e.g., the amount of product steel, electricity, chemicals, cars produced). Some information on size is available for publicly traded companies for the entire company but not for individual facilities. If so, a method to allocate activities to individual facilities is needed, which would ideally utilize information on relative size or importance of individual facilities. If no such information is available, a default would be to evenly allocate activity across facilities.",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#company-activity-matrix-c",
-    "href": "design.html#company-activity-matrix-c",
-    "title": "Design",
-    "section": "Company Activity Matrix (C)",
-    "text": "Company Activity Matrix (C)\nWith information about where, what, and how much, we can generate a Company Activity Matrix, where each cell specifies the amount of activity (\\(y = 1, 2, \\dots, Y\\)) occurring in each location (\\(x = 1, 2, \\dots, X\\)), for example, the amount of maize production (measured in hectares), or the amount of cement production (measured in tons produced) in each location x. For some activities a course region is fine (e.g., county, province, or state). For other activities, more detailed location information will be needed (e.g., for water quality how close to streams or rivers is the activity). In the latter case, “location” might be all land units within a region (county, province, or state) that lie within a buffer of a water body. For some activities, there may be more than one dimension that characterizes the activity. For example, to adequately characterize a mining activity, we might need to know both the land area (measured in hectares) and the output of the mine (measured in tons).\n\n\n\nLocation\nActivity 1\nActivity 2\nActivity 3\nActivity 3\n\n\n\n\n\n\n\nIndicator 1\nIndicator 2\n\n\nLocation 1\n0\n20 tons\n100 ha\n1,000 tons\n\n\nLocation 2\n10 ha\n0\n0\n0\n\n\nLocation 3\n5 ha\n5 tons\n0\n0\n\n\n\\(\\dots\\)\n\n\n\n\n\n\nLocation X\n\n\n\n\n\n\n\n\nCompany Activity Matrix (C)\nThe amount of activity undertaken by Company i at each location (\\(x = 1, 2, \\dots , X\\)) for each activity (\\(y = 1, 2, \\dots, Y\\)) Note: this matrix will likely be a very sparse matrix (lots of zeros).\n\n\nCompany Impact for Categories 1, 2, and 3\nThe company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables [@Carrico2020] to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#single-impact-matrix-iz",
-    "href": "design.html#single-impact-matrix-iz",
-    "title": "Design",
-    "section": "Single Impact Matrix (Iz)",
-    "text": "Single Impact Matrix (Iz)\nEach activity in each location has an array of impacts on endpoints of interest. For example, agricultural crop production generates crops but also has impacts on air and water quality, water availability, land use affecting biodiversity, greenhouse gases, and other impacts.\nFor each impact, \\(z = 1, 2, \\dots, Z\\), we assemble a matrix of the impact of a unit of activity in each location. For example, what is the impact of intensive maize production, mining, steel production, etc., on phosphorus runoff to surface water by location. We can determine impacts for each activity in each location through various means. If company data exists, we will use that. In the event that company data is not available, we will determine impacts by: a) running InVEST (or other models) with the baseline natural landscape versus with an increase of one unit of activity at each location, b) using published lifecycle assessments, or c) using some combination of these (e.g., lifecycle emissions in conjunction with InVEST models). For activities characterized by more than one indicator (such as the mining example above characterized by area and mining volume) the impact would be defined for a one-unit size increase in indicators that included a ratio of the indicators (e.g., 1 hectare and 10 tons in mining example in the table below).\nThe compilation of each impact matrix is time and labor-intensive work that requires skill and judgment. We will prioritize completing these matrices focusing on the most important activities and impacts first and gradually increasing the library of activities and impacts. Though compilation of impact matrices is a lot of work, it is not company or analysis specific (unless the company provides its own data for this step). As such, this matrix can be prepared once (pre-processed) and can be used in analyses across different companies. We would periodically update this matrix as new information becomes available.\n\n\n\n\n\n\n\n\n\n\nLocation\nActivity 1\nActivity 2\nActivity 3\nActivity Y\n\n\n\n\nLocation 1\n10 g/ha\n10 g/ha\n20g/1ha & 10 tons\n\n\n\nLocation 2\n10 g/ha\n2 g/ha\n20g/1ha & 10 tons\n\n\n\nLocation 3\n5 g/ha\n1 g/ha\n20g/1ha & 10 tons\n\n\n\n\\(\\dots\\)\n\n\n\n\n\n\nLocation X\n\n\n\n\n\n\n\n\nSingle Impact Matrix (Iz):\nThe impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)), on impact z (\\(z = 1, 2, \\dots, Z\\)).",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#company-single-impact-matrix-ciz",
-    "href": "design.html#company-single-impact-matrix-ciz",
-    "title": "Design",
-    "section": "Company Single Impact Matrix (CIz)",
-    "text": "Company Single Impact Matrix (CIz)\nWe combine the Company Matrix (C) with the Single Impact Matrix (Iz) to generate the Company Single Impact Matrix (CIz), which provides information about the impact of the company by location and activity for each impact \\(z, z = 1, 2, \\dots, Z\\). The Company Single Impact Matrix (CIz) is calculated by multiplying each cell in the Company Matrix, Cxy, with the equivalent cell in the Company Single Impact Matrix, Izxy.\n\n\n\nLocation\nActivity 1\nActivity 2\nActivity 3\nActivity Y\n\n\n\n\nLocation 1\n0\n200 g\n2000 g\n\n\n\nLocation 2\n100 g\n0\n0\n\n\n\nLocation 3\n25 g\n5 g\n0\n\n\n\nLocation X\n\n\n\n\n\n\n\n\nCompany Single Impact Matrix (CIz):\nFor impact z what is the impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)).",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#company-location-single-impact-vector-lciz",
-    "href": "design.html#company-location-single-impact-vector-lciz",
-    "title": "Design",
-    "section": "Company Location Single Impact Vector (LCIz)",
-    "text": "Company Location Single Impact Vector (LCIz)\nBy summing across activities (\\(y = 1, 2, \\dots, Y\\)) we can get the Company Location Single Impact Vector (LCIz) that summarizes the impact of all company activities on impact z by location (\\(x = 1, 2, \\dots, X\\)).\n\n\n\nLocation\nImpact z\n\n\n\n\nLocation 1\n2,200 g\n\n\nLocation 2\n100 g\n\n\nLocation 3\n30 g\n\n\nLocation X\n\n\n\n\n\nCompany Location Single Impact Vector (LCIz)\nThe impact of all company activities at each location (\\(x = 1, 2, \\dots, X\\)) for impact z.",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#company-impact-matrix-ci",
-    "href": "design.html#company-impact-matrix-ci",
-    "title": "Design",
-    "section": "Company Impact Matrix (CI)",
-    "text": "Company Impact Matrix (CI)\nAssembling all of the Company Location Single Impact Vectors into a single matrix generates the Company Impact Matrix (CI).\n\n\n\nLocation\nImpact 1\nImpact 2\nImpact 3\nImpact Z\n\n\n\n\nLocation 1\n200 g\n400 tons\n\n\n\n\nLocation 2\n100 g\n100 tons\n\n\n\n\nLocation 3\n30 g\n150 tons\n\n\n\n\nLocation Y\n\n\n\n\n\n\n\n\nCompany Impact Matrix (CI):\nThe amount of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)) by the company.\nNote: it is possible to stop the analysis at this point and provide information solely in physical units by location (grams, tons, cubic meters …). For some applications, it is advantageous to report in physical units. Doing avoids the complication of trying to “price” impacts. However, for many applications, including net financial returns, or environmental profit and loss, assessing value (price) is unavoidable. Reporting in terms of financial metrics may also help make terms more recognizable to companies and aid in communication with end users.",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#financial-impact-matrix-fi",
-    "href": "design.html#financial-impact-matrix-fi",
-    "title": "Design",
-    "section": "Financial Impact Matrix (FI)",
-    "text": "Financial Impact Matrix (FI)\nThe Financial Impact Matrix (FI) assembles information on the “price” (cost) for a unit of impact z in each location. Price information can come from a number of sources. The Global Trade Analysis Project (GTAP) has price data for marketed commodities (e.g., agricultural crops, timber, steel, cars). Prices will have to be generated for non-market impacts. The economics literature on non-market valuation provides evidence on prices for many non-market impacts. Recent work on Gross Ecosystem Product (GEP) [@Ouyang2020]. As with impact matrices, we will prioritize our work to first concentrate on important impacts for which some evidence exists on which to base prices. But like impact matrix information, the financial matrix can be prepared once (pre-processing) and used in all analyses across different companies. We would periodically update this matrix as new information becomes available.\n\n\n\nLocation\nImpact 1\nImpact 2\nImpact 3\nImpact Z\n\n\n\n\nLocation 1\n$100/m3\n$50/ton\n\n\n\n\nLocation 2\n$50/m3\n$50/ton\n\n\n\n\nLocation 3\n$10/m3\n$50/ton\n\n\n\n\nLocation Y\n\n\n\n\n\n\n\n\nFinancial Impact Matrix (F)\nThe monetary value of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\))",
-    "crumbs": [
-      "The Matrix",
-      "Design"
-    ]
-  },
-  {
-    "objectID": "design.html#company-financial-impact-matrix-cfi",
-    "href": "design.html#company-financial-impact-matrix-cfi",
-    "title": "Design",
-    "section": "Company Financial Impact Matrix (CFI)",
-    "text": "Company Financial Impact Matrix (CFI)\nMultiply each cell of the Company Impact Matrix, CIxz, by the same cell in the Financial Impact Matrix, FIxz, to generate the Company Financial Impact Matrix (CFI). | Location | Impact 1 | Impact 2 | Impact 3 | Impact Z | |———-|———-|———-|———-|———-| | Location 1 | $0 | $20,000 | | | | Location 2 | $2,500 | $5,000 | | | | Location 3 | $250 | $7,500 | | | | Location Y | | | | |\n\nCompany Financial Impact Matrix (CFI):\nThe monetary value of company impact by each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)).\nWith the Company Financial Impact Matrix (CFI), we can sum across the columns to get the total financial impact for the company at each location. Alternatively, we can sum across the rows to get the total financial impact for the company for each impact. Finally, we can also sum across all the cells in the matrix to get the company’s total financial impact.",
-    "crumbs": [
-      "The Matrix",
-      "Design"
+      "Impacts"
     ]
   },
   {
@@ -677,344 +630,559 @@
     ]
   },
   {
-    "objectID": "methods/emissions.html",
-    "href": "methods/emissions.html",
-    "title": "Environmental Outputs: Emissions",
+    "objectID": "design.html",
+    "href": "design.html",
+    "title": "Design",
     "section": "",
-    "text": "We can categorize the environmental impact of economic production through the emissions produced as a by-product of production. We can conceptualize emissions emiting from the corporate value chain using the three scope approach of the Greenhouse Gas Protocol. These three scopes are:\nIn this manner, we are able to categorize a variety of emissions and negative externalities from economic production into either these three scopes considering and if the emission comes from upstream activities, company activites, or downstream activities.",
+    "text": "Our aim is to construct a method for measuring the inputs from nature into a company’s operations (dependencies) and the outputs of a company that affect nature (impacts). Dependencies can include a company’s use of material natural resources (e.g., fish, timber, water, minerals), ecological processes (e.g., processes that enhance soil fertility, pest and pathogen control, flood or drought protection, air or water purification, carbon sequestration), and other inputs (e.g., genetic information that yields new products or processes, natural attractions and scenic amenities that enhance property values, tourism, and recreation). Impacts of a company’s operations on nature can include greenhouse gas emissions, land use change leading to loss of biodiversity, air and water pollution, water withdrawals, and other effects.\nOur method aims to measure dependencies and impacts in both biophysical and monetary terms. Measurement in a monetary metric facilities analysis allowing comparisons in a common metric and facilities communication with businesses and business analysts who are familiar with evaluating business operations in monetary terms. However, in some cases it may make more sense to report dependencies and impacts in biophysical terms (e.g., numbers of species, tons of carbon, cubic meters of water), such as when there are no reliable indicators of monetary value that would allow translation of dependencies or impacts into a monetary metric.\nOur approach to measuring dependencies and impacts of a company requires information on:\n\nWhere: location of company activities\nWhat: production processes at each location (what is produced and by what process)\nHow Much: what is the scale of activities at each location.\n\nWhere is important as this allows us to associate company activity with specific changes to the envrionmental conditions near these locations. What allows us to subset the wide set of potential ecosystem services and emission by-products to a limited set associated specifically with those production activities. This improves the precision of our estimates. Finally, how much allows us to capture the intensity of the production activities. This allows us to assign variation in intensity of economic production.\nWe define data inputs and analysis methods that can be used to measure the dependencies and impacts for individual companies, or for portfolios of companies. We describe various methods that can be used to measure dependencies and impacts with different availability of data inputs. These methods can also be used to analyze dependencies and impacts for different coverage (similar to “scope” coverage for greenhouse gas emissions) ranging from counting only dependencies and impacts of the operations of company operations itself (Category 1), Category 1 plus dependencies and impacts up the supply chain from primary producers (Category 2), and Category 2 dependencies and impacts through the entire supply chain to final end users (Category 3). Including dependencies and impacts of upstream and downstream activities requires additional steps, which we will explain as we proceed.\nImpact Categories:\n\n\n\n\n\n\n\n\nCategory\nScope\nDescription\n\n\n\n\nCategory 1\nDirect Operations\nDependencies and impacts from the company’s own operations only\n\n\nCategory 2\nSupply Chain\nCategory 1 plus dependencies and impacts from upstream suppliers back to primary producers\n\n\nCategory 3\nFull Value Chain\nCategory 2 plus dependencies and impacts from downstream activities through to final end consumers\n\n\n\nOur approach makes a number of advances over prior work attempting to characterize or quantify business dependencies and impacts, including work on ESG indicators incorporating components of biodiversity or nature. First, our approach yields a measure of dependencies and impacts of company activity rather than simply a measure of an indicator reflecting the current state of biodiversity or nature in regions where the company operates. For example, just knowing that mean species abundance is high or low in a region in which the company operates does not show whether the company is having an impact or not on species or other aspects of biodiversity. Only by analyzing company activities in terms of where, what, and how much, is it possible to measure dependencies and impacts. Our approach builds on the InVEST (Integrated Valuation of Ecosystem Services and Tradeoffs) suite of models from the Natural Capital Project that quantify a wide range of ecosystem services and metrics of biodiversity (Sharp 2014). InVEST is designed to measure changes in ecosystem services with changes in environmental conditions such as those caused by land use change. By comparing measures of ecosystem services with and without company activities we can calculate a measure of company dependencies and impacts. InVEST is a spatially explicit model allowing fine-scale analysis of impacts at specific locations but also has global coverage for many ecosystem services allowing for aggregation of dependencies and impacts for companies that operate globally.\nSecond, our approach provides a much wider set of dependency and impact measures than do other approaches that typically focus solely on greenhouse gases or a specific measure of biodiversity such as mean species abundance. In addition to including measures of multiple greenhouse gases and a range of biodiversity measures, our approach includes a wide set of ecosystem services. Ecosystem services currently modeled in InVEST and related modeling work by the Natural Capital Project team includes air quality, biodiversity metrics (species richness, habitat for endemic, rare, threatened and endangered species, forest intactness, and Key Biodiversity Areas), coastal blue carbon, coastal vulnerability, crop pollination, crop production, forestry production, grazing, habitat quality, habitat risk assessment, recreation, renewable energy, scenic quality, seasonal water yield, sediment retention, terrestrial greenhouse gases, urban cooling, urban flood risk mitigation, urban storm water retention, water purification, wave energy.\nThird, our approach can be extended to include impacts from primary producers through to end consumers (Scope 1, 2, and 3). Finally, our approach can measure dependencies and impacts in biophysical terms (e.g., tons of carbon, cubic meters of water, pollution parts per million), and in monetary terms, as discussed above.\nWe begin with a description of data inputs for measuring company dependencies and impacts. We then describe methods for measuring company impacts, followed by a description of methods for measuring dependencies.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#carbon-dioxide-co_2-em-1.1",
-    "href": "methods/emissions.html#carbon-dioxide-co_2-em-1.1",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Carbon Dioxide (\\(CO_2\\)) (EM 1.1)",
-    "text": "Carbon Dioxide (\\(CO_2\\)) (EM 1.1)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#location-where",
+    "href": "design.html#location-where",
+    "title": "Design",
+    "section": "Location (Where):",
+    "text": "Location (Where):\nInformation on geographic location of company facilities. Ideal data would be latitude/longitude of facilities providing the exact footprint of company facilities. If the company does not wish to provide this information, we could use geographic region in which the facility exists, which could be political units such as county, state, country, or biophysically defined regions such as ecoregions or watersheds, or regions defined by other groups such as the Global Trade Analysis Project Agro-ecological Zones GTAP AEZ.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#black-carbon-bc-em-1.2",
-    "href": "methods/emissions.html#black-carbon-bc-em-1.2",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Black Carbon (BC) (EM 1.2)",
-    "text": "Black Carbon (BC) (EM 1.2)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#activities-what",
+    "href": "design.html#activities-what",
+    "title": "Design",
+    "section": "Activities (What):",
+    "text": "Activities (What):\nFor each location, what does the company do there? I.e., what does the company produce and what process methods are used to produce it? Ideal data would include all inputs from nature into the activity (dependencies) and all outputs of the activity affecting nature (impacts). However, most companies are unlikely to have the kind of detailed information that would allow them to calculate and report this information, and even if they had this information, many might be reluctant to make such information publicly available. The standard approach (described below) does not require this information from the company but instead uses industry averages for a given activity in a given region. Even this approach, however, requires information on what activities are undertaken at company facilities, for example is the facility a headquarters building, distribution center, or production facility? For production facilities, we would require information on what products are produced (e.g., steel mill, coal-fired electricity generator, chemical plant specifying what chemicals are produced, car assembly plant \\(\\dots\\)).",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#methane-ch_4-em-1.3",
-    "href": "methods/emissions.html#methane-ch_4-em-1.3",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Methane (\\(CH_4\\)) (EM 1.3)",
-    "text": "Methane (\\(CH_4\\)) (EM 1.3)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#size-how-much",
+    "href": "design.html#size-how-much",
+    "title": "Design",
+    "section": "Size (How Much):",
+    "text": "Size (How Much):\nInformation about how much of each activity is done in each location (e.g., the amount of product steel, electricity, chemicals, cars produced). Some information on size is available for publicly traded companies for the entire company but not for individual facilities. If so, a method to allocate activities to individual facilities is needed, which would ideally utilize information on relative size or importance of individual facilities. If no such information is available, a default would be to evenly allocate activity across facilities.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#nitrous-oxide-n_2o-em-1.4",
-    "href": "methods/emissions.html#nitrous-oxide-n_2o-em-1.4",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Nitrous Oxide (\\(N_2O\\)) (EM 1.4)",
-    "text": "Nitrous Oxide (\\(N_2O\\)) (EM 1.4)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#company-activity-matrix-c",
+    "href": "design.html#company-activity-matrix-c",
+    "title": "Design",
+    "section": "Company Activity Matrix (\\(C\\))",
+    "text": "Company Activity Matrix (\\(C\\))\nWith information about where, what, and how much, we can generate a Company Activity Matrix, where each cell specifies the amount of activity (\\(y = 1, 2, \\dots, Y\\)) occurring in each location (\\(x = 1, 2, \\dots, X\\)), for example, the amount of maize production (measured in hectares), or the amount of cement production (measured in tons produced) in each location x. For some activities a course region is fine (e.g., county, province, or state). For other activities, more detailed location information will be needed (e.g., for water quality how close to streams or rivers is the activity). In the latter case, “location” might be all land units within a region (county, province, or state) that lie within a buffer of a water body. For some activities, there may be more than one dimension that characterizes the activity. For example, to adequately characterize a mining activity, we might need to know both the land area (measured in hectares) and the output of the mine (measured in tons).\n\n\n\nLocation\nActivity 1\nActivity 2\nActivity 3\nActivity 3\n\n\n\n\n\n\n\nIndicator 1\nIndicator 2\n\n\nLocation 1\n0\n20 tons\n100 ha\n1,000 tons\n\n\nLocation 2\n10 ha\n0\n0\n0\n\n\nLocation 3\n5 ha\n5 tons\n0\n0\n\n\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation X\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\n\n\nCompany Activity Matrix (C)\nThe amount of activity undertaken by Company i at each location (\\(x = 1, 2, \\dots , X\\)) for each activity (\\(y = 1, 2, \\dots, Y\\)) Note: this matrix will likely be a very sparse matrix (lots of zeros).\n\n\nCompany Impact for Categories 1, 2, and 3\nThe company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables (Carrico, Corong, and Mensbrugghe 2020) to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (\\(C\\)). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#fluorinated-gases-em-1.5",
-    "href": "methods/emissions.html#fluorinated-gases-em-1.5",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Fluorinated Gases (EM 1.5)",
-    "text": "Fluorinated Gases (EM 1.5)\nHydrofluorocarbons, perfluorocarbons, sulfur hexafluoride, and nitrogen trifluorid\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#single-impact-matrix-i_z",
+    "href": "design.html#single-impact-matrix-i_z",
+    "title": "Design",
+    "section": "Single Impact Matrix (\\(I_z\\))",
+    "text": "Single Impact Matrix (\\(I_z\\))\nEach activity in each location has an array of impacts on endpoints of interest. For example, agricultural crop production generates crops but also has impacts on air and water quality, water availability, land use affecting biodiversity, greenhouse gases, and other impacts.\nFor each impact, \\(z = 1, 2, \\dots, Z\\), we assemble a matrix of the impact of a unit of activity in each location. For example, what is the impact of intensive maize production, mining, steel production, etc., on phosphorus runoff to surface water by location. We can determine impacts for each activity in each location through various means. If company data exists, we will use that. In the event that company data is not available, we will determine impacts by: a) running InVEST (or other models) with the baseline natural landscape versus with an increase of one unit of activity at each location, b) using published lifecycle assessments, or c) using some combination of these (e.g., lifecycle emissions in conjunction with InVEST models). For activities characterized by more than one indicator (such as the mining example above characterized by area and mining volume) the impact would be defined for a one-unit size increase in indicators that included a ratio of the indicators (e.g., 1 hectare and 10 tons in mining example in the table below).\nThe compilation of each impact matrix is time and labor-intensive work that requires skill and judgment. We will prioritize completing these matrices focusing on the most important activities and impacts first and gradually increasing the library of activities and impacts. Though compilation of impact matrices is a lot of work, it is not company or analysis specific (unless the company provides its own data for this step). As such, this matrix can be prepared once (pre-processed) and can be used in analyses across different companies. We would periodically update this matrix as new information becomes available.\n\n\n\n\n\n\n\n\n\n\nLocation\nActivity 1\nActivity 2\nActivity 3\nActivity Y\n\n\n\n\nLocation 1\n10 g/ha\n10 g/ha\n20g/1ha & 10 tons\n\\(\\dots\\)\n\n\nLocation 2\n10 g/ha\n2 g/ha\n20g/1ha & 10 tons\n\\(\\dots\\)\n\n\nLocation 3\n5 g/ha\n1 g/ha\n20g/1ha & 10 tons\n\\(\\dots\\)\n\n\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation X\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\n\n\nSingle Impact Matrix (\\(I_z\\)):\nThe impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)), on impact z (\\(z = 1, 2, \\dots, Z\\)).",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#ozone-depleting-substances-em-1.6",
-    "href": "methods/emissions.html#ozone-depleting-substances-em-1.6",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Ozone-Depleting Substances (EM 1.6)",
-    "text": "Ozone-Depleting Substances (EM 1.6)\nOzone \\(O_3\\) chlorofluorocarbons, hydrochlorofluorocarbons, and halons\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#company-single-impact-matrix-ci_z",
+    "href": "design.html#company-single-impact-matrix-ci_z",
+    "title": "Design",
+    "section": "Company Single Impact Matrix (\\(CI_z\\))",
+    "text": "Company Single Impact Matrix (\\(CI_z\\))\nWe combine the Company Matrix (\\(C\\)) with the Single Impact Matrix (\\(I_z\\)) to generate the Company Single Impact Matrix (\\(CI_z\\)), which provides information about the impact of the company by location and activity for each impact \\(z, z = 1, 2, \\dots, Z\\). The Company Single Impact Matrix (\\(CI_z\\)) is calculated by multiplying each cell in the Company Matrix, \\(C_{xy}\\), with the equivalent cell in the Company Single Impact Matrix, \\(I_{zxy}\\).\n\n\n\nLocation\nActivity 1\nActivity 2\nActivity 3\nActivity Y\n\n\n\n\nLocation 1\n0\n200 g\n2000 g\n\\(\\dots\\)\n\n\nLocation 2\n100 g\n0\n0\n\\(\\dots\\)\n\n\nLocation 3\n25 g\n5 g\n0\n\\(\\dots\\)\n\n\nLocation X\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\n\n\nCompany Single Impact Matrix (\\(CI_z\\)):\nFor impact z what is the impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)).",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#particulate-matter-pm-em-1.7",
-    "href": "methods/emissions.html#particulate-matter-pm-em-1.7",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Particulate Matter (PM) (EM 1.7)",
-    "text": "Particulate Matter (PM) (EM 1.7)\nCoarse PM10 Fine PM2.5\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#company-location-single-impact-vector-lci_z",
+    "href": "design.html#company-location-single-impact-vector-lci_z",
+    "title": "Design",
+    "section": "Company Location Single Impact Vector (\\(LCI_z\\))",
+    "text": "Company Location Single Impact Vector (\\(LCI_z\\))\nBy summing across activities (\\(y = 1, 2, \\dots, Y\\)) we can get the Company Location Single Impact Vector (\\(LCI_z\\)) that summarizes the impact of all company activities on impact \\(z\\) by location (\\(x = 1, 2, \\dots, X\\)).\n\n\n\nLocation\nImpact z\n\n\n\n\nLocation 1\n2,200 g\n\n\nLocation 2\n100 g\n\n\nLocation 3\n30 g\n\n\nLocation X\n\\(\\dots\\)\n\n\n\n\nCompany Location Single Impact Vector (\\(LCI_z\\))\nThe impact of all company activities at each location (\\(x = 1, 2, \\dots, X\\)) for impact \\(z\\).",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#sulfur-dioxide-so_2-em-1.8",
-    "href": "methods/emissions.html#sulfur-dioxide-so_2-em-1.8",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Sulfur Dioxide (\\(SO_2\\)) (EM 1.8)",
-    "text": "Sulfur Dioxide (\\(SO_2\\)) (EM 1.8)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#company-impact-matrix-ci",
+    "href": "design.html#company-impact-matrix-ci",
+    "title": "Design",
+    "section": "Company Impact Matrix (CI)",
+    "text": "Company Impact Matrix (CI)\nAssembling all of the Company Location Single Impact Vectors into a single matrix generates the Company Impact Matrix (CI).\n\n\n\nLocation\nImpact 1\nImpact 2\nImpact 3\nImpact Z\n\n\n\n\nLocation 1\n200 g\n400 tons\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation 2\n100 g\n100 tons\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation 3\n30 g\n150 tons\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation Y\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\n\n\nCompany Impact Matrix (\\(CI\\)):\nThe amount of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)) by the company.\nNote: it is possible to stop the analysis at this point and provide information solely in physical units by location (grams, tons, cubic meters \\(\\dots\\)). For some applications, it is advantageous to report in physical units. Doing avoids the complication of trying to “price” impacts. However, for many applications, including net financial returns, or environmental profit and loss, assessing value (price) is unavoidable. Reporting in terms of financial metrics may also help make terms more recognizable to companies and aid in communication with end users.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#carbon-monoxide-co-em-1.9",
-    "href": "methods/emissions.html#carbon-monoxide-co-em-1.9",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Carbon Monoxide (\\(CO\\)) (EM 1.9)",
-    "text": "Carbon Monoxide (\\(CO\\)) (EM 1.9)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#financial-impact-matrix-fi",
+    "href": "design.html#financial-impact-matrix-fi",
+    "title": "Design",
+    "section": "Financial Impact Matrix (\\(FI\\))",
+    "text": "Financial Impact Matrix (\\(FI\\))\nThe Financial Impact Matrix (\\(FI\\)) assembles information on the “price” (cost) for a unit of impact z in each location. Price information can come from a number of sources. The Global Trade Analysis Project (GTAP) has price data for marketed commodities (e.g., agricultural crops, timber, steel, cars). Prices will have to be generated for non-market impacts. The economics literature on non-market valuation provides evidence on prices for many non-market impacts. Recent work on Gross Ecosystem Product (GEP) (Ouyang et al. 2020). As with impact matrices, we will prioritize our work to first concentrate on important impacts for which some evidence exists on which to base prices. But like impact matrix information, the financial matrix can be prepared once (pre-processing) and used in all analyses across different companies. We would periodically update this matrix as new information becomes available.\n\n\n\nLocation\nImpact 1\nImpact 2\nImpact 3\nImpact Z\n\n\n\n\nLocation 1\n$100/m3\n$50/ton\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation 2\n$50/m3\n$50/ton\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation 3\n$10/m3\n\\(50/ton |\\)$\n\\(\\dots\\)\n\n\n\nLocation Y\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\n\n\nFinancial Impact Matrix (\\(F\\))\nThe monetary value of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\))",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#non-methane-volatile-organic-compounds-vocs-em-1.10",
-    "href": "methods/emissions.html#non-methane-volatile-organic-compounds-vocs-em-1.10",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Non-methane Volatile Organic Compounds (VOCS) (EM 1.10)",
-    "text": "Non-methane Volatile Organic Compounds (VOCS) (EM 1.10)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "design.html#company-financial-impact-matrix-cfi",
+    "href": "design.html#company-financial-impact-matrix-cfi",
+    "title": "Design",
+    "section": "Company Financial Impact Matrix (\\(CFI\\))",
+    "text": "Company Financial Impact Matrix (\\(CFI\\))\nMultiply each cell of the Company Impact Matrix, \\(CI_{xz}\\), by the same cell in the Financial Impact Matrix, \\(FI_{xz}\\), to generate the Company Financial Impact Matrix (\\(CFI\\)).\n\n\n\nLocation\nImpact 1\nImpact 2\nImpact 3\nImpact Z\n\n\n\n\nLocation 1\n$0\n$20,000\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation 2\n$2,500\n$5,000\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation 3\n$250\n$7,500\n\\(\\dots\\)\n\\(\\dots\\)\n\n\nLocation Y\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\\(\\dots\\)\n\n\n\n\nCompany Financial Impact Matrix (\\(CFI\\)):\nThe monetary value of company impact by each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)).\nWith the Company Financial Impact Matrix (\\(CFI\\)), we can sum across the columns to get the total financial impact for the company at each location. Alternatively, we can sum across the rows to get the total financial impact for the company for each impact. Finally, we can also sum across all the cells in the matrix to get the company’s total financial impact.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Design"
     ]
   },
   {
-    "objectID": "methods/emissions.html#ammonia-nh_3-em-1.11",
-    "href": "methods/emissions.html#ammonia-nh_3-em-1.11",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Ammonia (\\(NH_3\\)) (EM 1.11)",
-    "text": "Ammonia (\\(NH_3\\)) (EM 1.11)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "All references cited throughout this website are listed below.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "Technical Appendix",
+      "Bibliography"
     ]
   },
   {
-    "objectID": "methods/emissions.html#suspended-solids",
-    "href": "methods/emissions.html#suspended-solids",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Suspended Solids",
-    "text": "Suspended Solids\n\nPrimary Sludge (EM 2.1)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nSecondary Sludge (EM 2.2)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nChemical Sludge (EM 2.3)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nMineral Sludge (EM 2.4)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nWaste Activated Sludge (EM 2.5)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "references.html#bibliography",
+    "href": "references.html#bibliography",
+    "title": "References",
+    "section": "",
+    "text": "All references cited throughout this website are listed below.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "Technical Appendix",
+      "Bibliography"
     ]
   },
   {
-    "objectID": "methods/emissions.html#biodegradable-organic-matter",
-    "href": "methods/emissions.html#biodegradable-organic-matter",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Biodegradable Organic Matter",
-    "text": "Biodegradable Organic Matter\n\nDissolved Oxygen (DO) (EM 2.6)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nBiochemical Oxygen Demand (BOD) (EM 2.7)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Matrix",
+    "section": "",
+    "text": "The Matrix is an application to determine the relationship between firm activity and the environment. To achieve this we need to know where firms are located, what they do in those locations, and how much do they at those locations. The Matrix is designed to capture these three pieces of information:\nWhere, What, and How Much? A Method for Measuring Business Dependencies and Impacts on Nature: Where, What and How Much?\nIn the context of earth-economy modeling, this project attempts to examine the microeconomic relationship of firms. Firms interact with the environment in two directions. First, firms use a variety of natural resources and ecosystem services in their product process. Second, firms produce a variety of negative externalities primarily through emissions.\nFirst, we begin by establishing an exahustive list of natural resources and ecosystem service inputs into production. Second, we determine an exhaustive list of potential emissions from production. Third, we classify firms into their NAICS sectoral classification. Within these NAICS classifications, we establish a broad categorization of products. Fourth, with these three sets of information we are able to create a mapping of the environment into the economy back into the economy in the same earth-economy modeling fashion as GTAP-InVEST (Johnson et al. 2023). In principle, we map natural resource and ecosystem service dependence into NAICS economic sectors to specific product classifications with that sector. Then for each NAICS sectoral we map production into the emissions and other exteranlities that impact the environment. This generates a circular feedback for inter-temporal dynamics between firm activites and environmental conditions.\nThe two main obstacles in achieving this exercise are:\n\nLimited information about spatio-temporal activity of firms\nLimited ability to quantify environmental change and attach it to specific production\n\nThe Matrix resolves these two issues. This application provides a means by which we can determine spatio-temporal activity of firms. For publicly listed firms, we generate a script to geolocate information on exisiting production activities. For private firms, we provide a template form which firms may complete to generate this information. To determine environmental effects, we collect a variety of global raster data on natural resources, ecosystem services, and emissions to create a spatially distribution of environmental characteristics.\nNeed to add here details on how we attach firm activity to environmental maps (e.g., methodology)\nCan add something here about firm motivations: profit motivation or regulatory compliance\nAdd here discussion of attempting to collect a census of industry-based and place-based environmental regulation and assign these to specific products or industries\n\n\n\n\nReferences\n\nJohnson, Justin Andrew, Uris Lantz Baldos, Erwin Corong, Thomas Hertel, Stephen Polasky, Raffaello Cervigni, Toby Roxburgh, Giovanni Ruta, Colette Salemi, and Sumil Thakrar. 2023. “Investing in Nature Can Improve Equity and Economic Returns.” Proceedings of the National Academy of Sciences 120 (27): e2220401120. https://doi.org/10.1073/pnas.2220401120.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "The Matrix",
+      "Overview"
     ]
   },
   {
-    "objectID": "methods/emissions.html#chemical-oxygen-demand-cod-em-2.8",
-    "href": "methods/emissions.html#chemical-oxygen-demand-cod-em-2.8",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Chemical Oxygen Demand (COD) (EM 2.8)",
-    "text": "Chemical Oxygen Demand (COD) (EM 2.8)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here."
+  },
+  {
+    "objectID": "CITATION_GUIDE.html",
+    "href": "CITATION_GUIDE.html",
+    "title": "Citation Guide",
+    "section": "",
+    "text": "This website uses a centralized bibliography system. All references are stored in references.bib and can be cited in any .qmd file.\n\n\nAdd new entries to references.bib in BibTeX format. Common entry types:\n\n\n@article{authorYear,\n  title={Article Title},\n  author={Last, First and Last, First},\n  journal={Journal Name},\n  volume={10},\n  number={2},\n  pages={123--145},\n  year={2024}\n}\n\n\n\n@book{authorYear,\n  title={Book Title},\n  author={Last, First},\n  year={2023},\n  publisher={Publisher Name}\n}\n\n\n\n\nUse the @ symbol followed by the citation key:\n\nIn-text citation: @authorYear renders as: Author (Year)\nParenthetical: [@authorYear] renders as: (Author, Year)\nMultiple citations: [@author2024; @other2023]\nWith page numbers: [@authorYear, pp. 42-43]\nSuppress author: [-@authorYear] renders as: (Year)\n\n\n\n\nAccording to @example2024, this is important. \nOther research supports this claim [@examplebook2023; @exampleconf2025].\n\n\n\nThe website uses APA style by default (configured in _quarto.yml). You can change this by:\n\nDownload a different .csl file from the Zotero Style Repository\nSave it in your project directory\nUpdate the csl: field in _quarto.yml\n\nCommon styles: apa.csl, chicago.csl, ieee.csl, nature.csl\n\n\n\nAll cited references automatically appear on the References page."
+  },
+  {
+    "objectID": "CITATION_GUIDE.html#how-to-add-references",
+    "href": "CITATION_GUIDE.html#how-to-add-references",
+    "title": "Citation Guide",
+    "section": "",
+    "text": "Add new entries to references.bib in BibTeX format. Common entry types:\n\n\n@article{authorYear,\n  title={Article Title},\n  author={Last, First and Last, First},\n  journal={Journal Name},\n  volume={10},\n  number={2},\n  pages={123--145},\n  year={2024}\n}\n\n\n\n@book{authorYear,\n  title={Book Title},\n  author={Last, First},\n  year={2023},\n  publisher={Publisher Name}\n}"
+  },
+  {
+    "objectID": "CITATION_GUIDE.html#how-to-cite-in-.qmd-files",
+    "href": "CITATION_GUIDE.html#how-to-cite-in-.qmd-files",
+    "title": "Citation Guide",
+    "section": "",
+    "text": "Use the @ symbol followed by the citation key:\n\nIn-text citation: @authorYear renders as: Author (Year)\nParenthetical: [@authorYear] renders as: (Author, Year)\nMultiple citations: [@author2024; @other2023]\nWith page numbers: [@authorYear, pp. 42-43]\nSuppress author: [-@authorYear] renders as: (Year)"
+  },
+  {
+    "objectID": "CITATION_GUIDE.html#example",
+    "href": "CITATION_GUIDE.html#example",
+    "title": "Citation Guide",
+    "section": "",
+    "text": "According to @example2024, this is important. \nOther research supports this claim [@examplebook2023; @exampleconf2025]."
+  },
+  {
+    "objectID": "CITATION_GUIDE.html#citation-style",
+    "href": "CITATION_GUIDE.html#citation-style",
+    "title": "Citation Guide",
+    "section": "",
+    "text": "The website uses APA style by default (configured in _quarto.yml). You can change this by:\n\nDownload a different .csl file from the Zotero Style Repository\nSave it in your project directory\nUpdate the csl: field in _quarto.yml\n\nCommon styles: apa.csl, chicago.csl, ieee.csl, nature.csl"
+  },
+  {
+    "objectID": "CITATION_GUIDE.html#references-page",
+    "href": "CITATION_GUIDE.html#references-page",
+    "title": "Citation Guide",
+    "section": "",
+    "text": "All cited references automatically appear on the References page."
+  },
+  {
+    "objectID": "technical_support.html",
+    "href": "technical_support.html",
+    "title": "Technical Support",
+    "section": "",
+    "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
     "crumbs": [
-      "Methodology",
-      "Emissions"
+      "Technical Appendix",
+      "Technical Support"
     ]
   },
   {
-    "objectID": "methods/emissions.html#non-biodegradable-organic-matter",
-    "href": "methods/emissions.html#non-biodegradable-organic-matter",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Non-biodegradable Organic Matter",
-    "text": "Non-biodegradable Organic Matter\n\nPesticides (EM 2.9)\nOrganochlorines\nOrganophosphates\nNeonicotinoids\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nDetergents (EM 2.10)\nChromium-6, Arsenic, Nitrates\nLinear alkylbenzene sulfonates (LAS)\nAlcohol ether sulfates (AES)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html",
+    "href": "methods/ecosystem_services.html",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "",
+    "text": "Set up ecosystem services as the private good, public good, and common pool resources derived from nature. This is both biotic and abotic. Classifcation by the SEEA-EA framework – Matching accounting standards Distinguish measured value through stock supply, quantity used, market price or willingness-to-pay, and nature’s contribution to human value of these services.\nSEEA-EA Framework: https://seea.un.org/sites/seea.un.org/files/documents/EA/seea_ea_f124_web_12dec24.pdf - I downloaded the crosswalk. Update this with GEP classifications. Use these as the key ecosystem service classifications.\nI need to note that natural resources fold within ecosystem services as a provisioning service.\nhttps://esml.epa.gov/search/ems https://www.epa.gov/eco-research/ecoservice-models-library https://www.ipbes.net/models https://naturalcapitalalliance.stanford.edu/software/invest/invest-models https://data.jrc.ec.europa.eu/collection/MAES\nIPBES Global Assessment (2019): https://files.ipbes.net/ipbes-web-prod-public-files/inline/files/ipbes_global_assessment_report_summary_for_policymakers.pdf IPBES Business Assessment: https://zenodo.org/records/18538597",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#inorganic-dissolved-solids",
-    "href": "methods/emissions.html#inorganic-dissolved-solids",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Inorganic Dissolved solids",
-    "text": "Inorganic Dissolved solids\n\nTotal dissolved solids (TDS) (EM 2.11)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nSalinity (Na) (EM 2.12)\nSodium Chloride\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nArsenic (EM 2.13)\nIndustrial smelting, pesticides\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nCyanide (Plastics) (EM 2.14)\nPlastics\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\nMicroplastics\n\n\n\nLead (EM 2.15)\nMining, plumbing, gasoline, coal\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nMercury (EM 2.16)\nMining, combustion, industrial waste\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nThallium (EM 2.17)\nGlass, pharmaceuticals, electronics\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#biomass-provisioning-services",
+    "href": "methods/ecosystem_services.html#biomass-provisioning-services",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Biomass Provisioning Services",
+    "text": "Biomass Provisioning Services\n\nCrop Provisioning Services (SEEA 1.1)\nDefinition:\n\nCrop provisioning services are the ecosystem contributions to the growth of cultivated plants that are harvested by economic units for various uses including food and fibre production, fodder and energy. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.1: Crop Provision Commerical GEP 1.2: Crop Provision Subsistence\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nGrazed Biomass Provisioning Services (SEEA 1.2)\nDefinition:\n\nGrazed biomass provisioning services are the ecosystem contributions to the growth of grazed biomass that is an input to the growth of cultivated livestock. This service excludes the ecosystem contributions to the growth of crops used to produce fodder for livestock (e.g., hay, soybean meal). These contributions are included under crop provisioning services. This is a final ecosystem service but may be intermediate to livestock provisioning services. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nLivestock Provisioning Services (SEEA 1.3)\nDefinition:\n\nLivestock provisioning services are the ecosystem contributions to the growth of cultivated livestock and livestock products (e.g., meat, milk, eggs, wool, leather), that are used by economic units for various uses, primarily food production. This is a final ecosystem service. No distinct livestock provisioning services to be recorded if grazed biomass provisioning services are recorded as a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.3: Livestock Provision\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nAquaculture Provisioning Services (SEEA 1.4)\nDefinition:\n\nAquaculture provisioning services are the ecosystem contributions to the growth of animals and plants (e.g. fish, shellfish, seaweed) in aquaculture facilities that are harvested by economic units for various uses. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.4: Fish Provision Commerical\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWood Provisioning Services (SEEA 1.5)\nDefinition:\n\nWood provisioning services are the ecosystem contributions to the growth of trees and other woody biomass in both cultivated (plantation) and uncultivated production contexts that are harvested by economic units for various uses including timber production and energy. This service excludes contributions to non-wood forest products. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.6: Timber Provision GEP 1.7: Fuelwood\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWild Fish and Other Natural Aquatic Products Provisioning Services (SEEA 1.6)\nDefinition:\n\nWild fish and other natural aquatic biomass provisioning services are the ecosystem contributions to the growth of fish and other aquatic biomass that are captured in uncultivated production contexts by economic units for various uses, primarily food production. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.5: Fish Provision Subsistence\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWild Animals, Plants, and Other Biomass Provisioning Services (SEEA 1.7)\nDefinition:\n\nWild animals, plants and other biomass provisioning services are the ecosystem contributions to the growth of wild animals, plants and other biomass that are captured and harvested in uncultivated production contexts by economic units for various uses. The scope includes non-wood forest products (NWFP) and services related to hunting, trapping and bio-prospecting activities; but excludes wild fish and other natural aquatic biomass (included in previous class). This is a final ecosystem service (United Nations et al. 2024)\n\nGEP 1.8: Non-timber Forest Product (NTFP) Provision\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#pathogens",
-    "href": "methods/emissions.html#pathogens",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Pathogens",
-    "text": "Pathogens\n\nEscherichia Coli (E. Coli) (EM 2.18)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes\n\n\nParasitic Worms (EM 2.19)\nEggs from helminths (large macro parasites) Parasticially steals nutrients from the host Most common: - Ascaris - Hookworm - Whipworm\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#genetic-material-services-seea-1.8",
+    "href": "methods/ecosystem_services.html#genetic-material-services-seea-1.8",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Genetic Material Services (SEEA 1.8)",
+    "text": "Genetic Material Services (SEEA 1.8)\nDefinition:\n\nGenetic material services are the ecosystem contributions from all biota (including seed, spore or gamete production) that are used by economic units, for example (i) to develop new animal and plant breeds; (ii) in gene synthesis; or (iii) in product development directly using genetic material. This is most commonly recorded as an intermediate service to biomass provisioning. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#nitrogen-runoff-em-2.20",
-    "href": "methods/emissions.html#nitrogen-runoff-em-2.20",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Nitrogen Runoff (EM 2.20)",
-    "text": "Nitrogen Runoff (EM 2.20)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#water-supply-seea-1.9",
+    "href": "methods/ecosystem_services.html#water-supply-seea-1.9",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Water Supply (SEEA 1.9)",
+    "text": "Water Supply (SEEA 1.9)\nDefinition:\n\nWater supply services reflect the combined ecosystem contributions of water flow regulation, water purification, and other ecosystem services to the supply of water of appropriate quality to users for various uses including household consumption. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.9: Water Supply\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#phosphorus-runoff-em-2.21",
-    "href": "methods/emissions.html#phosphorus-runoff-em-2.21",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Phosphorus Runoff (EM 2.21)",
-    "text": "Phosphorus Runoff (EM 2.21)\nDefintion:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activites: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#other-provisioning-services-seea-1.10",
+    "href": "methods/ecosystem_services.html#other-provisioning-services-seea-1.10",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Other Provisioning Services (SEEA 1.10)",
+    "text": "Other Provisioning Services (SEEA 1.10)\nDefinition:\nAnimals reared for nutritional purposes Fibres and other materials from reared animals for direct use or processing (excluding genetic materials) Animals reared to provide energy (including mechanical) Animals reared by in-situ aquaculture as an energy source\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#petroleum-hydrocarbons-em-3.1",
-    "href": "methods/emissions.html#petroleum-hydrocarbons-em-3.1",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Petroleum Hydrocarbons (EM 3.1)",
-    "text": "Petroleum Hydrocarbons (EM 3.1)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#energy-production-seea-cf",
+    "href": "methods/ecosystem_services.html#energy-production-seea-cf",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Energy Production (SEEA CF)",
+    "text": "Energy Production (SEEA CF)\nDefinition:\nGEP 1.10: Solar Energy Provision GEP 1.11: Wind Energy Provision GEP 1.12: Geothermal Energy Provision GEP 1.13: Hydropower Provision GEP 1.14: Fossil Fuels Oil GEP 1.15: Fossil Fuels Natural Gas GEP 1.16: Fossil Fuels Coal GEP 1.17: Extractive Material Provision (Minerals)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#polynuclear-aromatic-hydrocarbons-pahs-em-3.2",
-    "href": "methods/emissions.html#polynuclear-aromatic-hydrocarbons-pahs-em-3.2",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Polynuclear Aromatic Hydrocarbons (PAHs) (EM 3.2)",
-    "text": "Polynuclear Aromatic Hydrocarbons (PAHs) (EM 3.2)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#global-climate-regulation-services-seea-2.1",
+    "href": "methods/ecosystem_services.html#global-climate-regulation-services-seea-2.1",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Global Climate Regulation Services (SEEA 2.1)",
+    "text": "Global Climate Regulation Services (SEEA 2.1)\nDefinition:\n\nGlobal climate regulation services are the ecosystem contributions to the regulation of the chemical composition of the atmosphere and oceans that affect global climate through the accumulation and retention of carbon and other GHG (e.g., methane) in ecosystems and the ability of ecosystems to remove (sequester) carbon from the atmosphere. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP 1.18: Global Climate Regulation (Terrestrial and Coastal Carbon) GEP 1.19: Global Climate Regulation (Marine Carbon)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#heavy-metals",
-    "href": "methods/emissions.html#heavy-metals",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Heavy Metals",
-    "text": "Heavy Metals\n\nLead (EM 3.3)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes\n\n\nMercury (EM 3.4)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes\n\n\nCadmium (EM 3.5)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#rainfall-pattern-regulation-services-seea-2.2",
+    "href": "methods/ecosystem_services.html#rainfall-pattern-regulation-services-seea-2.2",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Rainfall Pattern Regulation Services (SEEA 2.2)",
+    "text": "Rainfall Pattern Regulation Services (SEEA 2.2)\n\nSub-contintenal\n\nDefinition:\n\nRainfall pattern regulation services are the ecosystem contributions of vegetation, in particular forests, in maintaining rainfall patterns through evapotranspiration at the sub-continental scale. Forests and other vegetation recycle moisture back to the atmosphere where it is available for the generation of rainfall. Rainfall in interior parts of continents fully depends upon this recycling. This may be a final or intermediate service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#solid-municipal-waste-em-3.6",
-    "href": "methods/emissions.html#solid-municipal-waste-em-3.6",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Solid Municipal Waste (EM 3.6)",
-    "text": "Solid Municipal Waste (EM 3.6)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#local-climate-regulation-services-seea-2.3",
+    "href": "methods/ecosystem_services.html#local-climate-regulation-services-seea-2.3",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Local Climate Regulation Services (SEEA 2.3)",
+    "text": "Local Climate Regulation Services (SEEA 2.3)\n\nMicro or meso\n\nDefinition:\n\nLocal climate regulation services are the ecosystem contributions to the regulation of ambient atmospheric conditions (including micro and mesoscale climates) through the presence of vegetation that improves the living conditions for people and supports economic production. Examples include the evaporative cooling provided by urban trees (‘green space’), the role of urban water bodies (‘blue space’) and the contribution of trees in providing shade for humans and livestock. This may be a final or intermediate service. (United Nations et al. 2024)\n\nGEP.20: Local Climate Regulation (Urban Cooling)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#plastic-waste-em-3.7",
-    "href": "methods/emissions.html#plastic-waste-em-3.7",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Plastic Waste (EM 3.7)",
-    "text": "Plastic Waste (EM 3.7)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#air-filtration-services-seea-2.4",
+    "href": "methods/ecosystem_services.html#air-filtration-services-seea-2.4",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Air Filtration Services (SEEA 2.4)",
+    "text": "Air Filtration Services (SEEA 2.4)\nDefinition:\n\nAir filtration services are the ecosystem contributions to the filtering of air-borne pollutants through the deposition, uptake, fixing and storage of pollutants by ecosystem components, particularly plants, that mitigates the harmful effects of the pollutants. This is most commonly a final ecosystem service. (United Nations et al. 2024)\n\nGEP.21: Air Filtration\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#electronic-waste-e-waste-em-3.8",
-    "href": "methods/emissions.html#electronic-waste-e-waste-em-3.8",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Electronic Waste (E-Waste) (EM 3.8)",
-    "text": "Electronic Waste (E-Waste) (EM 3.8)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#soil-quality-regulation-servicees-seea-2.5",
+    "href": "methods/ecosystem_services.html#soil-quality-regulation-servicees-seea-2.5",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Soil Quality Regulation Servicees (SEEA 2.5)",
+    "text": "Soil Quality Regulation Servicees (SEEA 2.5)\nDefinition:\n\nSoil quality regulation services are the ecosystem contributions to the decomposition of organic and inorganic materials and to the fertility and characteristics of soils, e.g., for input to biomass production. This is most commonly recorded as an intermediate service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#perfluoroalkyl-and-polyfluoroalkyl-substances-pfas-em-3.9",
-    "href": "methods/emissions.html#perfluoroalkyl-and-polyfluoroalkyl-substances-pfas-em-3.9",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Perfluoroalkyl and Polyfluoroalkyl Substances (PFAS) (EM 3.9)",
-    "text": "Perfluoroalkyl and Polyfluoroalkyl Substances (PFAS) (EM 3.9)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#soil-and-sediment-retention-services",
+    "href": "methods/ecosystem_services.html#soil-and-sediment-retention-services",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Soil and Sediment Retention Services",
+    "text": "Soil and Sediment Retention Services\n\nSoil Erosion Control Services (SEEA 2.6)\nDefinition:\n\nSoil erosion control services are the ecosystem contributions, particularly the stabilising effects of vegetation, that reduce the loss of soil (and sediment) and support use of the environment (e.g., agricultural activity, water supply). This is may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nGEP.22: Erosion Control\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nLandslide Mitiation (SEEA 2.7)\nDefinition:\n\nLandslide mitigation services are the ecosystem contributions, particularly the stabilising effects of vegetation, that mitigates or prevents potential damage to human health and safety and damaging effects to buildings and infrastructure that arise from the mass movement (wasting) of soil, rock and snow. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.23: Landslide Mitigation\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/emissions.html#pharamecutical-waste-em-3.10",
-    "href": "methods/emissions.html#pharamecutical-waste-em-3.10",
-    "title": "Environmental Outputs: Emissions",
-    "section": "Pharamecutical Waste (EM 3.10)",
-    "text": "Pharamecutical Waste (EM 3.10)\nDefinition:\nImpact on Environment:\nOptimal Natural Levels:\nRelated Economic Activities: - Specific to NAICS codes",
+    "objectID": "methods/ecosystem_services.html#solid-waste-remediation-seea-2.8",
+    "href": "methods/ecosystem_services.html#solid-waste-remediation-seea-2.8",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Solid Waste Remediation (SEEA 2.8)",
+    "text": "Solid Waste Remediation (SEEA 2.8)\nDefinition:\n\nSolid waste remediation services are the ecosystem contributions to the transformation of organic or inorganic substances, through the action of micro-organisms, algae, plants and animals that mitigates their harmful effects. This is may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
     "crumbs": [
       "Methodology",
-      "Emissions"
+      "Dependencies"
     ]
   },
   {
-    "objectID": "methods/policy_industry.html",
-    "href": "methods/policy_industry.html",
-    "title": "Environmental Policies: Industry-based Policies",
+    "objectID": "methods/ecosystem_services.html#water-purification-services",
+    "href": "methods/ecosystem_services.html#water-purification-services",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Water Purification Services",
+    "text": "Water Purification Services\nWater quality amelioration\n\nWater Retention and Breakdwon of Nutrients (SEEA 2.9)\nDefinition:\n\nWater purification services are the ecosystem contributions to the restoration and maintenance of the chemical condition of surface water and groundwater bodies through the breakdown or removal of nutrients and other pollutants by ecosystem components that mitigate the harmful effects of the pollutants on human use or health. This may be recorded as a final or intermediate ecosystem service. (United Nations et al. 2024)\n\nGEP.24: Water Quality-Nutrient\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nWater Retention and Breakdown of Other Pollutants (SEEA 2.10)\nDefinition:\n\nWater purification services are the ecosystem contributions to the restoration and maintenance of the chemical condition of surface water and groundwater bodies through the breakdown or removal of nutrients and other pollutants by ecosystem components that mitigate the harmful effects of the pollutants on human use or health. This may be recorded as a final or intermediate ecosystem service. (United Nations et al. 2024)\n\nGEP.25: Groundwater Recharge\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#water-flow-regulation-services",
+    "href": "methods/ecosystem_services.html#water-flow-regulation-services",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Water Flow Regulation Services",
+    "text": "Water Flow Regulation Services\n\nBaseline Water Flow Maintenance Services (SEEA 2.11)\nDefinition:\n\nWater regulation services are the ecosystem contributions to the regulation of river flows and groundwater and lake water tables. They are derived from the ability of ecosystems to absorb and store water, and gradually release water during dry seasons or periods through evapotranspiration and hence secure a regular flow of water. This may be recorded as a final or intermediate ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nPeak Water Flow Mitigation Services (SEEA 2.12)\nDefinition:\n\nWater regulation services are the ecosystem contributions to the regulation of river flows and groundwater and lake water tables. They are derived from the ability of ecosystems to absorb and store water, and hence mitigate the effects of flood and other extreme water-related events. Peak flow mitigation services will be supplied together with river flood mitigation services in providing the benefit of flood protection. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#flood-mitigation-services",
+    "href": "methods/ecosystem_services.html#flood-mitigation-services",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Flood Mitigation Services",
+    "text": "Flood Mitigation Services\n\nCoastal Protection Services (SEEA 2.13)\nDefinition:\n\nCoastal protection services are the ecosystem contributions of linear elements in the seascape, for instance coral reefs, sand banks, dunes or mangrove ecosystems along the shore, in protecting the shore and thus mitigating the impacts of tidal surges or storms on local communities. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.26: Coastal Protection\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nRiver Flood Mitigation Services (SEEA 2.14)\nDefinition:\n\nRiver flood mitigation services are the ecosystem contributions of riparian vegetation which provides structure and a physical barrier to high water levels and thus mitigates the impacts of floods on local communities. River flood mitigation services will be supplied together with peak flow mitigation services in providing the benefit of flood protection. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.27: River Flood Mitigation\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#storm-mitigation-services-seea-2.15",
+    "href": "methods/ecosystem_services.html#storm-mitigation-services-seea-2.15",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Storm Mitigation Services (SEEA 2.15)",
+    "text": "Storm Mitigation Services (SEEA 2.15)\nDefinition:\n\nStorm mitigation services are the ecosystem contributions of vegetation including linear elements, in mitigating the impacts of wind, sand and other storms (other than water related events) on local communities. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.28: Storm Mitigation\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#noise-attenuation-services-seea-2.16",
+    "href": "methods/ecosystem_services.html#noise-attenuation-services-seea-2.16",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Noise Attenuation Services (SEEA 2.16)",
+    "text": "Noise Attenuation Services (SEEA 2.16)\nDefinition:\n\nNoise attenuation services are the ecosystem contributions to the reduction in the impact of noise on people that mitigates its harmful or stressful effects. This is most commonly a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#pollination-services-seea-2.17",
+    "href": "methods/ecosystem_services.html#pollination-services-seea-2.17",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Pollination Services (SEEA 2.17)",
+    "text": "Pollination Services (SEEA 2.17)\nDefinition:\n\nPollination services are the ecosystem contributions by wild pollinators to the fertilization of crops that maintains or increases the abundance and/or diversity of other species that economic units use or enjoy. This may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nGEP.29: Pollination\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#biological-control-services",
+    "href": "methods/ecosystem_services.html#biological-control-services",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Biological Control Services",
+    "text": "Biological Control Services\n\nPest Control Services (SEEA 2.18)\nDefinition:\n\nBiological control services are the ecosystem contributions to the reduction in the incidence of species that may prevent or reduce the effects of pests on biomass production processes or other economic and human activity. This is may be recorded as a final or intermediate service. (United Nations et al. 2024)\n\nGEP.30 Pest Control\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\n\nDisease Control Services (SEEA 2.19)\nDefinition:\n\nDisease control services are the ecosystem contributions to the reduction in the incidence of species that may prevent or reduce the effects of species on human health. This is most commonly a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#nursery-population-and-habitat-maintenance-services-seea-2.20",
+    "href": "methods/ecosystem_services.html#nursery-population-and-habitat-maintenance-services-seea-2.20",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Nursery Population and Habitat Maintenance Services (SEEA 2.20)",
+    "text": "Nursery Population and Habitat Maintenance Services (SEEA 2.20)\nDefinition:\n\nNursery population and habitat maintenance services are the ecosystem contributions necessary for sustaining populations of species that economic units ultimately use or enjoy either through the maintenance of habitats (e.g., for nurseries or migration) or the protection of natural gene pools. This service is an intermediate service and may input to a number of different final ecosystem services including biomass provision and recreation-related services. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#other-regulating-and-maintenance-services-seea-2.21",
+    "href": "methods/ecosystem_services.html#other-regulating-and-maintenance-services-seea-2.21",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Other Regulating and Maintenance Services (SEEA 2.21)",
+    "text": "Other Regulating and Maintenance Services (SEEA 2.21)\nDefinition:\nVisual screening\nFire protection Seed dispersal Disease control\nRegulation of the chemical condition of salt waters by living processes\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#recreation-related-services-seea-3.1",
+    "href": "methods/ecosystem_services.html#recreation-related-services-seea-3.1",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Recreation-related Services (SEEA 3.1)",
+    "text": "Recreation-related Services (SEEA 3.1)\nDefinition:\n\nRecreation-related services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that enable people to use and enjoy the environment through direct, in-situ, physical and experiential interactions with the environment. This includes services to both locals and non-locals (i.e. visitors, including tourists). Recreation-related services may also be supplied to those undertaking recreational fishing and hunting. This is a final ecosystem service. (United Nations et al. 2024)\n\nGEP.31 Recreation and Tourism\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#visual-amenity-services-seea-3.2",
+    "href": "methods/ecosystem_services.html#visual-amenity-services-seea-3.2",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Visual Amenity Services (SEEA 3.2)",
+    "text": "Visual Amenity Services (SEEA 3.2)\nDefinition:\n\nVisual amenity services are the ecosystem contributions to local living conditions, in particular through the biophysical characteristics and qualities of ecosystems that provide sensory benefits, especially visual. This service combines with other ecosystem services, including recreation-related services and noise attenuation services to underpin amenity values. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#education-scientific-and-research-services-seea-3.3",
+    "href": "methods/ecosystem_services.html#education-scientific-and-research-services-seea-3.3",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Education, Scientific, and Research Services (SEEA 3.3)",
+    "text": "Education, Scientific, and Research Services (SEEA 3.3)\nDefinition:\n\nEducation, scientific and research services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that enable people to use the environment through intellectual interactions with the environment. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#spiritual-artistic-and-symbolic-services-seea-3.4",
+    "href": "methods/ecosystem_services.html#spiritual-artistic-and-symbolic-services-seea-3.4",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Spiritual, Artistic, and Symbolic Services (SEEA 3.4)",
+    "text": "Spiritual, Artistic, and Symbolic Services (SEEA 3.4)\nDefinition:\n\nSpiritual artistic and symbolic services are the ecosystem contributions, in particular through the biophysical characteristics and qualities of ecosystems, that are recognised by people for their cultural, historical, aesthetic, sacred or religious significance. These services may underpin people’s cultural identity and may inspire people to express themselves through various artistic media. This is a final ecosystem service. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#other-cultural-services-seea-3.5",
+    "href": "methods/ecosystem_services.html#other-cultural-services-seea-3.5",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Other Cultural Services (SEEA 3.5)",
+    "text": "Other Cultural Services (SEEA 3.5)\nDefinition:\nGEP.32: Physical Health Benefits from Nature Exposure GEP.33: Mental Health Benefits from Nature Exposure\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/ecosystem_services.html#ecosystem-and-species-appreciation-services-seea-4.1",
+    "href": "methods/ecosystem_services.html#ecosystem-and-species-appreciation-services-seea-4.1",
+    "title": "Environmental Inputs: Dependencies",
+    "section": "Ecosystem and Species Appreciation Services (SEEA 4.1)",
+    "text": "Ecosystem and Species Appreciation Services (SEEA 4.1)\nDefinition:\n\nEcosystem and species appreciation concerns the wellbeing that people derive from the existence and preservation of the environment for current and future generations, irrespective of any direct or indirect use. (United Nations et al. 2024)\n\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):\n\nMaintenance of Options Services\nDefinition: (United Nations et al. 2024)\nSupply (S):\nUse (Q):\nPrice (P):\nNature’s Contribution (\\(\\lambda\\)):",
+    "crumbs": [
+      "Methodology",
+      "Dependencies"
+    ]
+  },
+  {
+    "objectID": "methods/econ_mapping.html",
+    "href": "methods/econ_mapping.html",
+    "title": "Environmental-Economic Mapping",
+    "section": "",
+    "text": "Earth-Economy Mapping\nBelow is a Sankey plot showing the mapping of ecosystem services (dependencies) as inputs into the economic production of NAICS industry classifications. Then NAICS codes then map into the emissions by-products (impacts) from their production. This illustrates a general sense of the mapping of the environmental dependencies and impacts of economic production.\n\n\n\n\n\n\n\n\nHeuristics-Based Mapping\nWe implement a deterministic Python rule to map ecosystem service inputs into NAICS codes and then NAICS codes into emission byproducts. The output of this product can be foudn in: naics_mapping.xlsx.\nThe heuristic workflow is:\n\nRead the NAICS sheet with 2022 NAICS codes and titles.\nBuild ecosystem-service code candidates from the Quarto taxonomy in Ecosystem Services:\n\n\nProvisioning mapped as SEEA 1.x and SEEA CF\nRegulating mapped as SEEA 2.x,\nAnd non-material mapped as SEEA 3.x and SEEA 4.1.\n\n\nBuild emissions code candidates from the Quarto taxonomy in Emissions:\n\n\nScope 1 for direct activity-linked emissions,\nScope 2 for purchased energy-related indirect emissions,\nAnd Scope 3 for upstream and downstream value-chain emissions.\n\n\nApply layered rules per row:\n\n\nNAICS prefix rules,\nThen title keyword rules,\nThen de-duplication while preserving insertion order.\n\nThis mapping requires expert review to refine the inital mapping procedure. The most robust method would be to improve on the heuristic classification. But idonsycratic decisions can be inserted though the logic will be left to the expert reviewer and absent from the coding structure.",
+    "crumbs": [
+      "Methodology",
+      "Economic Mapping"
+    ]
+  },
+  {
+    "objectID": "methods/policy_place.html",
+    "href": "methods/policy_place.html",
+    "title": "Environmental Policies: Place-based Policies",
     "section": "",
     "text": "This is the about page for your Quarto website.\nAdd information about yourself or your project here.",
     "crumbs": [
       "Methodology",
-      "Environmental Policies ~ Industry Based"
+      "Environmental Policies ~ Place Based"
     ]
   },
   {
-    "objectID": "methods/the_matrix.html",
-    "href": "methods/the_matrix.html",
-    "title": "The Matrix: Firm Environmental Activities",
+    "objectID": "application/test_example.html",
+    "href": "application/test_example.html",
+    "title": "Automotives Example",
     "section": "",
-    "text": "The amount of activity undertaken by Company i at each location (\\(x = 1, 2, \\dots , X\\)) for each activity (\\(y = 1, 2, \\dots, Y\\)) Note: this matrix will likely be a very sparse matrix (lots of zeros).\nThe company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables [@Carrico2020] to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.\n\n\nThe impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)), on impact z (\\(z = 1, 2, \\dots, Z\\)).\n\n\n\nFor impact z what is the impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)).\n\n\n\nThe impact of all company activities at each location (\\(x = 1, 2, \\dots, X\\)) for impact z.\n\n\n\nThe amount of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)) by the company.\n\n\n\nThe monetary value of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\))\n\n\n\nThe monetary value of company impact by each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)).",
+    "text": "In this example, I apply the matrix to the automotive industry\n\nSet up Coding Environment\n\n\nFind and Geocode Factories\nNaively, we know from Bloomberg a list of publicly traded automotive companies. Use the geocode_factories.py script to search the internet for factory information and geocode them using openstreet maps.\nOnce this has been figure out, proceed with the following companies and tickers:\n\n7203 JP TOYOTA MOTOR\n1211 HK BYD COMPANY\nGM US GENERAL MOTORS C\n005380 KS HYUNDAI MOTOR\nMBG GR MERCEDES-BENZ GR\nBMW GR BMW AG\nVOW GR VOLKSWAGEN AG\nRACE US FERRARI NV\n7267 JP HONDA MOTOR CO\nMSIL IN MARUTI SUZUKI IN\nMM IN MAHINDRA & MAHIN\nP911 GY DR ING HC F PORS\n000270 KS KIA CORP\nBJAUT IN BAJAJ AUTO LTD\nSTLAM IM STELLANTIS NV\nSERES GROUP CO-A SERES GROUP CO-A\n7269 JP SUZUKI MOTOR\n600104 CH SAIC MOTOR-A\n2333 HK GWMOTOR\nGELYF US GEELY AUTOMOBILE\nEIM IN EICHER MOTORS\nHYUNDAI IN HYUNDAI MOTOR IN\nTVSL IN TVS MOTOR CO LTD\nRIVN US RIVIAN AUTOMOT-A\nLI US Equity LI AUTO INC -ADR\n9868 HK Equity XPENG INC-A SHRS\n7270 JP Equity SUBARU CORP\n000625 CH Equity CHONGQING CHAN-B\nTMPV IN Equity TATA MOTORS PASS\nP911 GY Equity PORSCHE AUTO-PRF\nHMCL IN Equity HERO MOTOCORP LT\nNIO US Equity NIO INC - ADR\nRNO FP Equity RENAULT SA\nVOLCARB SS Equity VOLVO CAR AB-B\n601238 CH Equity GUANGZHOU AUTO-H\n489 HK Equity DONGFENG MOTOR-H\nFROTO TI Equity FORD OTO\n7201 JP Equity NISSAN MOTOR CO\n7272 JP Equity YAMAHA MOTOR CO\n9863 HK Equity ZHEJIANG LEAPM-H\n601777 CH Equity CHONGQING AFAR-A\n600733 CH Equity BAIC BLUEPARK-A\n603129 CH Equity ZHEJIANG CFMOT-A\n7261 JP Equity MAZDA MOTOR\n603766 CH Equity LONCIN MOTOR C-A\n1585 HK Equity YADEA GROUP HOLD\nTOASO TI Equity TOFAS\n7211 JP Equity MITSUBISHI MOTOR\nLCID US Equity LUCID GROUP INC\n301345 CH Equity ZHEJIANG TAOTA-A\nFML IN Equity FORCE MOTORS LTD\n1114 HK Equity BRILLIANCE CHINA\nGTCAP PM Equity GT CAPITAL HOLD\n600418 CH Equity ANHUI AUTOMOBI-A\nHOG US Equity HARLEY-DAVIDSON\n600006 CH Equity DONGFENG AUTO-A\n1958 HK Equity BAIC MOTOR-H\nMHSC IN Equity MAHARASHTRA SC\n2206 TT Equity SANYANG MOTOR\nPSNY US Equity POLESTAR A-A ADS\nHLI MK Equity HONG LEONG INDS\nOTKAR TI Equity OTOKAR\n2201 TT Equity YULON MOTOR\n2204 TT Equity CHINA MOTOR\n7222 JP Equity NISSAN SHATAI\nAML LN Equity ASTON MARTIN\nLOT US Equity LOTUS TECHNOLOGY\nATLH PA Equity ATLAS HONDA\nPIA IM Equity PIAGGIO & C. SPA\nGBCO EY Equity GB CORP\nJYGCLZ CH Equity JIANGSU YUEDA -A\nBJAUT IN Equity BAJAJ MOBILITY A\n003620 KS Equity KG MOBILITY CO\nDRB MK Equity DRB-HICOM BHD\n2227 TT Equity YULON NISSAN\nLVWR US Equity LIVEWIRE GROUP I\n8937 TT Equity HER CHEE\n1656311D CH Equity NIU TECHNOLO-ADR\n3333 HK Equity CHINA EVERGRANDE\nIMS IM Equity IMMSI SPA\nHCAR PA Equity HONDA ATLAS CAR\n0K4R LN Equity CARS MOTORCYCLES\nNRDE US Equity NU RIDE INC\n\n\n\nCode\n# Set location to save geocodes\nimport os\nimport sys\n\n# Add scripts directory to path so we can import geocode_factories\nsys.path.insert(0, \"E:/matrix/thematrix/scripts\")\nfrom geocode_factories import search_factories, geocode_from_csv\n\n# Set directory for firm geocodes\noutput_dir = \"E:/matrix/data/firms/geocodes\"\nos.makedirs(output_dir, exist_ok=True)\n\n# Define output files\nford_output_1 = os.path.join(output_dir, \"F_factory_geocodes.csv\")\nford_output_2 = os.path.join(output_dir, \"F_factory_info.csv\")\ntesla_output_1 = os.path.join(output_dir, \"TSLA_factory_geocodes.csv\")\ntesla_output_2 = os.path.join(output_dir, \"TSLA_factory_info.csv\")\n\n# Search Ford factories \nif not os.path.exists(ford_output_2):\n    print(\"Geocoding Ford factories (Step 1: Search)...\")\n    search_factories(\"F US\", \"Ford Motor\", ford_output_1)\n    print(\"Geocoding Ford factories (Step 2: Detailed geocoding)...\")\n    geocode_from_csv(\"F US\", ford_output_1, ford_output_2)\nelse:   \n    print(f\"Ford geocodes already exist at {ford_output_2}\")\n\n\nFord geocodes already exist at E:/matrix/data/firms/geocodes\\F_factory_info.csv\n\n\nCode\n# Search Tesla factories \nif not os.path.exists(tesla_output_2):\n    print(\"\\nGeocoding Tesla factories (Step 1: Search)...\")\n    search_factories(\"TSLA US\", \"Tesla\", tesla_output_1)\n    print(\"Geocoding Tesla factories (Step 2: Detailed geocoding)...\")\n    geocode_from_csv(\"TSLA US\", tesla_output_1, tesla_output_2)\nelse:\n    print(f\"Tesla geocodes already exist at {tesla_output_2}\")\n\n\nTesla geocodes already exist at E:/matrix/data/firms/geocodes\\TSLA_factory_info.csv\n\n\nCode\nprint(\"\\nDone!\")\n\n\n\nDone!\n\n\n\n\nCreate a Map of Industry\nUse the geocodes to create an interactive map of the factories and production locations for the industry in question.\n\n\nCode\nlibrary(tidyverse)\nlibrary(rio)\nsetwd(\"E:/matrix/\")\n\nford_factories &lt;- import(\"./data/firms/F_factory_info.csv\")\ntesla_factories &lt;- import(\"./data/firms/geocodes/TSLA_factory_geocodes.csv\")\n\n# factories &lt;- rbind(ford_factories, tesla_factories)\n\n\n\n\nCode\nlibrary(leaflet)\n\ncompany_icons &lt;- iconList(\n    \"F US\" = makeIcon(\n        iconUrl = \"https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg\",\n        iconWidth = 30,\n        iconHeight = 30\n    )\n)\n\nleaflet(ford_factories) %&gt;%\n    addTiles() %&gt;%\n    addMarkers(\n        ~longitude,\n        ~latitude,\n        icon = ~ company_icons[ticker],\n        label = ~ paste0(facility_name, \" (\", ticker, \")\"),\n        popup = ~ paste(\n            \"&lt;b&gt;\", facility_name, \"&lt;/b&gt;&lt;br&gt;\",\n            \"Ticker: \", ticker, \"&lt;br&gt;\",\n            \"Type: \", facility_type, \"&lt;br&gt;\",\n            \"Products: \", products, \"&lt;br&gt;\",\n            \"Active: \", status\n        )\n    )\n\n\n\n\nGlobal distribution of manufacturing facilities\n\n\nTODO: Add a version with bi-variate map of emissions and ecosystem services as a layer.",
     "crumbs": [
-      "Methodology",
-      "The Matrix"
-    ]
-  },
-  {
-    "objectID": "methods/the_matrix.html#company-activity-matrix-c",
-    "href": "methods/the_matrix.html#company-activity-matrix-c",
-    "title": "The Matrix: Firm Environmental Activities",
-    "section": "",
-    "text": "The amount of activity undertaken by Company i at each location (\\(x = 1, 2, \\dots , X\\)) for each activity (\\(y = 1, 2, \\dots, Y\\)) Note: this matrix will likely be a very sparse matrix (lots of zeros).\nThe company impact matrix can be defined solely with respect to operations of company operations itself (Category 1), include Category 1 plus impacts from all purchased inputs up the supply chain to primary products (Category 2), include Category 2 plus impacts down the supply chains through to final end consumers (Category 3). To include Categories 2 and 3, additional information is needed. For Category 2, information is needed on what inputs the company purchased from other companies, continuing all the way up the supply chain to primary producers. Ideal information would include the location and amount of purchased inputs. If such information is not available from the company, we can use multiregional input-output (MRIO) tables [@Carrico2020] to assign the probable mix of locations for company inputs, which can be continued for multiple steps, if need be, back to primary producers. We can then add these activities by location to Company Activity Matrix (C). Similarly for Category 3, ideal information would include the location of output sales all the way down the supply chain to final end consumers. As with Category 2, if such information is not available from the company, we can use MRIO tables to assign the probable mix of locations for company sales, which can be continued for multiple steps, if need be, to final end use consumers.\n\n\nThe impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)), on impact z (\\(z = 1, 2, \\dots, Z\\)).\n\n\n\nFor impact z what is the impact of each activity (\\(y = 1, 2, \\dots, Y\\)) at each location (\\(x = 1, 2, \\dots, X\\)).\n\n\n\nThe impact of all company activities at each location (\\(x = 1, 2, \\dots, X\\)) for impact z.\n\n\n\nThe amount of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)) by the company.\n\n\n\nThe monetary value of each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\))\n\n\n\nThe monetary value of company impact by each impact (\\(z = 1, 2, \\dots, Z\\)) for each location (\\(x = 1, 2, \\dots, X\\)).",
-    "crumbs": [
-      "Methodology",
-      "The Matrix"
+      "Application",
+      "Test Example",
+      "Starting Example"
     ]
   }
 ]

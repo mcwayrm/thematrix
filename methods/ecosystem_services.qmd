@@ -1,5 +1,5 @@
 ---
-title: "Environmental Inputs: Ecosystem Services"
+title: "Environmental Inputs: Dependencies"
 bibliography: ../references.bib
 ---
 
