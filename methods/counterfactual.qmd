@@ -23,3 +23,4 @@ To ground this in reality, we collect a series of industry standards and technol
 A second consideration is that firms are non-randomly selecting where production operations occur. This is both a function of natural resource reliance which is spatially varied, as well as the economic incentives of local/regional/national policies. 
 A reasonable counterfactual would be to simulate changes in the place-based production standards related to an industry. 
 To ground this in reality, we collect a series of place-based standards and economic incentives in under [Place-based Policy](./policy_place.qmd)
+
